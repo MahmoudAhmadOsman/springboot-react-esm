@@ -4,7 +4,7 @@
 ### Technologies
 
 **Persistence Tier**
-- PostGreSQL (running on Docker)
+- MYSQL (Localhost)
 
 **Application Tier**
 - Written in Java 8.
