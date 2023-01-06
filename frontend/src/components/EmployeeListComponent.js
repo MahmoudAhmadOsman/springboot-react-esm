@@ -32,6 +32,7 @@ const EmployeeListComponent = () => {
 			<div className="container mt-5">
 				<h2 className="text-success">List of Employees</h2> <hr />
 				<div className="row">
+				<div class="table-responsive">
 					<table className="table">
 						<thead>
 							<tr>
@@ -52,7 +53,8 @@ const EmployeeListComponent = () => {
 									<td>
 										<Link
 											to={`/add-employee/${employee.id}`}
-											className="btn btn-sm btn-success mr-2"
+											className="btn btn-sm btn-success"
+											style={{ marginRight:'2px', marginBottom:'2px'}}
 										>
 											Update
 										</Link>
@@ -67,6 +69,7 @@ const EmployeeListComponent = () => {
 							))}
 						</tbody>
 					</table>
+					</div>
 				</div>
 			</div>
 		</section>
