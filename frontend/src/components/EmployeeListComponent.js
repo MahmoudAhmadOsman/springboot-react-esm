@@ -13,8 +13,8 @@ const EmployeeListComponent = () => {
 
 	//2.
 
-	const getAllEmployees = () => {
-		EmployeeService.getAllEmployees()
+	const getAllEmployees = async () => {
+		 await EmployeeService.getAllEmployees()
 			.then((res) => {
 				setEmployees(res.data);
 			})
@@ -23,52 +23,57 @@ const EmployeeListComponent = () => {
 			});
 	};
 
-	function deleteEmployee(e, id) {
-		e.preventDefault();
-	}
+ 
+	   const deleteEmployee = (e, id)=> {
+				e.preventDefault();
+				// console.log(id);
+				  EmployeeService.deleteEmployee(id)
+					.then(getAllEmployees())
+					.catch((e) => console.log(e));
+			}
 
 	return (
 		<section className="employee-list">
 			<div className="container mt-5">
 				<h2 className="text-success">List of Employees</h2> <hr />
 				<div className="row">
-				<div class="table-responsive">
-					<table className="table">
-						<thead>
-							<tr>
-								<th scope="col">ID #</th>
-								<th scope="col">First Name</th>
-								<th scope="col">Last Name</th>
-								<th scope="col">Email Address</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							{employees.map((employee) => (
-								<tr key={employee.id}>
-									<td>{employee.id}</td>
-									<td>{employee.firstName}</td>
-									<td>{employee.lastName}</td>
-									<td>{employee.email}</td>
-									<td>
-										<Link
-											to={`/add-employee/${employee.id}`}
-											className="btn btn-sm btn-success"
-											style={{ marginRight:'2px', marginBottom:'2px'}}
-										>
-											Update
-										</Link>
-										<a
-											onClick={(e) => deleteEmployee(e, employee.id)}
-											className="btn btn-sm btn-danger"
-										>
-											Delete
-										</a>
-									</td>
+					<div className="table-responsive">
+						<table className="table">
+							<thead>
+								<tr>
+									<th scope="col">ID #</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Email Address</th>
+									<th>Actions</th>
 								</tr>
-							))}
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								{employees.map((employee) => (
+									<tr key={employee.id}>
+										<td>{employee.id}</td>
+										<td>{employee.firstName}</td>
+										<td>{employee.lastName}</td>
+										<td>{employee.email}</td>
+										<td>
+											<Link
+												to={`/add-employee/${employee.id}`}
+												className="btn btn-sm btn-success"
+												style={{ marginRight: "2px", marginBottom: "2px" }}
+											>
+												Update
+											</Link>
+											<a
+												onClick={(e) => deleteEmployee(e, employee.id)}
+												className="btn btn-sm btn-danger"
+											>
+												Delete
+											</a>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
