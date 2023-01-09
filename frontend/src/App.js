@@ -1,3 +1,5 @@
+import React from "react";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddEmployeeComponent from "./components/AddEmployeeComponent";
 import EmployeeListComponent from "./components/EmployeeListComponent";
@@ -11,11 +13,9 @@ function App() {
 			<Nav />
 			<div className="main-container">
 				<div className="container">
-			 
 					<Routes>
 						<Route path="/" element={<EmployeeListComponent />} />
 						<Route path="/add-employee" element={<AddEmployeeComponent />} />
-				 
 					</Routes>
 				</div>
 			</div>

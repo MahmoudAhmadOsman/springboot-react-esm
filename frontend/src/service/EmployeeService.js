@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BASE_URL = "http://localhost:8080/api/v1/employees";
- 
 
 class EmployeeService {
 	getAllEmployees() {
@@ -9,7 +8,7 @@ class EmployeeService {
 	}
 
 	addEmployee(employeeData) {
-		return axios.post(BASE_URL, employeeData);
+		return axios.post(BASE_URL + "/save", employeeData);
 	}
 
 	updateEmployee(id, employeeData) {
@@ -19,7 +18,6 @@ class EmployeeService {
 	getEmployeeById(id) {
 		return axios.get(`${BASE_URL}/${id}`);
 	}
-
 
 	deleteEmployee(id) {
 		return axios.delete(BASE_URL + "/delete/" + id);
