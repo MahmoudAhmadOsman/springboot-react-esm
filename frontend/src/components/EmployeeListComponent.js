@@ -42,19 +42,34 @@ const EmployeeListComponent = () => {
 	return (
 		<section className="employee-list">
 			<div className="container mt-5">
+				<div className="row">
+					<div className="col-md-10"></div>
+					<div className="col-md-2 float-end">
+						<Link
+							className="btn btn-outline-danger"
+							to="add-employee"
+							title="Add New Employee"
+						>
+							{" "}
+							Add{" "}
+						</Link>
+					</div>
+				</div>
+
 				{employees.length > 0 ? (
 					<div>
 						<h2 className="text-success">List of Employees</h2> <hr />
 						<div className="row">
-							<div className="col-md-10">
+							<div className="col-md-11">
 								<div className="table-responsive">
-									<table className="table">
-										<thead>
+									<table className="table table-hover">
+										<thead className="table-dark">
 											<tr>
 												<th scope="col">ID #</th>
 												<th scope="col">First Name</th>
 												<th scope="col">Last Name</th>
 												<th scope="col">Email Address</th>
+												<th scope="col">Status</th>
 
 												<th>Actions</th>
 											</tr>
@@ -65,9 +80,42 @@ const EmployeeListComponent = () => {
 													<td>{employee.id}</td>
 													<td>{employee.firstName}</td>
 													<td>{employee.lastName}</td>
-													<td>{employee.email}</td>
+													<td>
+														{" "}
+														{employee.email ? (
+															<span> {employee.email} </span>
+														) : (
+															<span className="text-danger">
+																{" "}
+																Email address is required!
+															</span>
+														)}
+													</td>
+													<td>
+														{employee.status >= 1 ? (
+															<span className="text-success">
+																{/* {employee.status}  */}
+																APPROVED
+															</span>
+														) : (
+															<span className="text-danger">
+																{/* {employee.status}  */}
+																PENDING
+															</span>
+														)}
+													</td>
 
 													<td>
+														<Link
+															to={`/view-employee/${employee.id}`}
+															className="btn btn-sm btn-info"
+															style={{
+																marginRight: "2px",
+																marginBottom: "2px",
+															}}
+														>
+															View
+														</Link>
 														<Link
 															to={`/add-employee/${employee.id}`}
 															className="btn btn-sm btn-success"
@@ -78,12 +126,13 @@ const EmployeeListComponent = () => {
 														>
 															Update
 														</Link>
-														<a
+
+														<Link
 															onClick={(e) => deleteEmployee(e, employee.id)}
 															className="btn btn-sm btn-danger"
 														>
 															Delete
-														</a>
+														</Link>
 													</td>
 												</tr>
 											))}
@@ -92,11 +141,14 @@ const EmployeeListComponent = () => {
 								</div>
 							</div>
 
-							<div className="col-md-2">
-								<p className="btn btn-secondary d-none  d-md-block">
-									TOTAL EMPLOYEES{" "}
+							<div className="col-md-1">
+								<span
+									className="btn btn-outline-secondary d-none  d-md-block"
+									title="Employee total"
+								>
+									TOTAL
 									<span className="badge bg-dark">{employees.length}</span>
-								</p>
+								</span>
 							</div>
 						</div>
 					</div>

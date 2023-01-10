@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import EmployeeService from "../service/EmployeeService";
 
 const AddEmployeeComponent = () => {
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [email, setEmail] = useState("");
+
+	//structure: firstName, lastName & email
+
+	const employeeData = { firstName, lastName, email };
+
+	const { id } = useParams();
+
+	const navigate = useNavigate();
+
+	const saveEmployee = (e) => {
+		e.preventDefault();
+
+		if (
+			employeeData.firstName != "" &&
+			employeeData.lastName != "" &&
+			employeeData.email != ""
+		) {
+			// console.log(e.target.value);
+			navigate("/add-employee");
+		} else {
+			EmployeeService.addEmployee()
+				.then()
+				.catch((e) => console.log(e));
+		}
+		alert("form fields are required!!");
+	};
+
 	return (
 		<>
 			<div className="container mt-3">
@@ -13,9 +46,11 @@ const AddEmployeeComponent = () => {
 								<label htmlFor="firstName">First Name</label>
 								<input
 									type="text"
+									value={firstName}
+									onChange={(e) => setFirstName(e.target.value)}
 									className="form-control form-control-lg"
 									id="firstName"
-									placeholder="Enter your first name"
+									placeholder="Enter employee first name"
 									name="firstName"
 								/>
 							</div>
@@ -23,9 +58,11 @@ const AddEmployeeComponent = () => {
 								<label htmlFor="lastName">Last Name</label>
 								<input
 									type="text"
+									value={lastName}
+									onChange={(e) => setLastName(e.target.value)}
 									className="form-control form-control-lg"
 									id="lastName"
-									placeholder="Enter your first name"
+									placeholder="Enter employee last name"
 									name="lastName"
 								/>
 							</div>
@@ -33,13 +70,19 @@ const AddEmployeeComponent = () => {
 								<label htmlFor="email">Email Address</label>
 								<input
 									type="email"
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
 									className="form-control form-control-lg"
 									id="email"
-									placeholder="Enter your email"
+									placeholder="Enter employee email address"
 									name="email"
 								/>
 							</div>
-							<button type="submit" className="btn btn-success mb-3">
+							<button
+								onClick={(e) => saveEmployee(e)}
+								type="submit"
+								className="btn btn-success mb-3"
+							>
 								SUBMIT
 							</button>
 						</form>
