@@ -4,13 +4,18 @@ import com.eforce.models.Employee;
 import com.eforce.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.util.ReflectionUtils;
+
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
 import java.util.List;
+
+import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class EmployeeService implements EmployeeServiceInterface{
+public class EmployeeService implements EmployeeServiceInterface {
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -27,7 +32,7 @@ public class EmployeeService implements EmployeeServiceInterface{
 
     @Override
     public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll(Sort.by(Sort.Direction.DESC,"id"));
+        return employeeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override
@@ -41,6 +46,23 @@ public class EmployeeService implements EmployeeServiceInterface{
         employeeToUpdate.setStatus(employee.isStatus());
         return employeeRepository.save(employeeToUpdate);
     }
+
+    @Override
+    public Employee updateEmployeeByFields(Long id, Map<String, Object> fields) {
+        Optional<Employee> existingEmployee = employeeRepository.findById(id);
+
+        if (existingEmployee.isPresent()) {
+            fields.forEach((key, value) -> {
+                Field field = ReflectionUtils.findField(Employee.class, key);
+                field.setAccessible(true);
+                ReflectionUtils.setField(field, existingEmployee.get(), value);
+            });
+            return employeeRepository.save(existingEmployee.get());
+        }
+        return null;
+    }
+
+
 
     @Override
     public void deleteEmployeeById(Long id) {

@@ -3,6 +3,7 @@ package com.eforce.service;
 import com.eforce.models.Employee;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface EmployeeServiceInterface {
@@ -22,6 +23,8 @@ public interface EmployeeServiceInterface {
 
     Employee updateEmployee(Long id, Employee employee);
 
+ //Patch
+   Employee updateEmployeeByFields(Long id, Map<String, Object> fields);
 
     //Delete
     void deleteEmployeeById(Long id);

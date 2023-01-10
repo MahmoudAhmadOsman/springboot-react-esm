@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -40,6 +41,14 @@ public class EmployeeController {
     @PutMapping(value = "/{id}")
     public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
         return employeeService.updateEmployee(id, employee);
+    }
+
+
+    //Patch method
+    @PatchMapping(value = "/{id}")
+    public Employee updateEmployeeFields(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
+
+        return employeeService.updateEmployeeByFields(id, fields);
     }
 
 
