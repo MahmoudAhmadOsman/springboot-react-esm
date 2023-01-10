@@ -46,7 +46,7 @@ const EmployeeListComponent = () => {
 					<div className="col-md-10"></div>
 					<div className="col-md-2 float-end">
 						<Link
-							className="btn btn-outline-danger"
+							className="btn btn-outline-danger my-3"
 							to="add-employee"
 							title="Add New Employee"
 						>
