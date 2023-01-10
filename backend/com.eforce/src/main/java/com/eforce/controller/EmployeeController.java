@@ -47,7 +47,6 @@ public class EmployeeController {
     //Patch method
     @PatchMapping(value = "/{id}")
     public Employee updateEmployeeFields(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
-
         return employeeService.updateEmployeeByFields(id, fields);
     }
 
