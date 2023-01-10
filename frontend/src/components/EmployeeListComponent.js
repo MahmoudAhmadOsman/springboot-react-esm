@@ -108,7 +108,7 @@ const EmployeeListComponent = () => {
 													<td>
 														<Link
 															to={`/view-employee/${employee.id}`}
-															className="btn btn-sm btn-info"
+															className="btn btn-sm btn-outline-secondary"
 															style={{
 																marginRight: "2px",
 																marginBottom: "2px",
@@ -118,7 +118,7 @@ const EmployeeListComponent = () => {
 														</Link>
 														<Link
 															to={`/add-employee/${employee.id}`}
-															className="btn btn-sm btn-success"
+															className="btn btn-sm btn-outline-success"
 															style={{
 																marginRight: "2px",
 																marginBottom: "2px",
@@ -129,7 +129,7 @@ const EmployeeListComponent = () => {
 
 														<Link
 															onClick={(e) => deleteEmployee(e, employee.id)}
-															className="btn btn-sm btn-danger"
+															className="btn btn-sm btn-outline-danger"
 														>
 															Delete
 														</Link>
