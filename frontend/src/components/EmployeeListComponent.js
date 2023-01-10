@@ -92,7 +92,7 @@ const EmployeeListComponent = () => {
 														)}
 													</td>
 													<td>
-														{employee.status >= 1 ? (
+														{employee.status == 1 ? (
 															<span className="text-success">
 																{/* {employee.status}  */}
 																APPROVED
