@@ -20,7 +20,6 @@ const ViewEmployeeComponent = () => {
 
 	const loadEmployeeDetails = async () => {
 		await EmployeeService.getEmployeeById(id)
-
 			.then((res) => {
 				setEmployee(res.data);
 				console.log(res.data);
