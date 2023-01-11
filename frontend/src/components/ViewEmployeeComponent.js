@@ -15,10 +15,10 @@ const ViewEmployeeComponent = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
-		loadEmployee();
+		loadEmployeeDetails();
 	}, []);
 
-	const loadEmployee = async () => {
+	const loadEmployeeDetails = async () => {
 		await EmployeeService.getEmployeeById(id)
 
 			.then((res) => {
