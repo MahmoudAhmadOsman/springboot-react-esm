@@ -17,11 +17,16 @@ function App() {
 					<Routes>
 						<Route path="/" element={<EmployeeListComponent />} />
 						<Route path="/add-employee" element={<AddEmployeeComponent />} />
+
+						
 						<Route
 							path="/add-employee/:id"
 							element={<AddEmployeeComponent />}
 						/>
-						<Route path="/view-employee/:id" element={<ViewEmployeeComponent />} />
+						<Route
+							path="/view-employee/:id"
+							element={<ViewEmployeeComponent />}
+						/>
 					</Routes>
 				</div>
 			</div>

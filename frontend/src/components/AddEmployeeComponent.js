@@ -20,7 +20,8 @@ const AddEmployeeComponent = () => {
 		if (
 			employeeData.firstName !== "" &&
 			employeeData.lastName !== "" &&
-			employeeData.email != ""
+			employeeData.email != "" 
+			 
 		) {
 			if (id) {
 				EmployeeService.updateEmployee(id, employeeData)
@@ -60,6 +61,7 @@ const AddEmployeeComponent = () => {
 				});
 		}
 	}, []);
+ 
 
 	return (
 		<>
@@ -106,7 +108,7 @@ const AddEmployeeComponent = () => {
 							</div>
 							{/* Status */}
 
-							<div className="my-3">
+							{/* <div className="my-3">
 								<label htmlFor="status">Status</label>
 
 								<p>
@@ -116,7 +118,7 @@ const AddEmployeeComponent = () => {
 										<span className="text-danger">PENDING</span>
 									)}
 								</p>
-							</div>
+							</div> */}
 
 							<div className="d-flex flex-row bd-highlight mb-3">
 								<div className="p-2 bd-highlight">

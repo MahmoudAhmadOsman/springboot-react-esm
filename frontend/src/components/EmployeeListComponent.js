@@ -2,7 +2,7 @@ import axios from "axios";
 
 import React, { useEffect, useState } from "react";
 
-import { json, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
 import { useNavigate } from "react-router-dom";
 
@@ -28,17 +28,6 @@ const EmployeeListComponent = () => {
 			});
 	};
 
-	const deleteEmployee = (e, id) => {
-		e.preventDefault();
-		// alert("Are you sure, you want to delete thid record?");
-		EmployeeService.deleteEmployee(id)
-			.then(getAllEmployees())
-
-			.catch((e) => {
-				console.log(e.messages);
-			});
-	};
-
 	return (
 		<section className="employee-list">
 			<div className="container mt-5">
@@ -50,8 +39,7 @@ const EmployeeListComponent = () => {
 							to="add-employee"
 							title="Add New Employee"
 						>
-							{" "}
-							Add{" "}
+							Add
 						</Link>
 					</div>
 				</div>
@@ -69,7 +57,6 @@ const EmployeeListComponent = () => {
 												<th scope="col">First Name</th>
 												<th scope="col">Last Name</th>
 												<th scope="col">Email Address</th>
-												<th scope="col">Status</th>
 
 												<th>Actions</th>
 											</tr>
@@ -91,24 +78,11 @@ const EmployeeListComponent = () => {
 															</span>
 														)}
 													</td>
-													<td>
-														{employee.status == 1 ? (
-															<span className="text-success">
-																{/* {employee.status}  */}
-																APPROVED
-															</span>
-														) : (
-															<span className="text-danger">
-																{/* {employee.status}  */}
-																PENDING
-															</span>
-														)}
-													</td>
 
 													<td>
 														<Link
 															to={`/view-employee/${employee.id}`}
-															className="btn btn-sm btn-outline-secondary"
+															className="btn btn-outline-secondary btn-sm "
 															style={{
 																marginRight: "2px",
 																marginBottom: "2px",
@@ -118,20 +92,13 @@ const EmployeeListComponent = () => {
 														</Link>
 														<Link
 															to={`/add-employee/${employee.id}`}
-															className="btn btn-sm btn-outline-success"
+															className="btn btn-outline-success btn-sm "
 															style={{
 																marginRight: "2px",
 																marginBottom: "2px",
 															}}
 														>
 															Update
-														</Link>
-
-														<Link
-															onClick={(e) => deleteEmployee(e, employee.id)}
-															className="btn btn-sm btn-outline-danger"
-														>
-															Delete
 														</Link>
 													</td>
 												</tr>
@@ -153,7 +120,10 @@ const EmployeeListComponent = () => {
 						</div>
 					</div>
 				) : (
-					<div className="alert alert-danger"> No data to show!!</div>
+					<div className="alert alert-danger text-center fw-bold">
+						{" "}
+						NO DATA TO SHOW!!!
+					</div>
 				)}
 			</div>
 		</section>
