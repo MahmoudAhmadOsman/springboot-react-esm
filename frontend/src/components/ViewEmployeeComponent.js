@@ -79,7 +79,7 @@ const ViewEmployeeComponent = () => {
 									<td>
 										<Link
 											onClick={(e) => deleteEmployee(e, employee.id)}
-											className="btn btn-sm btn-outline-danger"
+											className="btn btn-outline-danger btn-sm"
 											style={{
 												marginRight: "5px",
 											}}
@@ -87,7 +87,7 @@ const ViewEmployeeComponent = () => {
 											Delete
 										</Link>
 
-										<Link to="/" className="btn btn-sm btn-outline-warning">
+										<Link to="/" className="btn btn-outline-warning btn-sm">
 											Cancel
 										</Link>
 									</td>
