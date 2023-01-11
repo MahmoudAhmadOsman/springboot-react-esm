@@ -71,15 +71,9 @@ const ViewEmployeeComponent = () => {
 								<tr>
 									<td>
 										{employee.status == 1 ? (
-											<span className="text-success">
-												{/* {employee.status}  */}
-												APPROVED
-											</span>
+											<span className="text-success">APPROVED</span>
 										) : (
-											<span className="text-danger">
-												{/* {employee.status}  */}
-												PENDING
-											</span>
+											<span className="text-danger">PENDING</span>
 										)}
 									</td>
 									<td>

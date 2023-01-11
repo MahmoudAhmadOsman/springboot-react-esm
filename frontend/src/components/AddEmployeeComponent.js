@@ -20,8 +20,7 @@ const AddEmployeeComponent = () => {
 		if (
 			employeeData.firstName !== "" &&
 			employeeData.lastName !== "" &&
-			employeeData.email != "" 
-			 
+			employeeData.email != ""
 		) {
 			if (id) {
 				EmployeeService.updateEmployee(id, employeeData)
@@ -61,7 +60,6 @@ const AddEmployeeComponent = () => {
 				});
 		}
 	}, []);
- 
 
 	return (
 		<>
