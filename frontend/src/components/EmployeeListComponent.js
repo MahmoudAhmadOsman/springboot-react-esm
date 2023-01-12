@@ -1,4 +1,5 @@
 import axios from "axios";
+import Pagination from "react-responsive-pagination";
 
 import React, { useEffect, useState } from "react";
 
@@ -10,6 +11,10 @@ const EmployeeListComponent = () => {
 	const navigate = useNavigate();
 
 	const [employees, setEmployees] = useState([]);
+
+	//Pagination
+	const [currentPage, setCurrentPage] = useState(4);
+	const totalPages = employees.length;
 
 	//1.
 	useEffect(() => {
@@ -23,7 +28,7 @@ const EmployeeListComponent = () => {
 				setEmployees(res.data);
 			})
 			.catch((e) => {
-				console.log(e);
+				console.log(e.messages);
 			});
 	};
 
@@ -94,6 +99,12 @@ const EmployeeListComponent = () => {
 										</tbody>
 									</table>
 								</div>
+
+								<Pagination
+									current={currentPage}
+									total={totalPages}
+									onPageChange={setCurrentPage}
+								/>
 							</div>
 
 							<div className="col-md-1">
