@@ -1,6 +1,6 @@
 package com.eforce.service;
 
-import com.eforce.models.Employee;
+import com.eforce.model.Employee;
 import com.eforce.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

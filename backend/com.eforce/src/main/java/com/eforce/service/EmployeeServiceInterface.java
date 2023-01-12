@@ -1,6 +1,6 @@
 package com.eforce.service;
 
-import com.eforce.models.Employee;
+import com.eforce.model.Employee;
 
 import java.util.List;
 import java.util.Map;

@@ -1,6 +1,6 @@
 package com.eforce.controller;
 
-import com.eforce.models.Employee;
+import com.eforce.model.Employee;
 import com.eforce.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +44,6 @@ public class EmployeeController {
     }
 
 
-    //Patch method
     @PatchMapping(value = "/{id}")
     public Employee updateEmployeeFields(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
         return employeeService.updateEmployeeByFields(id, fields);

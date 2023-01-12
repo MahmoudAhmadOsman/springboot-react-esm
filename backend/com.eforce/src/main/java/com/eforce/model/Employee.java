@@ -1,4 +1,4 @@
-package com.eforce.models;
+package com.eforce.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

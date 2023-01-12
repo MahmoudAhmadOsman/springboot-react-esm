@@ -3,18 +3,18 @@ import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
 
-const AddEmployeeComponent = () => {
+const UpdateEmployeeComponent = () => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
-	const [status, setStatus] = useState("");
+	// const [status, setStatus] = useState("");
 
 	const navigate = useNavigate();
 	const { id } = useParams();
 
-	const employeeData = { firstName, lastName, email, status };
+	const employeeData = { firstName, lastName, email };
 
-	const saveEmployee = async (e) => {
+	const updateEmployee = (e) => {
 		e.preventDefault();
 
 		if (
@@ -23,17 +23,26 @@ const AddEmployeeComponent = () => {
 			employeeData.email != ""
 		) {
 			if (id) {
-				await EmployeeService.updateEmployee(id, employeeData)
+				EmployeeService.patchEmployee(id, employeeData)
+
 					.then(navigate("/"))
 					.catch((e) => console.log(e));
+				console.log(employeeData);
 			} else {
 				EmployeeService.saveEmployee(employeeData)
-
 					.then(navigate("/"))
 					.catch((e) => console.log(e));
 			}
 		} else {
 			alert("Please, all fields are required!");
+		}
+	};
+
+	const updateTitle = () => {
+		if (id) {
+			return "Update Employee";
+		} else {
+			return "";
 		}
 	};
 
@@ -44,10 +53,10 @@ const AddEmployeeComponent = () => {
 					setFirstName(res.data.firstName);
 					setLastName(res.data.lastName);
 					setEmail(res.data.email);
-					setStatus(res.data.status);
+					// setStatus(res.data.status);
 				})
 				.catch((e) => {
-					console.log(e);
+					console.log(e.message);
 					e.status(401).send("Error: ", e.message);
 				});
 		}
@@ -58,7 +67,7 @@ const AddEmployeeComponent = () => {
 			<div className="container mt-3">
 				<div className="row">
 					<div className="col-md-6 mx-auto">
-						<h2 className="text-success mb-3">List of Employee</h2> <hr />
+						<h2 className="text-success mb-3">{updateTitle()}</h2> <hr /> <br />
 						<form>
 							<div className="mb-3 mt-">
 								<label htmlFor="firstName">First Name</label>
@@ -69,7 +78,6 @@ const AddEmployeeComponent = () => {
 									className="form-control form-control-lg"
 									id="firstName"
 									placeholder="Enter employee first name"
-									name="firstName"
 								/>
 							</div>
 							<div className="mb-3">
@@ -81,7 +89,6 @@ const AddEmployeeComponent = () => {
 									className="form-control form-control-lg"
 									id="lastName"
 									placeholder="Enter employee last name"
-									name="lastName"
 								/>
 							</div>
 							<div className="mb-3">
@@ -93,13 +100,13 @@ const AddEmployeeComponent = () => {
 									className="form-control form-control-lg"
 									id="email"
 									placeholder="Enter employee email address"
-									name="email"
 								/>
 							</div>
+
 							<div className="d-flex flex-row bd-highlight mb-3">
 								<div className="p-2 bd-highlight">
 									<button
-										onClick={(e) => saveEmployee(e)}
+										onClick={(e) => updateEmployee(e)}
 										type="submit"
 										className="btn btn-outline-success mb-3"
 									>
@@ -121,4 +128,4 @@ const AddEmployeeComponent = () => {
 	);
 };
 
-export default AddEmployeeComponent;
+export default UpdateEmployeeComponent;

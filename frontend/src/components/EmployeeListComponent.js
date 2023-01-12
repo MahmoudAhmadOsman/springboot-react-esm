@@ -17,7 +17,6 @@ const EmployeeListComponent = () => {
 	}, []);
 
 	//2.
-
 	const getAllEmployees = async () => {
 		await EmployeeService.getAllEmployees()
 			.then((res) => {
@@ -39,7 +38,7 @@ const EmployeeListComponent = () => {
 							to="add-employee"
 							title="Add New Employee"
 						>
-							Add
+							Add New Employee
 						</Link>
 					</div>
 				</div>
@@ -51,14 +50,13 @@ const EmployeeListComponent = () => {
 							<div className="col-md-11">
 								<div className="table-responsive">
 									<table className="table table-hover">
-										<thead className="table-dark">
+										<thead className="table-secondary">
 											<tr>
 												<th scope="col">ID #</th>
 												<th scope="col">First Name</th>
 												<th scope="col">Last Name</th>
 												<th scope="col">Email Address</th>
-
-												<th>Actions</th>
+												<th>View</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -82,23 +80,13 @@ const EmployeeListComponent = () => {
 													<td>
 														<Link
 															to={`/view-employee/${employee.id}`}
-															className="btn btn-outline-secondary btn-sm "
+															className="btn btn-outline-dark btn-sm "
 															style={{
 																marginRight: "2px",
 																marginBottom: "2px",
 															}}
 														>
 															View
-														</Link>
-														<Link
-															to={`/add-employee/${employee.id}`}
-															className="btn btn-outline-success btn-sm "
-															style={{
-																marginRight: "2px",
-																marginBottom: "2px",
-															}}
-														>
-															Update
 														</Link>
 													</td>
 												</tr>

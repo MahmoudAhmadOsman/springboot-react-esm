@@ -8,7 +8,7 @@ const Nav = () => {
 			<nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 				<div className="container-fluid ">
 					<Link className="navbar-brand " to="/">
-						ESS
+						ESS SYSTEM
 					</Link>
 					<button
 						className="navbar-toggler"
@@ -32,8 +32,8 @@ const Nav = () => {
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/add-employee">
-									Add Employee
+								<Link className="nav-link" to="#">
+									About
 								</Link>
 							</li>
 						</ul>

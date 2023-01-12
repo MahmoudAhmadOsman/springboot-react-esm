@@ -41,7 +41,10 @@ const ViewEmployeeComponent = () => {
 
 	return (
 		<div className="container my-3">
-			<h1 className="text-success">Employee Details</h1> <hr />
+			<h1 className="text-success">
+				<span className="text-info">{employee.firstName}</span> Profile Details
+			</h1>{" "}
+			<hr />
 			<div className="row">
 				<div className="col-md-6">
 					<ul className="list-group">
@@ -95,6 +98,16 @@ const ViewEmployeeComponent = () => {
 							</tbody>
 						</table>
 					</div>
+					<Link
+						to={`/update-employee/${employee.id}`}
+						className="btn btn-outline-info btn-sm "
+						style={{
+							marginRight: "2px",
+							marginBottom: "2px",
+						}}
+					>
+						Update
+					</Link>
 				</div>
 			</div>
 		</div>
