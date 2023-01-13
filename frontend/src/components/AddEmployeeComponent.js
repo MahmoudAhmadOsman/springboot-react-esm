@@ -20,7 +20,7 @@ const AddEmployeeComponent = () => {
 		if (
 			employeeData.firstName !== "" &&
 			employeeData.lastName !== "" &&
-			employeeData.email != ""
+			employeeData.email !== ""
 		) {
 			if (id) {
 				await EmployeeService.updateEmployee(id, employeeData)
@@ -58,7 +58,7 @@ const AddEmployeeComponent = () => {
 			<div className="container mt-3">
 				<div className="row">
 					<div className="col-md-6 mx-auto">
-						<h2 className="text-success mb-3">List of Employee</h2> <hr />
+						<h2 className="text-success mb-3">Add New Employee</h2> <hr />
 						<form>
 							<div className="mb-3 mt-">
 								<label htmlFor="firstName">First Name</label>
@@ -72,6 +72,7 @@ const AddEmployeeComponent = () => {
 									name="firstName"
 								/>
 							</div>
+
 							<div className="mb-3">
 								<label htmlFor="lastName">Last Name</label>
 								<input

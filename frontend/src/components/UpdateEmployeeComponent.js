@@ -20,17 +20,17 @@ const UpdateEmployeeComponent = () => {
 		if (
 			employeeData.firstName !== "" &&
 			employeeData.lastName !== "" &&
-			employeeData.email != ""
+			employeeData.email !== ""
 		) {
 			if (id) {
 				EmployeeService.patchEmployee(id, employeeData)
 
-					.then(navigate("/"))
+					.then(navigate("/employees"))
 					.catch((e) => console.log(e));
 				console.log(employeeData);
 			} else {
 				EmployeeService.saveEmployee(employeeData)
-					.then(navigate("/"))
+					.then(navigate("/employees"))
 					.catch((e) => console.log(e));
 			}
 		} else {
@@ -114,7 +114,7 @@ const UpdateEmployeeComponent = () => {
 									</button>
 								</div>
 								<div className="p-2 bd-highlight">
-									<Link to="/" className="btn btn-outline-danger">
+									<Link to="/employees" className="btn btn-outline-danger">
 										{" "}
 										Cancel
 									</Link>

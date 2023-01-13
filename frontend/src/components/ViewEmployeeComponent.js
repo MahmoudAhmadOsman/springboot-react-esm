@@ -33,7 +33,7 @@ const ViewEmployeeComponent = () => {
 		e.preventDefault();
 		alert("Are you sure, you want to delete this record?");
 		await EmployeeService.deleteEmployee(id)
-			.then(navigate("/"))
+			.then(navigate("/employees"))
 			.catch((e) => {
 				console.log(e.messages);
 			});
@@ -73,7 +73,7 @@ const ViewEmployeeComponent = () => {
 							<tbody>
 								<tr>
 									<td>
-										{employee.status == 1 ? (
+										{employee.status === 1 ? (
 											<span className="text-success">APPROVED</span>
 										) : (
 											<span className="text-danger">PENDING</span>
@@ -90,7 +90,10 @@ const ViewEmployeeComponent = () => {
 											Delete
 										</Link>
 
-										<Link to="/" className="btn btn-outline-warning btn-sm">
+										<Link
+											to="/employees"
+											className="btn btn-outline-warning btn-sm"
+										>
 											Cancel
 										</Link>
 									</td>

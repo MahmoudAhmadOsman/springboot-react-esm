@@ -1,11 +1,8 @@
-import axios from "axios";
-import Pagination from "react-responsive-pagination";
-
 import React, { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
 import { useNavigate } from "react-router-dom";
+import Pagination from "react-responsive-pagination";
 
 const EmployeeListComponent = () => {
 	const navigate = useNavigate();
@@ -18,7 +15,7 @@ const EmployeeListComponent = () => {
 
 	//1.
 	useEffect(() => {
-		getAllEmployees(navigate("/"));
+		getAllEmployees(navigate("/employees"));
 	}, []);
 
 	//2.
@@ -106,7 +103,6 @@ const EmployeeListComponent = () => {
 									onPageChange={setCurrentPage}
 								/>
 							</div>
-
 							<div className="col-md-1">
 								<span
 									className="btn btn-outline-secondary d-none  d-md-block"
