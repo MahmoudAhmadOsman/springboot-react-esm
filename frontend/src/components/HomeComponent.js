@@ -55,39 +55,28 @@ const HomeComponent = () => {
 							<div>
 								<i className="fa fa-github"></i>
 							</div>
+
+							<p className="p-4 text-center">
+								<span>
+									<i
+										className="fa fa-calendar-check-o mb-4"
+										aria-hidden="true"
+									></i>{" "}
+									<br />
+								</span>
+								<b> Schedule on appointment</b> <br />
+								<span className="text-muted">
+									{" "}
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+									iusto eligendi deserunt aspernatur repudiandae sapiente.
+								</span>
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<br />
 			<br />
-			<div className="container mt-3">
-				<div className="row">
-					<div className="col-md-4">
-						<h1>Lorem ipsum dolor sit amet.</h1>
-						<p className="text-muted">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-							amet temporibus, officiis corrupti facere fuga quisquam placeat
-							eius non eos, voluptate perspiciatis rerum deleniti earum nisi
-							ullam libero quia asperiores minus ut. Aut modi ipsum, quisquam
-							nesciunt sint, labore delectus rem facere obcaecati tempore
-							consequatur reiciendis assumenda, molestiae quam harum?
-						</p>
-					</div>
-					<div className="col-md-8">
-						<h1>Lorem ipsum dolor sit amet.</h1>
-						<p className="text-muted">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-							amet temporibus, officiis corrupti facere fuga quisquam placeat
-							eius non eos, voluptate perspiciatis rerum deleniti earum nisi
-							ullam libero quia asperiores minus ut. Aut modi ipsum, quisquam
-							nesciunt sint, labore delectus rem facere obcaecati tempore
-							consequatur reiciendis assumenda, molestiae quam harum.
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ea nisi cum cumque eius laboriosam facere recusandae in esse blanditiis! Facere quibusdam id similique commodi nam, delectus sequi! Quos recusandae itaque ex! Alias provident voluptates vel expedita beatae, enim facere quam incidunt aliquam necessitatibus architecto nemo eius culpa ipsa harum explicabo. Similique, sed? Odit iste rerum, temporibus perferendis a totam eaque exercitationem debitis iure nisi eligendi officiis architecto voluptatibus commodi porro modi aut voluptas, saepe laborum! Vero dolor aut modi iure eos. Amet doloremque corrupti id obcaecati dicta sit, vitae aspernatur quasi veniam similique, quisquam iusto! Expedita explicabo eligendi repellendus animi deserunt veritatis quisquam rerum dignissimos culpa maxime. Provident atque aliquam beatae tenetur ipsum error, dolorem fugiat dolores itaque placeat nulla, quaerat odit iusto voluptas animi illum doloribus, inventore qui quisquam? Ducimus, dolor! Nam necessitatibus molestias commodi dolorum sapiente, unde ab atque non aliquid. Reiciendis perspiciatis incidunt amet delectus quaerat?
-						</p>
-					</div>
-				</div>
-			</div>
 		</div>
 	);
 };
