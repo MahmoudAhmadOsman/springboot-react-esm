@@ -24,12 +24,11 @@ const AddEmployeeComponent = () => {
 		) {
 			if (id) {
 				await EmployeeService.updateEmployee(id, employeeData)
-					.then(navigate("/"))
+					.then(navigate("/employees"))
 					.catch((e) => console.log(e));
 			} else {
 				EmployeeService.saveEmployee(employeeData)
-
-					.then(navigate("/"))
+					.then(navigate("/employees"))
 					.catch((e) => console.log(e));
 			}
 		} else {

@@ -12,11 +12,12 @@ const ViewEmployeeComponent = () => {
 		email: "",
 		status: "",
 	});
+
 	const { id } = useParams();
 
 	useEffect(() => {
 		loadEmployeeDetails();
-	}, []);
+	}, [deleteEmployee]);
 
 	const loadEmployeeDetails = async () => {
 		await EmployeeService.getEmployeeById(id)
@@ -25,7 +26,7 @@ const ViewEmployeeComponent = () => {
 				console.log(res.data);
 			})
 			.catch((e) => {
-				console.log(e);
+				console.log(e.message);
 			});
 	};
 
@@ -35,7 +36,7 @@ const ViewEmployeeComponent = () => {
 		await EmployeeService.deleteEmployee(id)
 			.then(navigate("/employees"))
 			.catch((e) => {
-				console.log(e.messages);
+				console.log(e.message);
 			});
 	};
 
@@ -66,6 +67,7 @@ const ViewEmployeeComponent = () => {
 						<table className="table table-hover">
 							<thead>
 								<tr>
+									<th>Role</th>
 									<th>Status</th>
 									<th>Actions</th>
 								</tr>
@@ -73,29 +75,46 @@ const ViewEmployeeComponent = () => {
 							<tbody>
 								<tr>
 									<td>
-										{employee.status === 1 ? (
+										{employee.status > 0 ? (
+											<div>
+												<span className="text-success">ADMIN</span> | &nbsp;
+												<Link
+													className="btn btn-outline-success btn-sm"
+													to="/add-employee"
+												>
+													add new employee
+												</Link>
+											</div>
+										) : (
+											<span className="text-danger">NORMAL EMPLOYEE</span>
+										)}
+									</td>
+									<td>
+										{employee.status == 1 ? (
 											<span className="text-success">APPROVED</span>
 										) : (
 											<span className="text-danger">PENDING</span>
 										)}
 									</td>
 									<td>
-										<Link
-											onClick={(e) => deleteEmployee(e, employee.id)}
-											className="btn btn-outline-danger btn-sm"
-											style={{
-												marginRight: "5px",
-											}}
-										>
-											Delete
-										</Link>
-
-										<Link
-											to="/employees"
-											className="btn btn-outline-warning btn-sm"
-										>
-											Cancel
-										</Link>
+										{employee.status > 0 ? (
+											<Link
+												onClick={(e) => deleteEmployee(e, employee.id)}
+												className="btn btn-outline-danger btn-sm"
+												style={{
+													marginRight: "5px",
+												}}
+											>
+												Delete
+											</Link>
+										) : (
+											<Link
+												to="/employees"
+												className="btn btn-outline-warning btn-sm"
+											>
+												Go back
+											</Link>
+										)}
 									</td>
 								</tr>
 							</tbody>
