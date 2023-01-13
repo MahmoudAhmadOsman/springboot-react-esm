@@ -25,7 +25,9 @@ const EmployeeListComponent = () => {
 				setEmployees(res.data);
 			})
 			.catch((e) => {
-				console.log(e.messages);
+				if (e.error) {
+					console.log(e.res.status);
+				}
 			});
 	};
 
