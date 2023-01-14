@@ -32,7 +32,6 @@ const EmployeeListComponent = () => {
 			});
 	};
 
-
 	return (
 		<section className="employee-list">
 			<div className="container mt-3">
@@ -80,7 +79,9 @@ const EmployeeListComponent = () => {
 										<tbody>
 											{employees
 												.filter((user) => {
-													return search.toLowerCase() === "" ? user : user.firstName.toLowerCase().includes(search) ||
+													return search.toLowerCase() === ""
+														? user
+														: user.firstName.toLowerCase().includes(search) ||
 																user.lastName.toLowerCase().includes(search);
 												})
 												.map((employee) => (
@@ -94,7 +95,6 @@ const EmployeeListComponent = () => {
 																<span> {employee.email} </span>
 															) : (
 																<span className="text-danger">
-																	 
 																	Email address is required!
 																</span>
 															)}
