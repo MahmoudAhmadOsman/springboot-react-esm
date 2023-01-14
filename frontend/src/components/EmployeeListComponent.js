@@ -8,6 +8,7 @@ const EmployeeListComponent = () => {
 	const navigate = useNavigate();
 
 	const [employees, setEmployees] = useState([]);
+	const [search, setSearch] = useState("");
 
 	//Pagination
 	const [currentPage, setCurrentPage] = useState(4);
@@ -31,14 +32,26 @@ const EmployeeListComponent = () => {
 			});
 	};
 
+
 	return (
 		<section className="employee-list">
-			<div className="container mt-5">
+			<div className="container mt-3">
 				<div className="row">
-					<div className="col-md-10"></div>
+					<div className="col-md-10">
+						<div className="form-outline">
+							<input
+								type="text"
+								id="form1"
+								className="form-control"
+								placeholder="Seach by name"
+								aria-label="Search"
+								onChange={(e) => setSearch(e.target.value)}
+							/>
+						</div>
+					</div>
 					<div className="col-md-2 float-end">
 						<Link
-							className="btn btn-outline-danger my-3"
+							className="btn btn-outline-danger"
 							to="/add-employee"
 							title="Add New Employee"
 						>
@@ -49,6 +62,7 @@ const EmployeeListComponent = () => {
 
 				{employees.length > 0 ? (
 					<div>
+						<br />
 						<h2 className="text-success">List of Employees</h2> <hr />
 						<div className="row">
 							<div className="col-md-11">
@@ -64,37 +78,42 @@ const EmployeeListComponent = () => {
 											</tr>
 										</thead>
 										<tbody>
-											{employees.map((employee) => (
-												<tr key={employee.id}>
-													<td>{employee.id}</td>
-													<td>{employee.firstName}</td>
-													<td>{employee.lastName}</td>
-													<td>
-														{" "}
-														{employee.email ? (
-															<span> {employee.email} </span>
-														) : (
-															<span className="text-danger">
-																{" "}
-																Email address is required!
-															</span>
-														)}
-													</td>
+											{employees
+												.filter((user) => {
+													return search.toLowerCase() === "" ? user : user.firstName.toLowerCase().includes(search) ||
+																user.lastName.toLowerCase().includes(search);
+												})
+												.map((employee) => (
+													<tr key={employee.id}>
+														<td>{employee.id}</td>
+														<td>{employee.firstName}</td>
+														<td>{employee.lastName}</td>
+														<td>
+															{" "}
+															{employee.email ? (
+																<span> {employee.email} </span>
+															) : (
+																<span className="text-danger">
+																	 
+																	Email address is required!
+																</span>
+															)}
+														</td>
 
-													<td>
-														<Link
-															to={`/view-employee/${employee.id}`}
-															className="btn btn-outline-dark btn-sm "
-															style={{
-																marginRight: "2px",
-																marginBottom: "2px",
-															}}
-														>
-															View
-														</Link>
-													</td>
-												</tr>
-											))}
+														<td>
+															<Link
+																to={`/view-employee/${employee.id}`}
+																className="btn btn-outline-dark btn-sm "
+																style={{
+																	marginRight: "2px",
+																	marginBottom: "2px",
+																}}
+															>
+																View
+															</Link>
+														</td>
+													</tr>
+												))}
 										</tbody>
 									</table>
 								</div>

@@ -17,7 +17,7 @@ const ViewEmployeeComponent = () => {
 
 	useEffect(() => {
 		loadEmployeeDetails();
-	}, [deleteEmployee]);
+	}, []);
 
 	const loadEmployeeDetails = async () => {
 		await EmployeeService.getEmployeeById(id)
@@ -86,7 +86,7 @@ const ViewEmployeeComponent = () => {
 												</Link>
 											</div>
 										) : (
-											<span className="text-danger">NORMAL EMPLOYEE</span>
+											<span className="text-danger"> EMPLOYEE</span>
 										)}
 									</td>
 									<td>
