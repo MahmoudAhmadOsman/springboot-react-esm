@@ -98,15 +98,23 @@ const ViewEmployeeComponent = () => {
 									</td>
 									<td>
 										{employee.status > 0 ? (
-											<Link
-												onClick={(e) => deleteEmployee(e, employee.id)}
-												className="btn btn-outline-danger btn-sm"
-												style={{
-													marginRight: "5px",
-												}}
-											>
-												Delete
-											</Link>
+											<div>
+												<Link
+													onClick={(e) => deleteEmployee(e, employee.id)}
+													className="btn btn-outline-danger btn-sm"
+													style={{
+														marginRight: "5px",
+													}}
+												>
+													Delete
+												</Link>
+												<Link
+													to="/employees"
+													className="btn btn-outline-warning btn-sm"
+												>
+													Cancel
+												</Link>
+											</div>
 										) : (
 											<Link
 												to="/employees"
@@ -129,10 +137,6 @@ const ViewEmployeeComponent = () => {
 						}}
 					>
 						Update
-					</Link>
-
-					<Link to="/employees" className="btn btn-outline-warning btn-sm">
-					Cancel
 					</Link>
 				</div>
 			</div>
