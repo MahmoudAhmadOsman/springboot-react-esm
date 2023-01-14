@@ -130,6 +130,10 @@ const ViewEmployeeComponent = () => {
 					>
 						Update
 					</Link>
+
+					<Link to="/employees" className="btn btn-outline-warning btn-sm">
+					Cancel
+					</Link>
 				</div>
 			</div>
 		</div>
