@@ -14,24 +14,19 @@ const FooterComponent = () => {
 				{/* Left */}
 				{/* Right */}
 				<div>
-					<a href className="me-4 text-reset">
+					<Link to="#" className="me-4 text-reset">
 						<i className="fab fa-facebook-f" />
-					</a>
-					<a href className="me-4 text-reset">
+					</Link>
+					<Link to="#" className="me-4 text-reset">
 						<i className="fab fa-twitter" />
-					</a>
-					<a href className="me-4 text-reset">
-						<i className="fab fa-google" />
-					</a>
-					<a href className="me-4 text-reset">
-						<i className="fab fa-instagram" />
-					</a>
-					<a href className="me-4 text-reset">
+					</Link>
+
+					<Link to="#" className="me-4 text-reset">
 						<i className="fab fa-linkedin" />
-					</a>
-					<a href className="me-4 text-reset">
+					</Link>
+					<Link to="#" className="me-4 text-reset">
 						<i className="fab fa-github" />
-					</a>
+					</Link>
 				</div>
 				{/* Right */}
 			</section>
@@ -59,24 +54,24 @@ const FooterComponent = () => {
 							{/* Links */}
 							<h6 className="text-uppercase fw-bold mb-4">Products</h6>
 							<p>
-								<a href="#!" className="text-reset">
+								<Link to="#" className="text-reset">
 									Angular
-								</a>
+								</Link>
 							</p>
 							<p>
-								<a href="#!" className="text-reset">
+								<Link to="#" className="text-reset">
 									React
-								</a>
+								</Link>
 							</p>
 							<p>
-								<a href="#!" className="text-reset">
+								<Link to="#" className="text-reset">
 									Vue
-								</a>
+								</Link>
 							</p>
 							<p>
-								<a href="#!" className="text-reset">
+								<Link to="#" className="text-reset">
 									Laravel
-								</a>
+								</Link>
 							</p>
 						</div>
 						{/* Grid column */}
@@ -85,24 +80,20 @@ const FooterComponent = () => {
 							{/* Links */}
 							<h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
 							<p>
-								<a href="#!" className="text-reset">
+								<Link to="#" className="text-reset">
 									Pricing
-								</a>
+								</Link>
 							</p>
 							<p>
-								<a href="#!" className="text-reset">
+								<Link to="#" className="text-reset">
 									Settings
-								</a>
+								</Link>
 							</p>
+
 							<p>
-								<a href="#!" className="text-reset">
-									Orders
-								</a>
-							</p>
-							<p>
-								<a href="#!" className="text-reset">
+								<Link to="#" className="text-reset">
 									Help
-								</a>
+								</Link>
 							</p>
 						</div>
 						{/* Grid column */}
