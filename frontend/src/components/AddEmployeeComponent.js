@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
+import { toast } from "react-toastify";
 
 const AddEmployeeComponent = () => {
 	const [firstName, setFirstName] = useState("");
@@ -28,7 +29,10 @@ const AddEmployeeComponent = () => {
 					.catch((e) => console.log(e));
 			} else {
 				EmployeeService.saveEmployee(employeeData)
-					.then(navigate("/employees"))
+					.then(() => {
+						toast.success("New Employee had been created successfully!!!");
+						navigate("/employees");
+					})
 					.catch((e) => console.log(e));
 			}
 		} else {

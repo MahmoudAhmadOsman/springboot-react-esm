@@ -136,7 +136,7 @@ const EmployeeListComponent = () => {
 						</div>
 					</div>
 				) : (
-					<div className="alert alert-danger text-center fw-bold">
+					<div className="alert alert-danger text-center fw-bold mt-4">
 						{" "}
 						NO DATA TO SHOW!!!
 					</div>
