@@ -1,6 +1,6 @@
 package com.eforce.daos;
 
-import com.eforce.model.Employee;
+import com.eforce.models.Employee;
 
 import java.util.List;
 import java.util.Map;

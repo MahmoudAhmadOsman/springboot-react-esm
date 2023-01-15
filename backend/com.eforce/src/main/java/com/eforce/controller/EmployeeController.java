@@ -1,6 +1,6 @@
 package com.eforce.controller;
 
-import com.eforce.model.Employee;
+import com.eforce.models.Employee;
 import com.eforce.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

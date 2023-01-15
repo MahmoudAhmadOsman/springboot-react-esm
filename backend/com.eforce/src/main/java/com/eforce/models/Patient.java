@@ -1,4 +1,4 @@
-package com.eforce.model;
+package com.eforce.models;
 
 
 import lombok.AllArgsConstructor;
