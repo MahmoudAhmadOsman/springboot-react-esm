@@ -6,6 +6,9 @@
 .add-patient input::placeholder {
 	font-size: 14px;
 }
+.add-patient label {
+	color: #514d4d;
+}
 
 /* patient list style */
 .patietn-list {

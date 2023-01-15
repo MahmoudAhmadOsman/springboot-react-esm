@@ -28,7 +28,7 @@ const AddPatientComponent = () => {
 							>
 								<div className="accordion-body">
 									<div className="row">
-										<h3 className="text-secondary">Patient Details</h3>
+										<h5 className="text-secondary">Patient Information</h5>
 										<div className="col-md-4">
 											<label htmlFor="firstName">First Name</label>
 											<input
@@ -90,7 +90,7 @@ const AddPatientComponent = () => {
 									</div>
 									{/*Start of  physical address */}
 									<br />
-									<h4 className="text-secondary">Physical Address</h4>
+									<h5 className="text-secondary">Physical Address</h5>
 									<div className="row">
 										<div className="col-md-3">
 											<label htmlFor="street">Street Name & Number</label>
