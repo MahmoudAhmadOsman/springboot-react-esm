@@ -1,20 +1,21 @@
 import React from "react";
 
 import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
-import AddEmployeeComponent from "./components/AddEmployeeComponent";
-import EmployeeListComponent from "./components/EmployeeListComponent";
+import AddEmployeeComponent from "./employee/AddEmployeeComponent";
+import EmployeeListComponent from "./employee/EmployeeListComponent";
 import FooterComponent from "./footer/FooterComponent";
-import ViewEmployeeComponent from "./components/ViewEmployeeComponent";
-import Nav from "./navigation/Nav";
-import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
-import HomeComponent from "./components/HomeComponent";
-import AboutComponent from "./components/AboutComponent";
+import ViewEmployeeComponent from "./employee/ViewEmployeeComponent";
+import Navigation from "./navigation/Navigation";
+import UpdateEmployeeComponent from "./employee/UpdateEmployeeComponent";
+import HomeComponent from "./employee/HomeComponent";
+import AboutComponent from "./employee/AboutComponent";
+import AddPatientComponent from "./patient/AddPatientComponent";
+import PatientListComponent from "./patient/PatientListComponent";
 
 function App() {
 	return (
 		<BrowserRouter>
-			{" "}
-			<Nav />
+			<Navigation />
 			<main>
 				<Routes>
 					<Route path="/add-employee/:id" element={<AddEmployeeComponent />} />
@@ -28,6 +29,8 @@ function App() {
 					/>
 					<Route path="/add-employee" element={<AddEmployeeComponent />} />
 					<Route path="/employees" element={<EmployeeListComponent />} />
+					<Route path="/list-patient" element={<PatientListComponent />} />
+					<Route path="/add-patient" element={<AddPatientComponent />} />
 					<Route path="/about" element={<AboutComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
 				</Routes>

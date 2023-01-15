@@ -1,0 +1,12 @@
+/* Add patient style */
+.add-patient {
+	position: relative;
+}
+.add-patient input::placeholder {
+	font-size: 14px;
+}
+
+/* patient list style */
+.patietn-list {
+	position: relative;
+}

@@ -1,8 +1,10 @@
 import React from "react";
- 
-import { Link } from 'react-router-dom'
+
+import { Link } from "react-router-dom";
 
 const Nav = () => {
+	const isLogin = true;
+
 	return (
 		<div>
 			<nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -31,10 +33,25 @@ const Nav = () => {
 									Home
 								</Link>
 							</li>
-					 	<li className="nav-item">
+							<li className="nav-item">
 								<Link className="nav-link" to="/employees">
 									Employees
 								</Link>
+							</li>
+							<li className="nav-item">
+								<Link className="nav-link" to="/list-patient">
+									Patients
+								</Link>
+							</li>
+
+							<li className="nav-item">
+								{isLogin ? (
+									<Link className="nav-link" to="/add-patient">
+										Register New Patient
+									</Link>
+								) : (
+									<span></span>
+								)}
 							</li>
 							<li className="nav-item">
 								<Link className="nav-link" to="/about">
