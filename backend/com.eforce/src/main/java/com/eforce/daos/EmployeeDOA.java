@@ -1,4 +1,4 @@
-package com.eforce.service;
+package com.eforce.daos;
 
 import com.eforce.model.Employee;
 
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public interface EmployeeServiceInterface {
+public interface EmployeeDOA {
     //Save
 
     Employee saveEmployee(Employee employee);

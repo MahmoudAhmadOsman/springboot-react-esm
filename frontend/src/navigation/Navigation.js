@@ -46,7 +46,7 @@ const Nav = () => {
 
 							<li className="nav-item">
 								{isLogin ? (
-									<Link className="nav-link" to="/add-patient">
+									<Link className="nav-link" to="/patient/add-patient">
 										Register New Patient
 									</Link>
 								) : (

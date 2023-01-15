@@ -30,7 +30,10 @@ function App() {
 					<Route path="/add-employee" element={<AddEmployeeComponent />} />
 					<Route path="/employees" element={<EmployeeListComponent />} />
 					<Route path="/list-patient" element={<PatientListComponent />} />
-					<Route path="/add-patient" element={<AddPatientComponent />} />
+					<Route
+						path="/patient/add-patient"
+						element={<AddPatientComponent />}
+					/>
 					<Route path="/about" element={<AboutComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
 				</Routes>

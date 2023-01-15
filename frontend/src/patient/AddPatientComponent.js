@@ -6,7 +6,7 @@ const AddPatientComponent = () => {
 			<div className="container mb-5">
 				<form action="">
 					<h1 className="text-success">Register New Patient</h1> <hr />
-					<div className="accordion" id="accordionExample">
+					<div className="accordion" id="patientAccordion">
 						<div className="accordion-item">
 							<h2 className="accordion-header" id="headingOne">
 								<button
@@ -24,7 +24,7 @@ const AddPatientComponent = () => {
 								id="collapseOne"
 								className="accordion-collapse collapse show"
 								aria-labelledby="headingOne"
-								data-bs-parent="#accordionExample"
+								data-bs-parent="#patientAccordion"
 							>
 								<div className="accordion-body">
 									<div className="row">
@@ -227,7 +227,7 @@ const AddPatientComponent = () => {
 										<div className="col-md-4">
 											<label htmlFor="renewalMonth">Renewal Month</label>
 											<input
-												type="date"
+												type="text"
 												name="renewalMonth"
 												className="form-control form-control-lg"
 												placeholder="Enter renewal month"
