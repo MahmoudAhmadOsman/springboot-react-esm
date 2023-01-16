@@ -41,7 +41,7 @@
 
 .right-panel {
 	background-color: #fff;
-	height: 100vh;
+	height: auto;
 	display: flex;
 	flex-wrap: wrap;
 	position: relative;

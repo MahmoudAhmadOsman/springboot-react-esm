@@ -1,6 +1,6 @@
 package com.eforce.service;
 
-import com.eforce.daos.EmployeeDOA;
+import com.eforce.daos.EmployeeDAO;
 import com.eforce.models.Employee;
 import com.eforce.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class EmployeeService implements EmployeeDOA {
+public class EmployeeService implements EmployeeDAO {
     @Autowired
     private EmployeeRepository employeeRepository;
 

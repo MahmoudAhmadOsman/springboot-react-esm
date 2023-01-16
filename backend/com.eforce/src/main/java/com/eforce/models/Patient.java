@@ -20,9 +20,11 @@ public class Patient {
     private String firstName;
     private String lastName;
     private String email;
-    private String phoneNumber;
+    private String gender;
+    private String martialStatus;
     private Date dateOfBirth;
     private String SSN;
+    private String phoneNumber;
 
     private String streetName;
     private String city;

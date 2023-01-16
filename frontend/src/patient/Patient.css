@@ -3,9 +3,11 @@
 .add-patient {
 	position: relative;
 }
-.add-patient input::placeholder {
+.add-patient input::placeholder,
+.add-patient select {
 	font-size: 14px;
 }
+
 .add-patient label {
 	color: #514d4d;
 }

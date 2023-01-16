@@ -68,7 +68,7 @@ const AddPatientComponent = () => {
 												placeholder="Enter phone number"
 											/>
 										</div>
-										<div className="col-md-4">
+										<div className="col-md-2">
 											<label htmlFor="dob">DOB</label>
 											<input
 												type="text"
@@ -76,6 +76,28 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter patients birth"
 											/>
+										</div>
+										<div className="col-md-2">
+											<label htmlFor="gender">Gender</label>
+											<select
+												name="gender"
+												className="form-control form-control-lg"
+											>
+												<option value="" disabled>
+													Select
+												</option>
+												<option value="male" selected>
+													Male
+												</option>
+												<option value="female">Female</option>
+											</select>
+
+											{/* <input
+												type="text"
+												name="gender"
+												className="form-control form-control-lg"
+												placeholder="Enter gender"
+											/> */}
 										</div>
 										<div className="col-md-4">
 											<label htmlFor="ssn">SSN</label>

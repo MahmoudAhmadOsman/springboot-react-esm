@@ -13,7 +13,7 @@ const HomeComponent = () => {
 
 			<div className="container">
 				<div className="row">
-					<div className="col-md-8">
+					<div className="col-md-9">
 						{/* flex-container 1 */}
 						<div className="flex-container">
 							<div className="mobile">
@@ -44,7 +44,7 @@ const HomeComponent = () => {
 						</div>
 						{/* End of 2nd flex container */}
 					</div>
-					<div className="col-md-4">
+					<div className="col-md-3">
 						<div className="right-panel">
 							<div>
 								<i className="fa fa-linkedin"></i>
