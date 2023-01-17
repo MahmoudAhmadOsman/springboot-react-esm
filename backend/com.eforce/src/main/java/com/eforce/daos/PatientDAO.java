@@ -11,8 +11,9 @@ public interface PatientDAO {
     Patient savePatient(Patient patient);
 
 
-    //list
+    //list of patients
     List<Patient> getAllPatients();
+
 
 
     //findById

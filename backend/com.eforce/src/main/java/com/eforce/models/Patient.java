@@ -6,15 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "patients")
 public class Patient {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -22,7 +25,8 @@ public class Patient {
     private String email;
     private String gender;
     private String martialStatus;
-    private Date dateOfBirth;
+
+    private String dateOfBirth;
     private String SSN;
     private String phoneNumber;
 
@@ -30,8 +34,7 @@ public class Patient {
     private String city;
     private String state;
     private String zipCode;
-    private  String note;
-
+    private String note;
 
 
     private String providerName;
@@ -41,7 +44,10 @@ public class Patient {
     private String careType;
     private String renewalMonth;
 
-    @Temporal(TemporalType.DATE)
-    private Date creationDate;
+
+//    @JsonFormat(pattern="dd-MM-yyyy")
+
+    //    private LocalDateTime creationDate;
+    private String creationDate;
 
 }
