@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/api/v1/patients";
+const BASE_URL = "http://localhost:8080/api/v2/patients";
 
 class PatientService {
 	getAllPatient() {
