@@ -29,7 +29,7 @@ function App() {
 					/>
 					<Route path="/add-employee" element={<AddEmployeeComponent />} />
 					<Route path="/employees" element={<EmployeeListComponent />} />
-					<Route path="/list-patient" element={<PatientListComponent />} />
+					<Route path="/patients" element={<PatientListComponent />} />
 					<Route
 						path="/patient/add-patient"
 						element={<AddPatientComponent />}

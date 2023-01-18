@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
-import { toast } from "react-toastify";
 
 const AddEmployeeComponent = () => {
 	const [firstName, setFirstName] = useState("");
@@ -23,38 +22,19 @@ const AddEmployeeComponent = () => {
 			employeeData.lastName !== "" &&
 			employeeData.email !== ""
 		) {
-			if (id) {
-				await EmployeeService.updateEmployee(id, employeeData)
-					.then(navigate("/employees"))
-					.catch((e) => console.log(e));
-			} else {
+			{
 				EmployeeService.saveEmployee(employeeData)
 					.then(() => {
-						toast.success("New Employee had been created successfully!!!");
 						navigate("/employees");
 					})
-					.catch((e) => console.log(e));
+					.catch((e) => {
+						console.log(e);
+					});
 			}
 		} else {
 			alert("Please, all fields are required!");
 		}
 	};
-
-	useEffect(() => {
-		if (id) {
-			EmployeeService.getEmployeeById(id)
-				.then((res) => {
-					setFirstName(res.data.firstName);
-					setLastName(res.data.lastName);
-					setEmail(res.data.email);
-					setStatus(res.data.status);
-				})
-				.catch((e) => {
-					console.log(e);
-					e.status(401).send("Error: ", e.message);
-				});
-		}
-	}, []);
 
 	return (
 		<>
