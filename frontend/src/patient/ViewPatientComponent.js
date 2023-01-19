@@ -3,7 +3,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import PatientService from "../service/PatientService";
 import "./Patient.css";
 
-
 const ViewPatientComponent = () => {
 	const navigate = useNavigate();
 	const { id } = useParams();
@@ -71,10 +70,14 @@ const ViewPatientComponent = () => {
 							/>
 							<div className="card-body">
 								<h5 className="card-title">
-									{patient.firstName} {patient.lastName}
+									Full Name: &nbsp;
+									<i>
+										{patient.firstName} {patient.lastName}
+									</i>
 								</h5>
-								<p className="card-text">{patient.note}</p> <hr />
-								<p className="alert alert-success">
+								<hr />
+
+								<p className="text-success">
 									Member Since: <b>{patient.creationDate}</b>
 								</p>
 							</div>
@@ -139,6 +142,16 @@ const ViewPatientComponent = () => {
 								</tbody>
 							</table>
 							{/* End of insurance provider */}
+							<hr />
+							<div className="note-details">
+								<h4>Note</h4>
+								<textarea
+									className="form-control"
+									rows="4"
+									disabled
+									value={patient.note}
+								></textarea>
+							</div>
 							<br />
 							<br />
 							<hr />

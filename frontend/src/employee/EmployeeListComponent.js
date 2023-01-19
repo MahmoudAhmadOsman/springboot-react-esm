@@ -15,7 +15,7 @@ const EmployeeListComponent = () => {
 	const totalPages = employees.length;
 
 	useEffect(() => {
-		getAllEmployees();
+		getAllEmployees(navigate("/employees"));
 	}, [employees]);
 
 	const getAllEmployees = async () => {
@@ -35,15 +35,18 @@ const EmployeeListComponent = () => {
 			<div className="container mt-3">
 				<div className="row">
 					<div className="col-md-10">
-						<div className="form-outline">
+						<div className="input-group rounded">
 							<input
-								type="text"
-								id="form1"
-								className="form-control"
-								placeholder="Seach by name"
+								type="search"
+								className="form-control rounded"
+								placeholder="Search"
 								aria-label="Search"
+								aria-describedby="search-addon"
 								onChange={(e) => setSearch(e.target.value)}
 							/>
+							<span className="input-group-text border-0" id="search-addon">
+								<i className="fa fa-search" />
+							</span>
 						</div>
 					</div>
 					<div className="col-md-2 float-end">
