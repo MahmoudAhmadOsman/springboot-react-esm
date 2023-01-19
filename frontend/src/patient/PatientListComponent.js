@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PatientService from "../service/PatientService";
 
 import "./Patient.css";
 
 const PatientListComponent = () => {
 	const navigate = useNavigate();
+
+	const [search, setSearch] = useState("");
 
 	const [patients, setPatients] = useState([]);
 
@@ -28,14 +30,80 @@ const PatientListComponent = () => {
 	return (
 		<section className="patietn-list">
 			<div className="container">
-				<h1 className="text-success">Patient List</h1> <hr />
-				<div className="row">
-					{patients.map((patient) => (
-						<div className="col-md-4" key={patient.id}>
-							<p>{patient.firstName}</p>
+				{patients.length > 0 ? (
+					<div>
+						<h1 className="text-success">Patient Portal</h1> <hr />
+						<div className="row">
+							<div className="col-md-12">
+								<div className="input-group rounded">
+									<input
+										type="search"
+										className="form-control rounded"
+										placeholder="Search"
+										aria-label="Search"
+										aria-describedby="search-addon"
+										onChange={(e) => setSearch(e.target.value)}
+									/>
+									<span className="input-group-text border-0" id="search-addon">
+										<i className="fa fa-search" />
+									</span>
+								</div>
+							</div>
 						</div>
-					))}
-				</div>
+						<div className="row">
+							<div className="col-md-12">
+								<div className="table-responsive">
+									<table className="table table-hover">
+										<thead>
+											<tr>
+												<th> Patient ID</th>
+												<th>First Name</th>
+												<th>Last Name</th>
+												<th>Phone Number</th>
+												<th>DOB</th>
+												<th>View</th>
+											</tr>
+										</thead>
+										<tbody>
+											{patients
+												.filter((client) => {
+													return client.firstName.toLowerCase() === ""
+														? client
+														: client.firstName.toLowerCase().includes(search) ||
+																client.lastName.toLowerCase().includes(search);
+												})
+												.map((patient) => (
+													<tr key={patient.id}>
+														<td>
+															<small>{patient.firstName.charAt(0)}</small>
+															<sup> {patient.id}</sup>
+														</td>
+														<td>{patient.firstName}</td>
+														<td>{patient.lastName}</td>
+														<td>{patient.phoneNumber}</td>
+
+														<td>{patient.dateOfBirth}</td>
+														<td>
+															<Link
+																to={`/view-patient/${patient.id}`}
+																className="btn btn-outline-dark btn-sm "
+															>
+																View
+															</Link>
+														</td>
+													</tr>
+												))}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				) : (
+					<div className="alert alert-danger text-center mt-4" role="alert">
+						<b>No Patients Found</b>
+					</div>
+				)}
 			</div>
 		</section>
 	);

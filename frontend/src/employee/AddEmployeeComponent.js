@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
 
@@ -10,7 +10,6 @@ const AddEmployeeComponent = () => {
 	const [status, setStatus] = useState("");
 
 	const navigate = useNavigate();
-	const { id } = useParams();
 
 	const employeeData = { firstName, lastName, email, status };
 

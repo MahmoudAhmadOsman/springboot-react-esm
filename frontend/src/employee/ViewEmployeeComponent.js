@@ -15,10 +15,6 @@ const ViewEmployeeComponent = () => {
 
 	const { id } = useParams();
 
-	useEffect(() => {
-		loadEmployeeDetails();
-	}, []);
-
 	const loadEmployeeDetails = async () => {
 		await EmployeeService.getEmployeeById(id)
 			.then((res) => {
@@ -39,6 +35,10 @@ const ViewEmployeeComponent = () => {
 				console.log(e.message);
 			});
 	};
+
+	useEffect(() => {
+		loadEmployeeDetails();
+	}, [employee]);
 
 	return (
 		<div className="container my-3">

@@ -30,8 +30,8 @@ public class PatientService implements PatientDAO {
     }
 
     @Override
-    public Optional<Patient> findPatientById(Long id) {
-        return Optional.empty();
+    public Optional<Patient> getPatientById(Long id) {
+        return patientRepository.findById(id);
     }
 
     @Override
@@ -45,7 +45,9 @@ public class PatientService implements PatientDAO {
     }
 
     @Override
-    public void deletePatientByName(Long id) {
-
+    public void deletePatientById(Long id) {
+        patientRepository.deleteById(id);
     }
+
+
 }

@@ -17,7 +17,9 @@ public interface PatientDAO {
 
 
     //findById
-    Optional<Patient> findPatientById(Long id);
+    Optional<Patient> getPatientById(Long id);
+
+
 
 
     //update
@@ -29,6 +31,8 @@ public interface PatientDAO {
 
 
     //delete
-    void deletePatientByName(Long id);
+    void deletePatientById(Long id);
+
+
 
 }

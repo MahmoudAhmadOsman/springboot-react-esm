@@ -11,6 +11,8 @@ import HomeComponent from "./home/HomeComponent";
 import AboutComponent from "./employee/AboutComponent";
 import AddPatientComponent from "./patient/AddPatientComponent";
 import PatientListComponent from "./patient/PatientListComponent";
+import ViewPatientComponent from "./patient/ViewPatientComponent";
+import UpdatePatientComponent from "./patient/UpdatePatientComponent";
 
 function App() {
 	return (
@@ -30,10 +32,18 @@ function App() {
 					<Route path="/add-employee" element={<AddEmployeeComponent />} />
 					<Route path="/employees" element={<EmployeeListComponent />} />
 					<Route path="/patients" element={<PatientListComponent />} />
+
+					<Route
+						path="/update-patient/:id"
+						element={<UpdatePatientComponent />}
+					/>
+					<Route path="/view-patient/:id" element={<ViewPatientComponent />} />
+
 					<Route
 						path="/patient/add-patient"
 						element={<AddPatientComponent />}
 					/>
+
 					<Route path="/about" element={<AboutComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
 				</Routes>

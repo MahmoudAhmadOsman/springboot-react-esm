@@ -46,8 +46,6 @@ public class Patient {
 
 
 //    @JsonFormat(pattern="dd-MM-yyyy")
-
-    //    private LocalDateTime creationDate;
     private String creationDate;
 
 }
