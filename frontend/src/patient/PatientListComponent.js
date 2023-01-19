@@ -31,7 +31,7 @@ const PatientListComponent = () => {
 		<section className="patietn-list">
 			<div className="container">
 				{patients.length > 0 ? (
-					<div>
+					<React.Fragment>
 						<h1 className="text-success">Patient Portal</h1> <hr />
 						<div className="row">
 							<div className="col-md-12">
@@ -98,7 +98,7 @@ const PatientListComponent = () => {
 								</div>
 							</div>
 						</div>
-					</div>
+					</React.Fragment>
 				) : (
 					<div className="alert alert-danger text-center mt-4" role="alert">
 						<b>No Patients Found</b>

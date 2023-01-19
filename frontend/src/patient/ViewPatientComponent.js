@@ -57,7 +57,7 @@ const ViewPatientComponent = () => {
 
 	return (
 		<>
-			<div className="container">
+			<div className="container mt-3">
 				<h3 className="text-success">Patient Summary</h3> <hr />
 				<div className="row">
 					<div className="col-md-3">

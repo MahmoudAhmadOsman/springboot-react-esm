@@ -9,6 +9,9 @@ const AddEmployeeComponent = () => {
 	const [email, setEmail] = useState("");
 	const [status, setStatus] = useState("");
 
+	const [error, setError] = useState(false);
+	const [disable, setDisable] = useState(true);
+
 	const navigate = useNavigate();
 
 	const employeeData = { firstName, lastName, email, status };
@@ -17,21 +20,21 @@ const AddEmployeeComponent = () => {
 		e.preventDefault();
 
 		if (
-			employeeData.firstName !== "" &&
-			employeeData.lastName !== "" &&
-			employeeData.email !== ""
+			employeeData.firstName.length == 0 ||
+			employeeData.lastName.length == 0 ||
+			employeeData.email.length == 0
 		) {
-			{
-				EmployeeService.saveEmployee(employeeData)
-					.then(() => {
-						navigate("/employees");
-					})
-					.catch((e) => {
-						console.log(e);
-					});
-			}
+			setError(true);
+			setDisable(true);
 		} else {
-			alert("Please, all fields are required!");
+			await EmployeeService.saveEmployee(employeeData)
+				.then((res) => {
+					console.log(res.data);
+					navigate("/employees");
+				})
+				.catch((e) => {
+					console.log(e.message);
+				});
 		}
 	};
 
@@ -42,7 +45,7 @@ const AddEmployeeComponent = () => {
 					<div className="col-md-6 mx-auto">
 						<h2 className="text-success mb-3">Add New Employee</h2> <hr />
 						<form>
-							<div className="mb-3 mt-">
+							<div className="mb-3">
 								<label htmlFor="firstName">First Name</label>
 								<input
 									type="text"
@@ -53,6 +56,11 @@ const AddEmployeeComponent = () => {
 									placeholder="Enter employee first name"
 									name="firstName"
 								/>
+								{error && firstName.length <= 0 ? (
+									<span className="text-danger">First name is required!</span>
+								) : (
+									""
+								)}
 							</div>
 
 							<div className="mb-3">
@@ -66,6 +74,11 @@ const AddEmployeeComponent = () => {
 									placeholder="Enter employee last name"
 									name="lastName"
 								/>
+								{error && lastName.length <= 0 ? (
+									<span className="text-danger">Last name is required!</span>
+								) : (
+									""
+								)}
 							</div>
 							<div className="mb-3">
 								<label htmlFor="email">Email Address</label>
@@ -78,6 +91,13 @@ const AddEmployeeComponent = () => {
 									placeholder="Enter employee email address"
 									name="email"
 								/>
+								{error && email.length <= 0 ? (
+									<span className="text-danger">
+										Email address is required!
+									</span>
+								) : (
+									""
+								)}
 							</div>
 							<div className="d-flex flex-row bd-highlight mb-3">
 								<div className="p-2 bd-highlight">
@@ -85,6 +105,12 @@ const AddEmployeeComponent = () => {
 										onClick={(e) => saveEmployee(e)}
 										type="submit"
 										className="btn btn-outline-success mb-3"
+										disabled={
+											(disable && firstName.length <= 0) ||
+											lastName.length <= 0 ||
+											email.length <= 0 ||
+											email.length <= 0
+										}
 									>
 										SUBMIT
 									</button>

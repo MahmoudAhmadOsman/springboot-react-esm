@@ -43,8 +43,6 @@ public class Patient {
     private String contactNumber;
     private String careType;
     private String renewalMonth;
-
-
 //    @JsonFormat(pattern="dd-MM-yyyy")
     private String creationDate;
 

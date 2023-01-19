@@ -130,7 +130,9 @@ const EmployeeListComponent = () => {
 									title="Employee total"
 								>
 									TOTAL
-									<span className="badge bg-dark">{employees.length}</span>
+									<span className="badge rounded-pill bg-dark">
+										{employees.length}
+									</span>
 								</span>
 							</div>
 						</div>
