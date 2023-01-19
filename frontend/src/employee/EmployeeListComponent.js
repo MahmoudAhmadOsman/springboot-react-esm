@@ -14,12 +14,10 @@ const EmployeeListComponent = () => {
 	const [currentPage, setCurrentPage] = useState(4);
 	const totalPages = employees.length;
 
-	//1.
 	useEffect(() => {
-		getAllEmployees(navigate("/employees"));
-	}, []);
+		getAllEmployees();
+	}, [employees]);
 
-	//2.
 	const getAllEmployees = async () => {
 		await EmployeeService.getAllEmployees()
 			.then((res) => {

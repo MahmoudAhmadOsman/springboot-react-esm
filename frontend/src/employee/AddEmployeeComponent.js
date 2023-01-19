@@ -108,7 +108,6 @@ const AddEmployeeComponent = () => {
 										disabled={
 											(disable && firstName.length <= 0) ||
 											lastName.length <= 0 ||
-											email.length <= 0 ||
 											email.length <= 0
 										}
 									>
