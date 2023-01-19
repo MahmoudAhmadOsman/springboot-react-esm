@@ -16,3 +16,11 @@
 .patietn-list {
 	position: relative;
 }
+
+/* view patient */
+.view-patient {
+	position: relative;
+}
+.view-patient div.tbl-right-view {
+	background-color: #fff;
+}

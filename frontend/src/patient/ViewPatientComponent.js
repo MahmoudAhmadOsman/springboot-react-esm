@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PatientService from "../service/PatientService";
+import "./Patient.css";
+
 
 const ViewPatientComponent = () => {
 	const navigate = useNavigate();
@@ -56,7 +58,7 @@ const ViewPatientComponent = () => {
 	}, [patient]);
 
 	return (
-		<>
+		<section className="view-patient">
 			<div className="container mt-3">
 				<h3 className="text-success">Patient Summary</h3> <hr />
 				<div className="row">
@@ -78,7 +80,7 @@ const ViewPatientComponent = () => {
 							</div>
 						</div>
 					</div>
-					<div className="col-md-8">
+					<div className="col-md-8 bg-body-tertiary rounded tbl-right-view">
 						<h4>Personal Details</h4>
 
 						<div className="table-responsive">
@@ -182,7 +184,7 @@ const ViewPatientComponent = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</section>
 	);
 };
 
