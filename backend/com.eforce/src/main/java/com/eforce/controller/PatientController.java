@@ -21,6 +21,12 @@ public class PatientController {
     }
 
 
+    @PostMapping(value = "/save")
+    Patient savePatient(@RequestBody Patient patient) {
+        return patientService.savePatient(patient);
+    }
+
+
     @GetMapping(value = "/list")
     public List<Patient> getAllPatients() {
         return patientService.getAllPatients();

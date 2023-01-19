@@ -16,12 +16,16 @@ public class PatientService implements PatientDAO {
 
 
     @Autowired
-    private PatientRepository patientRepository;
+    private final PatientRepository patientRepository;
+
+    public PatientService(PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
+    }
 
 
     @Override
     public Patient savePatient(Patient patient) {
-        return null;
+        return patientRepository.save(patient);
     }
 
     @Override
@@ -36,7 +40,31 @@ public class PatientService implements PatientDAO {
 
     @Override
     public Patient updatePatient(Long id, Patient patient) {
-        return null;
+        //update Patient
+        Patient patientToUpdate = patientRepository.findById(id).orElse(null);
+        patientToUpdate.setFirstName(patient.getFirstName());
+        patientToUpdate.setLastName(patient.getLastName());
+        patientToUpdate.setEmail(patient.getEmail());
+        patientToUpdate.setGender(patient.getGender());
+        patientToUpdate.setMartialStatus(patient.getMartialStatus());
+        patientToUpdate.setDateOfBirth(patient.getDateOfBirth());
+        patientToUpdate.setSSN(patient.getSSN());
+        patientToUpdate.setPhoneNumber(patient.getPhoneNumber());
+        patientToUpdate.setStreetName(patient.getStreetName());
+        patientToUpdate.setCity(patient.getCity());
+        patientToUpdate.setState(patient.getState());
+        patientToUpdate.setZipCode(patient.getZipCode());
+        patientToUpdate.setNote(patient.getNote());
+        patientToUpdate.setProviderName(patient.getProviderName());
+        patientToUpdate.setAccountNumber(patient.getAccountNumber());
+        patientToUpdate.setGroupNumber(patient.getGroupNumber());
+        patientToUpdate.setContactNumber(patient.getContactNumber());
+        patientToUpdate.setCareType(patient.getCareType());
+        patientToUpdate.setRenewalMonth(patient.getRenewalMonth());
+        patientToUpdate.setCreationDate(patient.getCreationDate());
+        return patientRepository.save(patientToUpdate);
+
+
     }
 
     @Override
