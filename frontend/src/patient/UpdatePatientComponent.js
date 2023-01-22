@@ -56,7 +56,7 @@ const UpdatePatientComponent = () => {
 		creationDate,
 	};
 
-	const updatePatient = (e) => {
+	const updatePatient = async (e) => {
 		e.preventDefault();
 
 		if (
@@ -86,7 +86,7 @@ const UpdatePatientComponent = () => {
 		}
 
 		if (id) {
-			PatientService.updatePatient(id, patientData)
+			await PatientService.updatePatient(id, patientData)
 				.then((res) => {
 					navigate("/patients");
 					console.log(patientData);
