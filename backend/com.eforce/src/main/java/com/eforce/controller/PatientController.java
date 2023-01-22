@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -20,18 +21,15 @@ public class PatientController {
         this.patientService = patientService;
     }
 
-
     @PostMapping(value = "/save")
     Patient savePatient(@RequestBody Patient patient) {
         return patientService.savePatient(patient);
     }
 
-
     @GetMapping(value = "/list")
     public List<Patient> getAllPatients() {
         return patientService.getAllPatients();
     }
-
 
     @GetMapping(value = "/{id}")
     public Optional<Patient> getPatientById(@PathVariable Long id) {
@@ -39,8 +37,16 @@ public class PatientController {
 
     }
 
+    @PutMapping(value = "/{id}")
+    public Patient updatePatient(@PathVariable Long id, @RequestBody Patient patient) {
+        return patientService.updatePatient(id, patient);
+    }
 
-    //delete patient by id
+    @PatchMapping(value = "/{id}")
+    public Patient updatePatientByFields(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
+        return patientService.updatePatientByFields(id, fields);
+    }
+
     @DeleteMapping(value = "/delete/{id}")
     public void deletePatient(@PathVariable Long id) {
         patientService.deletePatientById(id);

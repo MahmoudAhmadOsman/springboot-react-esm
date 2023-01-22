@@ -6,7 +6,9 @@ import com.eforce.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -58,7 +60,7 @@ public class PatientService implements PatientDAO {
         patientToUpdate.setProviderName(patient.getProviderName());
         patientToUpdate.setAccountNumber(patient.getAccountNumber());
         patientToUpdate.setGroupNumber(patient.getGroupNumber());
-        patientToUpdate.setContactNumber(patient.getContactNumber());
+        patientToUpdate.setProviderPhone(patient.getProviderPhone());
         patientToUpdate.setCareType(patient.getCareType());
         patientToUpdate.setRenewalMonth(patient.getRenewalMonth());
         patientToUpdate.setCreationDate(patient.getCreationDate());
@@ -69,6 +71,17 @@ public class PatientService implements PatientDAO {
 
     @Override
     public Patient updatePatientByFields(Long id, Map<String, Object> fields) {
+
+        Optional<Patient> existingPatient = patientRepository.findById(id);
+        if (existingPatient.isPresent()) {
+            fields.forEach((key, value) -> {
+                Field field = ReflectionUtils.findField(Patient.class, key);
+                field.setAccessible(true);
+                ReflectionUtils.setField(field, existingPatient.get(), value);
+            });
+            return patientRepository.save(existingPatient.get());
+        }
+
         return null;
     }
 

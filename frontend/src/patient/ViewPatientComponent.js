@@ -127,7 +127,7 @@ const ViewPatientComponent = () => {
 										<th>Group Number</th>
 										<th>Care Type</th>
 										<th>Renewal Month</th>
-										<th>Contact Number</th>
+										<th>Provider's Phone Number</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -137,7 +137,7 @@ const ViewPatientComponent = () => {
 										<td>{patient.groupNumber}</td>
 										<td>{patient.careType}</td>
 										<td>{patient.renewalMonth}</td>
-										<td>{patient.contactNumber}</td>
+										<td>{patient.providerPhone}</td>
 									</tr>
 								</tbody>
 							</table>

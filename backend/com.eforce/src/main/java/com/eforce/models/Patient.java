@@ -40,7 +40,7 @@ public class Patient {
     private String providerName;
     private Long accountNumber;
     private int groupNumber;
-    private String contactNumber;
+    private String providerPhone;
     private String careType;
     private String renewalMonth;
 //    @JsonFormat(pattern="dd-MM-yyyy")

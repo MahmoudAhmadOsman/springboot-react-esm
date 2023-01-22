@@ -18,7 +18,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Navigation />
-			<main>
+			<React.Fragment>
 				<Routes>
 					<Route path="/add-employee/:id" element={<AddEmployeeComponent />} />
 					<Route
@@ -47,7 +47,7 @@ function App() {
 					<Route path="/about" element={<AboutComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
 				</Routes>
-			</main>
+			</React.Fragment>
 			<FooterComponent />
 		</BrowserRouter>
 	);
