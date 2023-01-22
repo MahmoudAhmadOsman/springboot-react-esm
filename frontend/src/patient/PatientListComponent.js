@@ -31,7 +31,7 @@ const PatientListComponent = () => {
 					<React.Fragment>
 						<h1 className="text-success">Patient Portal</h1> <hr />
 						<div className="row">
-							<div className="col-md-10">
+							<div className="col-md-11">
 								<div className="input-group rounded">
 									<input
 										type="search"
@@ -46,16 +46,17 @@ const PatientListComponent = () => {
 									</span>
 								</div>
 							</div>
-							<div className="col-md-2">
+							<div className="col-md-1">
 								<Link
 									to="/patient/add-patient"
-									className="btn btn-outline-dark btn-sm"
-									title="Add Patient"
+									className="btn btn-outline-success btn-sm"
+									title="Register New Patient"
 								>
 									<i className="fa fa-pencil" />
 								</Link>
 							</div>
-						</div>
+						</div>{" "}
+						<br />
 						<div className="row">
 							<div className="col-md-12">
 								<div className="table-responsive">

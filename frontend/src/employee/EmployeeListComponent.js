@@ -33,8 +33,9 @@ const EmployeeListComponent = () => {
 	return (
 		<section className="employee-list">
 			<div className="container mt-3">
+				<h2 className="text-success">List of Employees</h2> <hr />
 				<div className="row">
-					<div className="col-md-10">
+					<div className="col-md-11">
 						<div className="input-group rounded">
 							<input
 								type="search"
@@ -49,21 +50,19 @@ const EmployeeListComponent = () => {
 							</span>
 						</div>
 					</div>
-					<div className="col-md-2 float-end">
+					<div className="col-md-1 float-end">
 						<Link
-							className="btn btn-outline-danger"
+							className="btn btn-outline-success"
 							to="/add-employee"
 							title="Add New Employee"
 						>
-							Add New Employee
+							<i className="fa fa-pencil" />
 						</Link>
 					</div>
-				</div>
-
+				</div>{" "}
+				<br />
 				{employees.length > 0 ? (
 					<div>
-						<br />
-						<h2 className="text-success">List of Employees</h2> <hr />
 						<div className="row">
 							<div className="col-md-11">
 								<div className="table-responsive">
@@ -105,7 +104,7 @@ const EmployeeListComponent = () => {
 															<Link
 																to={`/view-employee/${employee.id}`}
 																className="btn btn-outline-dark btn-sm"
-																title="View Employee"
+																title="View New Employee"
 															>
 																<i className="fa fa-eye" />
 															</Link>
@@ -123,14 +122,18 @@ const EmployeeListComponent = () => {
 								/>
 							</div>
 							<div className="col-md-1">
-								<span
-									className="btn btn-outline-secondary d-none  d-md-block"
-									title="Employee total"
+								{/* <span
+									className="text-secondary d-none  d-md-block ms-5"
+									title="Employee total "
 								>
-									TOTAL
-									<span className="badge rounded-pill bg-dark">
+									
+								</span> */}
+								<span className="badge rounded-pill bg-dark">
+									TOTAL OF EMPLOYEES: &nbsp;{" "}
+									<b className="badge rounded-pill bg-danger">
+										{" "}
 										{employees.length}
-									</span>
+									</b>
 								</span>
 							</div>
 						</div>
