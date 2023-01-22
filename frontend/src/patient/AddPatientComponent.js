@@ -31,7 +31,6 @@ const AddPatientComponent = () => {
 	const [creationDate, setCreationDate] = useState("");
 	const [error, setError] = useState(false);
 
-
 	const patientData = {
 		firstName,
 		lastName,
@@ -85,7 +84,7 @@ const AddPatientComponent = () => {
 			console.log(patientData);
 			await PatientService.savePatient(patientData)
 				.then((res) => {
-					console.log(res);
+					// console.log(res);
 					navigate("/patients");
 				})
 				.catch((err) => {

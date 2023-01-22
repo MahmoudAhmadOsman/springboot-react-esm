@@ -8,15 +8,12 @@ const PatientListComponent = () => {
 	const navigate = useNavigate();
 
 	const [search, setSearch] = useState("");
-
 	const [patients, setPatients] = useState([]);
 
-	//get all patients
 	const getPatients = async () => {
 		await PatientService.getAllPatients()
 			.then((res) => {
 				setPatients(res.data);
-				console.log(res.data);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -87,8 +84,9 @@ const PatientListComponent = () => {
 															<Link
 																to={`/view-patient/${patient.id}`}
 																className="btn btn-outline-dark btn-sm "
+																title="View Patient"
 															>
-																View
+																<i class="fa fa-eye" aria-hidden="true"></i>
 															</Link>
 														</td>
 													</tr>
