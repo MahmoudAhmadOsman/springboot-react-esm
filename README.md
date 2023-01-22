@@ -19,6 +19,20 @@
 
 
 
+
+
+### Project screenshots
+
+
+ Patients Portal
+![ERD Schema Design](https://github.com/MahmoudAhmadOsman/springboot-react-esm/blob/master/frontend/public/images/patient-list.png)
+
+Patien Summary Page
+![ERD Schema Design](https://github.com/MahmoudAhmadOsman/springboot-react-esm/blob/master/frontend/public/images/patien-summary-page.png)
+
+Patient Registration Form
+![ERD Schema Design](https://github.com/MahmoudAhmadOsman/springboot-react-esm/blob/master/frontend/public/images/patient-registration-form.png)
+
  
 
 ### Contributors
