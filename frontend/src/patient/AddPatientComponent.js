@@ -80,6 +80,7 @@ const AddPatientComponent = () => {
 			patientData.creationDate.length == 0
 		) {
 			setError(true);
+			return;
 		} else {
 			console.log(patientData);
 			await PatientService.savePatient(patientData)
