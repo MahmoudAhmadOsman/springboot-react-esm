@@ -42,7 +42,6 @@ public class PatientService implements PatientDAO {
 
     @Override
     public Patient updatePatient(Long id, Patient patient) {
-        //update Patient
         Patient patientToUpdate = patientRepository.findById(id).orElse(null);
         patientToUpdate.setFirstName(patient.getFirstName());
         patientToUpdate.setLastName(patient.getLastName());

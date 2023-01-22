@@ -34,7 +34,7 @@ const ViewPatientComponent = () => {
 		await PatientService.getPatientById(id)
 			.then((res) => {
 				setPatient(res.data);
-				console.log(res.data);
+				// console.log(res.data);
 			})
 
 			.catch((e) => {

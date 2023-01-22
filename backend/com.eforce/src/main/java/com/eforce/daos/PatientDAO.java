@@ -10,29 +10,14 @@ public interface PatientDAO {
 
     Patient savePatient(Patient patient);
 
-
-    //list of patients
     List<Patient> getAllPatients();
 
-
-
-    //findById
     Optional<Patient> getPatientById(Long id);
 
-
-
-
-    //update
     Patient updatePatient(Long id, Patient patient);
 
-
-    //patch
     Patient updatePatientByFields(Long id, Map<String, Object> fields);
 
-
-    //delete
     void deletePatientById(Long id);
-
-
 
 }

@@ -19,7 +19,7 @@ const ViewEmployeeComponent = () => {
 		await EmployeeService.getEmployeeById(id)
 			.then((res) => {
 				setEmployee(res.data);
-				console.log(res.data);
+				// console.log(res.data);
 			})
 			.catch((e) => {
 				console.log(e.message);

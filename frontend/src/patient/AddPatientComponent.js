@@ -54,7 +54,7 @@ const AddPatientComponent = () => {
 		creationDate,
 	};
 
-	const savePatient = async (e) => {
+	const updatePatient = async (e) => {
 		e.preventDefault();
 
 		if (
@@ -84,7 +84,6 @@ const AddPatientComponent = () => {
 			console.log(patientData);
 			await PatientService.savePatient(patientData)
 				.then((res) => {
-					// console.log(res);
 					navigate("/patients");
 				})
 				.catch((err) => {
@@ -543,7 +542,7 @@ const AddPatientComponent = () => {
 					</div>
 					<button
 						onClick={(e) => {
-							savePatient(e);
+							updatePatient(e);
 						}}
 						type="submit"
 						className="btn btn-outline-success btn-lg mt-3"
