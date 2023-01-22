@@ -27,6 +27,7 @@ public class Patient {
     private String martialStatus;
 
     private String dateOfBirth;
+    @Column(name = "snn")
     private String SSN;
     private String phoneNumber;
 

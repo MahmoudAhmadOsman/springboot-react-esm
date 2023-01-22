@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import PatientService from "../service/PatientService";
 import "./Patient.css";
 const AddPatientComponent = () => {
@@ -29,6 +30,7 @@ const AddPatientComponent = () => {
 	const [renewalMonth, setRenewalMonth] = useState("");
 	const [creationDate, setCreationDate] = useState("");
 	const [error, setError] = useState(false);
+
 
 	const patientData = {
 		firstName,
@@ -78,7 +80,6 @@ const AddPatientComponent = () => {
 			patientData.renewalMonth.length == 0 ||
 			patientData.creationDate.length == 0
 		) {
-			// alert("Please fill out all the required fields");
 			setError(true);
 		} else {
 			console.log(patientData);
@@ -90,9 +91,6 @@ const AddPatientComponent = () => {
 				.catch((err) => {
 					console.log(err);
 				});
-
-			//console.log(patientData);
-			// console.log(setFirstName(e.target.value));
 		}
 	};
 
@@ -196,6 +194,7 @@ const AddPatientComponent = () => {
 												placeholder="Enter phone number"
 												maxLength={12}
 											/>
+
 											{error && phoneNumber.length <= 0 ? (
 												<span className="text-danger">
 													Phone number is required!

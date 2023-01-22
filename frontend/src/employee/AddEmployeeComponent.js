@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
 
 const AddEmployeeComponent = () => {
+	const navigate = useNavigate();
+	
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -11,8 +13,6 @@ const AddEmployeeComponent = () => {
 
 	const [error, setError] = useState(false);
 	const [disable, setDisable] = useState(true);
-
-	const navigate = useNavigate();
 
 	const employeeData = { firstName, lastName, email, status };
 
@@ -30,6 +30,7 @@ const AddEmployeeComponent = () => {
 			await EmployeeService.saveEmployee(employeeData)
 				.then((res) => {
 					console.log(res.data);
+					alert("Successfully added new employee!");
 					navigate("/employees");
 				})
 				.catch((e) => {
@@ -37,8 +38,6 @@ const AddEmployeeComponent = () => {
 				});
 		}
 	};
-
-	
 
 	return (
 		<>
