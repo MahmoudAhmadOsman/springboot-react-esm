@@ -5,7 +5,7 @@ import EmployeeService from "../service/EmployeeService";
 
 const AddEmployeeComponent = () => {
 	const navigate = useNavigate();
-	
+
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -29,10 +29,8 @@ const AddEmployeeComponent = () => {
 		} else {
 			await EmployeeService.saveEmployee(employeeData)
 				.then((res) => {
-					console.log(res.data);
-					alert("Successfully added new employee!");
 					navigate("/employees");
-				})
+				}) // console.log(res.data);
 				.catch((e) => {
 					console.log(e.message);
 				});

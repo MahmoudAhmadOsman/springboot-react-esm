@@ -7,6 +7,7 @@ const UpdateEmployeeComponent = () => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
+	const [error, setError] = useState(false);
 	// const [status, setStatus] = useState("");
 
 	const navigate = useNavigate();
@@ -18,23 +19,19 @@ const UpdateEmployeeComponent = () => {
 		e.preventDefault();
 
 		if (
-			employeeData.firstName !== "" &&
-			employeeData.lastName !== "" &&
-			employeeData.email !== ""
+			employeeData.firstName.length == 0 ||
+			employeeData.lastName.length == 0 ||
+			employeeData.firstName.length == 0
 		) {
-			if (id) {
-				EmployeeService.patchEmployee(id, employeeData)
+			setError(true);
+			return;
+		}
 
-					.then(navigate("/employees"))
-					.catch((e) => console.log(e));
-				console.log(employeeData);
-			} else {
-				EmployeeService.saveEmployee(employeeData)
-					.then(navigate("/employees"))
-					.catch((e) => console.log(e));
-			}
-		} else {
-			alert("Please, all fields are required!");
+		if (id) {
+			EmployeeService.patchEmployee(id, employeeData)
+				.then(navigate("/employees"))
+				.catch((e) => console.log(e));
+			// console.log(employeeData);
 		}
 	};
 
@@ -79,6 +76,11 @@ const UpdateEmployeeComponent = () => {
 									id="firstName"
 									placeholder="Enter employee first name"
 								/>
+								{error && firstName.length <= 0 ? (
+									<span className="text-danger">First name is required!</span>
+								) : (
+									""
+								)}
 							</div>
 							<div className="mb-3">
 								<label htmlFor="lastName">Last Name</label>
@@ -90,6 +92,11 @@ const UpdateEmployeeComponent = () => {
 									id="lastName"
 									placeholder="Enter employee last name"
 								/>
+								{error && lastName.length <= 0 ? (
+									<span className="text-danger">Last name is required!</span>
+								) : (
+									""
+								)}
 							</div>
 							<div className="mb-3">
 								<label htmlFor="email">Email Address</label>
@@ -101,6 +108,13 @@ const UpdateEmployeeComponent = () => {
 									id="email"
 									placeholder="Enter employee email address"
 								/>
+								{error && email.length <= 0 ? (
+									<span className="text-danger">
+										Email address is required!
+									</span>
+								) : (
+									""
+								)}
 							</div>
 
 							<div className="d-flex flex-row bd-highlight mb-3">
