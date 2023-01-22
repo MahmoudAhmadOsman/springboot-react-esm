@@ -15,10 +15,6 @@ class PatientService {
 		return axios.put(`${BASE_URL}/${id}`, patientData);
 	}
 
-	// patchPatient(id, patientData) {
-	// 	return axios.patch(`${BASE_URL}/${id}`, patientData);
-	// }
-
 	patchPatient(id, patientData) {
 		return axios.patch(`${BASE_URL}/${id}`, patientData);
 	}
