@@ -122,12 +122,6 @@ const EmployeeListComponent = () => {
 								/>
 							</div>
 							<div className="col-md-1">
-								{/* <span
-									className="text-secondary d-none  d-md-block ms-5"
-									title="Employee total "
-								>
-									
-								</span> */}
 								<span className="badge rounded-pill bg-dark">
 									TOTAL OF EMPLOYEES: &nbsp;{" "}
 									<b className="badge rounded-pill bg-danger">
