@@ -104,13 +104,10 @@ const EmployeeListComponent = () => {
 														<td>
 															<Link
 																to={`/view-employee/${employee.id}`}
-																className="btn btn-outline-dark btn-sm "
-																style={{
-																	marginRight: "2px",
-																	marginBottom: "2px",
-																}}
+																className="btn btn-outline-dark btn-sm"
+																title="View Employee"
 															>
-																View
+																<i className="fa fa-eye" />
 															</Link>
 														</td>
 													</tr>

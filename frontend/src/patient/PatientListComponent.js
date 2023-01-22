@@ -31,7 +31,7 @@ const PatientListComponent = () => {
 					<React.Fragment>
 						<h1 className="text-success">Patient Portal</h1> <hr />
 						<div className="row">
-							<div className="col-md-12">
+							<div className="col-md-10">
 								<div className="input-group rounded">
 									<input
 										type="search"
@@ -45,6 +45,15 @@ const PatientListComponent = () => {
 										<i className="fa fa-search" />
 									</span>
 								</div>
+							</div>
+							<div className="col-md-2">
+								<Link
+									to="/patient/add-patient"
+									className="btn btn-outline-dark btn-sm"
+									title="Add Patient"
+								>
+									<i className="fa fa-pencil" />
+								</Link>
 							</div>
 						</div>
 						<div className="row">
@@ -67,6 +76,9 @@ const PatientListComponent = () => {
 													return client.firstName.toLowerCase() === ""
 														? client
 														: client.firstName.toLowerCase().includes(search) ||
+																client.phoneNumber
+																	.toLowerCase()
+																	.includes(search) ||
 																client.lastName.toLowerCase().includes(search);
 												})
 												.map((patient) => (
