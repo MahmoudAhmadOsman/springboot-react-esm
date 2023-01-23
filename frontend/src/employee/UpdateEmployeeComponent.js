@@ -29,7 +29,8 @@ const UpdateEmployeeComponent = () => {
 
 		if (id) {
 			EmployeeService.patchEmployee(id, employeeData)
-				.then(navigate("/employees"))
+				.then(navigate("/view-employee/" + id))
+			 
 				.catch((e) => console.log(e));
 			// console.log(employeeData);
 		}

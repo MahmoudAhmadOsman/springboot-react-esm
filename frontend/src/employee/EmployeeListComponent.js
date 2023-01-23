@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
 import { useNavigate } from "react-router-dom";
 import Pagination from "react-responsive-pagination";
+import Loading from "../utils/Loading";
 
 const EmployeeListComponent = () => {
 	const navigate = useNavigate();
@@ -33,36 +34,36 @@ const EmployeeListComponent = () => {
 	return (
 		<section className="employee-list">
 			<div className="container mt-3">
-				<h2 className="text-success">List of Employees</h2> <hr />
-				<div className="row">
-					<div className="col-md-11">
-						<div className="input-group rounded">
-							<input
-								type="search"
-								className="form-control rounded"
-								placeholder="Search"
-								aria-label="Search"
-								aria-describedby="search-addon"
-								onChange={(e) => setSearch(e.target.value)}
-							/>
-							<span className="input-group-text border-0" id="search-addon">
-								<i className="fa fa-search" />
-							</span>
-						</div>
-					</div>
-					<div className="col-md-1 float-end">
-						<Link
-							className="btn btn-outline-success"
-							to="/add-employee"
-							title="Add New Employee"
-						>
-							<i className="fa fa-pencil" />
-						</Link>
-					</div>
-				</div>{" "}
-				<br />
 				{employees.length > 0 ? (
-					<div>
+					<React.Fragment>
+						<h2 className="text-success">List of Employees</h2> <hr />
+						<div className="row">
+							<div className="col-md-11">
+								<div className="input-group rounded">
+									<input
+										type="search"
+										className="form-control rounded"
+										placeholder="Search"
+										aria-label="Search"
+										aria-describedby="search-addon"
+										onChange={(e) => setSearch(e.target.value)}
+									/>
+									<span className="input-group-text border-0" id="search-addon">
+										<i className="fa fa-search" />
+									</span>
+								</div>
+							</div>
+							<div className="col-md-1 float-end">
+								<Link
+									className="btn btn-outline-success"
+									to="/add-employee"
+									title="Add New Employee"
+								>
+									<i className="fa fa-pencil" />
+								</Link>
+							</div>
+						</div>{" "}
+						<br />
 						<div className="row">
 							<div className="col-md-11">
 								<div className="table-responsive">
@@ -131,11 +132,10 @@ const EmployeeListComponent = () => {
 								</span>
 							</div>
 						</div>
-					</div>
+					</React.Fragment>
 				) : (
-					<div className="alert alert-danger text-center fw-bold mt-4">
-						{" "}
-						NO DATA TO SHOW!!!
+					<div>
+						<Loading />
 					</div>
 				)}
 			</div>

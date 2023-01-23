@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PatientService from "../service/PatientService";
+import Loading from "../utils/Loading";
 
 import "./Patient.css";
 
@@ -8,6 +9,7 @@ const PatientListComponent = () => {
 	const navigate = useNavigate();
 
 	const [search, setSearch] = useState("");
+
 	const [patients, setPatients] = useState([]);
 
 	const getPatients = async () => {
@@ -111,8 +113,8 @@ const PatientListComponent = () => {
 						</div>
 					</React.Fragment>
 				) : (
-					<div className="alert alert-danger text-center mt-4" role="alert">
-						<b>No Patients Found</b>
+					<div>
+						<Loading />
 					</div>
 				)}
 			</div>

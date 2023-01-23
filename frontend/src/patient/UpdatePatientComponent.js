@@ -88,7 +88,7 @@ const UpdatePatientComponent = () => {
 		if (id) {
 			await PatientService.updatePatient(id, patientData)
 				.then((res) => {
-					navigate("/patients");
+					navigate("/view-patient/" + id);
 					console.log(patientData);
 				})
 				.catch((err) => {

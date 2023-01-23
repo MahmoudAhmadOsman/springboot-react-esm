@@ -145,6 +145,7 @@ const ViewPatientComponent = () => {
 							<hr />
 							<div className="note-details">
 								<h4>Note</h4>
+
 								<textarea
 									className="form-control"
 									rows="4"

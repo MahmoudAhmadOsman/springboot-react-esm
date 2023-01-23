@@ -21,6 +21,19 @@
 .view-patient {
 	position: relative;
 }
+.view-patient .card {
+	height: 100vh;
+	border: 0px;
+}
+.view-patient .card img {
+	width: 150px;
+	height: 150px;
+	margin: auto;
+}
+.view-patient .card img:hover {
+	cursor: pointer;
+}
+
 .view-patient div.tbl-right-view {
 	background-color: #fff;
 }
