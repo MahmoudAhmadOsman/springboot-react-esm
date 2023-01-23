@@ -7,10 +7,8 @@ import "./Patient.css";
 
 const PatientListComponent = () => {
 	const navigate = useNavigate();
-
-	const [search, setSearch] = useState("");
-
 	const [patients, setPatients] = useState([]);
+	const [search, setSearch] = useState("");
 
 	const getPatients = async () => {
 		await PatientService.getAllPatients()
@@ -24,7 +22,7 @@ const PatientListComponent = () => {
 
 	useEffect(() => {
 		getPatients(navigate("/patients"));
-	}, []);
+	}, [patients]);
 
 	return (
 		<section className="patietn-list">
