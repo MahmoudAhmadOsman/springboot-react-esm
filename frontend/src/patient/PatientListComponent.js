@@ -29,7 +29,7 @@ const PatientListComponent = () => {
 			<div className="container">
 				{patients.length > 0 ? (
 					<React.Fragment>
-						<h1 className="text-success">Patient Portal</h1> <hr />
+						<h2 className="text-success">Patient Portal</h2> <hr />
 						<div className="row">
 							<div className="col-md-11">
 								<div className="input-group rounded">

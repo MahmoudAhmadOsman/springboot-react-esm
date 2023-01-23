@@ -110,7 +110,7 @@ const AddPatientComponent = () => {
 									aria-expanded="true"
 									aria-controls="collapseOne"
 								>
-									<h3 className="text-secondary">Patient Details</h3>
+									<h3 className="text-secondary">Patient Information</h3>
 								</button>
 							</h2>
 							<div

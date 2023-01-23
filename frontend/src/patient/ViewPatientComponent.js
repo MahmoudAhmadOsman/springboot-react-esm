@@ -51,7 +51,6 @@ const ViewPatientComponent = () => {
 				console.log(e.message);
 			});
 	};
-
 	useEffect(() => {
 		loadPatientData();
 	}, [patient]);
