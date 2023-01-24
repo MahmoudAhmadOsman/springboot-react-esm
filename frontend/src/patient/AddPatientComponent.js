@@ -14,7 +14,6 @@ const AddPatientComponent = () => {
 	const [gender, setGender] = useState("");
 	const [martialStatus, setMartialStatus] = useState("");
 	const [ssn, setSNN] = useState("");
-	
 
 	const [streetName, setStreetName] = useState("");
 	const [city, setCity] = useState("");
@@ -346,7 +345,7 @@ const AddPatientComponent = () => {
 											/>
 											{error && zipCode.length <= 0 ? (
 												<span className="text-danger">
-													Zip code name is required!
+													Zip code is required!
 												</span>
 											) : (
 												""
