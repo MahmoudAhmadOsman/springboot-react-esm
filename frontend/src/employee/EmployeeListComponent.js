@@ -15,10 +15,6 @@ const EmployeeListComponent = () => {
 	const [currentPage, setCurrentPage] = useState(4);
 	const totalPages = employees.length;
 
-	useEffect(() => {
-		getAllEmployees(navigate("/employees"));
-	}, [employees]);
-
 	const getAllEmployees = async () => {
 		await EmployeeService.getAllEmployees()
 			.then((res) => {
@@ -30,6 +26,10 @@ const EmployeeListComponent = () => {
 				}
 			});
 	};
+
+	useEffect(() => {
+		getAllEmployees(navigate("/employees"));
+	}, [employees]);
 
 	return (
 		<section className="employee-list">
