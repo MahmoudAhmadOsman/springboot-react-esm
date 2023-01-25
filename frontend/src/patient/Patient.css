@@ -25,8 +25,8 @@
 	height: auto;
 }
 .view-patient .card {
-	height: 100vh;
 	border: 0px;
+	height: 100%;
 }
 .view-patient .card img {
 	width: 150px;

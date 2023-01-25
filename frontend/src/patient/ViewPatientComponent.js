@@ -60,24 +60,24 @@ const ViewPatientComponent = () => {
 			<div className="container mt-3">
 				<h3 className="text-success">Patient Summary</h3> <hr />
 				<div className="row">
-					<div className="col-md-3">
+					<div className="col-md-3 col-sm-12 col-xs-12">
 						<div className="card">
 							<img
 								src="https://bootdey.com/img/Content/avatar/avatar7.png"
 								className="card-img-top rounded-circle"
 								alt={patient.firstName}
 							/>
-							<div className="card-body">
-								<h5 className="card-title">
+							<div className="card-body text-center">
+								<h4 className="card-title">
 									Full Name: &nbsp;
 									<i>
 										{patient.firstName} {patient.lastName}
 									</i>
-								</h5>
+								</h4>
 								<hr />
 
-								<p className="text-success">
-									Member Since: <b>{patient.creationDate}</b>
+								<p className="text-muted">
+									Member Since: {patient.creationDate}
 									<sup>
 										<span
 											data-bs-toggle="tooltip"
@@ -92,7 +92,7 @@ const ViewPatientComponent = () => {
 							</div>
 						</div>
 					</div>
-					<div className="col-md-8 bg-body-tertiary rounded tbl-right-view">
+					<div className="col-md-9 col-sm-6 col-xs-6 bg-body-tertiary rounded tbl-right-view">
 						<h4>Personal Details</h4>
 
 						<div className="table-responsive">
