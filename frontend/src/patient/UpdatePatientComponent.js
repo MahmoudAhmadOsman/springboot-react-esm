@@ -604,7 +604,7 @@ const UpdatePatientComponent = () => {
 								</div>
 							</div>
 						</div>
-						<div className="float-start mt-4">
+						<div className="float-end mt-4">
 							<button
 								onClick={(e) => {
 									updatePatient(e);
