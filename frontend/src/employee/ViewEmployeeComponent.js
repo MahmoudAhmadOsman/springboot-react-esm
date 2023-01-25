@@ -42,9 +42,9 @@ const ViewEmployeeComponent = () => {
 
 	return (
 		<div className="container my-3">
-			<h1 className="text-success">
+			<h3 className="text-success">
 				<span className="text-info">{employee.firstName}</span> Profile Details
-			</h1>{" "}
+			</h3>{" "}
 			<hr />
 			<div className="row">
 				<div className="col-md-6">
@@ -90,7 +90,7 @@ const ViewEmployeeComponent = () => {
 										)}
 									</td>
 									<td>
-										{employee.status == 1 ? (
+										{employee.status === 1 ? (
 											<span className="text-success">APPROVED</span>
 										) : (
 											<span className="text-danger">PENDING</span>
@@ -138,6 +138,17 @@ const ViewEmployeeComponent = () => {
 					>
 						Update
 					</Link>
+					<p
+						className="btn btn-outline-secondary btn-sm border-0 float-end"
+						disabled
+					>
+						<b>Created At: </b>
+						{employee.creationDate != null ? (
+							<span>{employee.creationDate}</span>
+						) : (
+							<span>No date</span>
+						)}
+					</p>
 				</div>
 			</div>
 		</div>

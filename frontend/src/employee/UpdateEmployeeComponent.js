@@ -19,9 +19,9 @@ const UpdateEmployeeComponent = () => {
 		e.preventDefault();
 
 		if (
-			employeeData.firstName.length == 0 ||
-			employeeData.lastName.length == 0 ||
-			employeeData.firstName.length == 0
+			employeeData.firstName.length === 0 ||
+			employeeData.lastName.length === 0 ||
+			employeeData.firstName.length === 0
 		) {
 			setError(true);
 			return;
@@ -30,7 +30,7 @@ const UpdateEmployeeComponent = () => {
 		if (id) {
 			EmployeeService.patchEmployee(id, employeeData)
 				.then(navigate("/view-employee/" + id))
-			 
+
 				.catch((e) => console.log(e));
 			// console.log(employeeData);
 		}
@@ -129,7 +129,10 @@ const UpdateEmployeeComponent = () => {
 									</button>
 								</div>
 								<div className="p-2 bd-highlight">
-									<Link to="/employees" className="btn btn-outline-danger">
+									<Link
+										to={`/view-employee/${id}`}
+										className="btn btn-outline-danger"
+									>
 										{" "}
 										Cancel
 									</Link>

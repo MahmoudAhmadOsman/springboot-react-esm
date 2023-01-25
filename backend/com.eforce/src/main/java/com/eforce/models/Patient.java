@@ -44,7 +44,14 @@ public class Patient {
     private String providerPhone;
     private String careType;
     private String renewalMonth;
-//    @JsonFormat(pattern="dd-MM-yyyy")
-    private String creationDate;
+
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
+    private Date creationDate;
+
+    @PrePersist
+    private void onCreate() {
+        creationDate = new Date();
+    }
 
 }

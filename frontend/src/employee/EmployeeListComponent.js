@@ -80,10 +80,16 @@ const EmployeeListComponent = () => {
 										<tbody>
 											{employees
 												.filter((user) => {
-													return search.toLowerCase() === ""
+													return search.toString().toLowerCase() === ""
 														? user
-														: user.firstName.toLowerCase().includes(search) ||
-																user.lastName.toLowerCase().includes(search);
+														: user.firstName
+																.toString()
+																.toLowerCase()
+																.includes(search) ||
+																user.lastName
+																	.toString()
+																	.toLowerCase()
+																	.includes(search);
 												})
 												.map((employee) => (
 													<tr key={employee.id}>

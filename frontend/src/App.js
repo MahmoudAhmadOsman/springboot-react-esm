@@ -8,7 +8,7 @@ import ViewEmployeeComponent from "./employee/ViewEmployeeComponent";
 import Navigation from "./navigation/Navigation";
 import UpdateEmployeeComponent from "./employee/UpdateEmployeeComponent";
 import HomeComponent from "./home/HomeComponent";
-import AboutComponent from "./employee/AboutComponent";
+import AboutComponent from "./pages/AboutComponent";
 import AddPatientComponent from "./patient/AddPatientComponent";
 import PatientListComponent from "./patient/PatientListComponent";
 import ViewPatientComponent from "./patient/ViewPatientComponent";

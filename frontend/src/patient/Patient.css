@@ -2,6 +2,7 @@
 
 .add-patient {
 	position: relative;
+	height: 100vh;
 }
 .add-patient input::placeholder,
 .add-patient select {
@@ -15,11 +16,13 @@
 /* patient list style */
 .patietn-list {
 	position: relative;
+	height: 100vh;
 }
 
 /* view patient */
 .view-patient {
 	position: relative;
+	height: auto;
 }
 .view-patient .card {
 	height: 100vh;

@@ -60,26 +60,26 @@ const UpdatePatientComponent = () => {
 		e.preventDefault();
 
 		if (
-			patientData.firstName.length == 0 ||
-			patientData.lastName.length == 0 ||
-			patientData.email.length == 0 ||
-			patientData.phoneNumber.length == 0 ||
-			patientData.dateOfBirth.length == 0 ||
-			patientData.gender.length == 0 ||
-			patientData.martialStatus.length == 0 ||
-			patientData.ssn.length == 0 ||
-			patientData.streetName.length == 0 ||
-			patientData.city.length == 0 ||
-			patientData.state.length == 0 ||
-			patientData.zipCode.length == 0 ||
-			patientData.note.length == 0 ||
-			patientData.providerName.length == 0 ||
-			patientData.accountNumber.length == 0 ||
-			patientData.groupNumber.length == 0 ||
-			patientData.providerPhone.length == 0 ||
-			patientData.careType.length == 0 ||
-			patientData.renewalMonth.length == 0 ||
-			patientData.creationDate.length == 0
+			patientData.firstName.length === 0 ||
+			patientData.lastName.length === 0 ||
+			patientData.email.length === 0 ||
+			patientData.phoneNumber.length === 0 ||
+			patientData.dateOfBirth.length === 0 ||
+			patientData.gender.length === 0 ||
+			patientData.martialStatus.length === 0 ||
+			patientData.ssn.length === 0 ||
+			patientData.streetName.length === 0 ||
+			patientData.city.length === 0 ||
+			patientData.state.length === 0 ||
+			patientData.zipCode.length === 0 ||
+			patientData.note.length === 0 ||
+			patientData.providerName.length === 0 ||
+			patientData.accountNumber.length === 0 ||
+			patientData.groupNumber.length === 0 ||
+			patientData.providerPhone.length === 0 ||
+			patientData.careType.length === 0 ||
+			patientData.renewalMonth.length === 0 ||
+			patientData.creationDate.length === 0
 		) {
 			setError(true);
 			return;
@@ -263,8 +263,8 @@ const UpdatePatientComponent = () => {
 													<option value="" disabled selected>
 														Select
 													</option>
-													<option value="male">Male</option>
-													<option value="female">Female</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
 												</select>
 												{error && gender.length <= 0 ? (
 													<span className="text-danger">
@@ -276,7 +276,32 @@ const UpdatePatientComponent = () => {
 											</div>
 											<div className="col-md-2">
 												<label htmlFor="martialStatus">Marial Status</label>
-												<input
+												<select
+													id="martialStatus"
+													name="gender"
+													value={martialStatus}
+													onChange={(e) => setMartialStatus(e.target.value)}
+													className="form-select form-select-lg"
+												>
+													<option value="" disabled selected>
+														Select
+													</option>
+													<option value="Single" selected>
+														Single
+													</option>
+													<option value="Married">Married</option>
+
+													<option value="Divorced">Divorced</option>
+												</select>
+
+												{error && martialStatus.length <= 0 ? (
+													<span className="text-danger">
+														Martial status is required!
+													</span>
+												) : (
+													""
+												)}
+												{/* <input
 													type="text"
 													value={martialStatus}
 													onChange={(e) => setMartialStatus(e.target.value)}
@@ -290,7 +315,7 @@ const UpdatePatientComponent = () => {
 													</span>
 												) : (
 													""
-												)}
+												)} */}
 											</div>
 											<div className="col-md-3">
 												<label htmlFor="ssn">SSN</label>
@@ -555,7 +580,7 @@ const UpdatePatientComponent = () => {
 											</div>
 										</div>
 
-										<p className="float-end mt-3">
+										{/* <p className="float-end mt-3">
 											<label htmlFor="creationDate">Today's Date</label>
 											<input
 												type="text"
@@ -573,7 +598,7 @@ const UpdatePatientComponent = () => {
 											) : (
 												""
 											)}
-										</p>
+										</p> */}
 										{/* End of insurance details */}
 									</div>
 								</div>

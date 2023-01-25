@@ -28,7 +28,7 @@ const AddPatientComponent = () => {
 
 	const [careType, setCareType] = useState("");
 	const [renewalMonth, setRenewalMonth] = useState("");
-	const [creationDate, setCreationDate] = useState("");
+	// const [creationDate, setCreationDate] = useState("");
 	const [error, setError] = useState(false);
 
 	const patientData = {
@@ -51,33 +51,33 @@ const AddPatientComponent = () => {
 		providerPhone,
 		careType,
 		renewalMonth,
-		creationDate,
+		// creationDate,
 	};
 
 	const updatePatient = async (e) => {
 		e.preventDefault();
 
 		if (
-			patientData.firstName.length == 0 ||
-			patientData.lastName.length == 0 ||
-			patientData.email.length == 0 ||
-			patientData.phoneNumber.length == 0 ||
-			patientData.dateOfBirth.length == 0 ||
-			patientData.gender.length == 0 ||
-			patientData.martialStatus.length == 0 ||
-			patientData.ssn.length == 0 ||
-			patientData.streetName.length == 0 ||
-			patientData.city.length == 0 ||
-			patientData.state.length == 0 ||
-			patientData.zipCode.length == 0 ||
-			patientData.note.length == 0 ||
-			patientData.providerName.length == 0 ||
-			patientData.accountNumber.length == 0 ||
-			patientData.groupNumber.length == 0 ||
-			patientData.providerPhone.length == 0 ||
-			patientData.careType.length == 0 ||
-			patientData.renewalMonth.length == 0 ||
-			patientData.creationDate.length == 0
+			patientData.firstName.length === 0 ||
+			patientData.lastName.length === 0 ||
+			patientData.email.length === 0 ||
+			patientData.phoneNumber.length === 0 ||
+			patientData.dateOfBirth.length === 0 ||
+			patientData.gender.length === 0 ||
+			patientData.martialStatus.length === 0 ||
+			patientData.ssn.length === 0 ||
+			patientData.streetName.length === 0 ||
+			patientData.city.length === 0 ||
+			patientData.state.length === 0 ||
+			patientData.zipCode.length === 0 ||
+			patientData.note.length === 0 ||
+			patientData.providerName.length === 0 ||
+			patientData.accountNumber.length === 0 ||
+			patientData.groupNumber.length === 0 ||
+			patientData.providerPhone.length === 0 ||
+			patientData.careType.length === 0 ||
+			patientData.renewalMonth.length === 0
+			// patientData.creationDate.length == 0
 		) {
 			setError(true);
 			return;
@@ -191,7 +191,6 @@ const AddPatientComponent = () => {
 												name="phone"
 												className="form-control form-control-lg"
 												placeholder="Enter phone number"
-												maxLength={12}
 											/>
 
 											{error && phoneNumber.length <= 0 ? (
@@ -210,7 +209,7 @@ const AddPatientComponent = () => {
 												onChange={(e) => setDateOfBirth(e.target.value)}
 												name="dateOfBirth"
 												className="form-control form-control-lg"
-												placeholder="Enter DOB ex: mm/dd/yyyy"
+												placeholder="ex. mm/dd/yyyy"
 											/>
 											{error && dateOfBirth.length <= 0 ? (
 												<span className="text-danger">
@@ -231,8 +230,9 @@ const AddPatientComponent = () => {
 												<option value="" disabled selected>
 													Select
 												</option>
-												<option value="male">Male</option>
-												<option value="female">Female</option>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
+												<option value="Other">Other</option>
 											</select>
 											{error && gender.length <= 0 ? (
 												<span className="text-danger">Gender is required!</span>
@@ -242,14 +242,24 @@ const AddPatientComponent = () => {
 										</div>
 										<div className="col-md-2">
 											<label htmlFor="martialStatus">Marial Status</label>
-											<input
-												type="text"
+											<select
+												id="martialStatus"
+												name="gender"
 												value={martialStatus}
 												onChange={(e) => setMartialStatus(e.target.value)}
-												name="martialStatus"
-												className="form-control form-control-lg"
-												placeholder="Enter marial status"
-											/>
+												className="form-select form-select-lg"
+											>
+												<option value="" disabled selected>
+													Select
+												</option>
+												<option value="Single" selected>
+													Single
+												</option>
+												<option value="Married">Married</option>
+
+												<option value="Divorced">Divorced</option>
+											</select>
+
 											{error && martialStatus.length <= 0 ? (
 												<span className="text-danger">
 													Martial status is required!
@@ -266,8 +276,7 @@ const AddPatientComponent = () => {
 												onChange={(e) => setSNN(e.target.value)}
 												name="ssn"
 												className="form-control form-control-lg"
-												placeholder="SSN ex: 123-45-6789"
-												maxLength="11"
+												placeholder="ex. 123-45-6789"
 											/>
 											{error && ssn.length <= 0 ? (
 												<span className="text-danger">SSN is required!</span>
@@ -505,7 +514,7 @@ const AddPatientComponent = () => {
 												onChange={(e) => setRenewalMonth(e.target.value)}
 												name="renewalMonth"
 												className="form-control form-control-lg"
-												placeholder="Enter renewal month: ex. J, F, M"
+												placeholder="ex. J, F, M"
 											/>
 											{error && renewalMonth.length <= 0 ? (
 												<span className="text-danger">
@@ -517,7 +526,7 @@ const AddPatientComponent = () => {
 										</div>
 									</div>
 
-									<p className="float-end mt-3">
+									{/* <p className="float-end mt-3">
 										<label htmlFor="creationDate">Today's Date</label>
 										<input
 											type="text"
@@ -530,12 +539,12 @@ const AddPatientComponent = () => {
 										/>
 										{error && creationDate.length <= 0 ? (
 											<span className="text-danger">
-												This field is required!
+												Date is required!
 											</span>
 										) : (
 											""
 										)}
-									</p>
+									</p> */}
 									{/* End of insurance details */}
 								</div>
 							</div>

@@ -78,6 +78,16 @@ const ViewPatientComponent = () => {
 
 								<p className="text-success">
 									Member Since: <b>{patient.creationDate}</b>
+									<sup>
+										<span
+											data-bs-toggle="tooltip"
+											data-bs-placement="top"
+											title="Date of creation of this record"
+											className="badge rounded-pill bg-dark ms-1"
+										>
+											?
+										</span>
+									</sup>
 								</p>
 							</div>
 						</div>

@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -20,6 +22,15 @@ public class Employee {
     private String lastName;
     private String email;
     private boolean status;
+
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
+    private Date creationDate;
+
+    @PrePersist
+    private void onCreate() {
+        creationDate = new Date();
+    }
 
 
 }

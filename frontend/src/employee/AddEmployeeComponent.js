@@ -20,9 +20,9 @@ const AddEmployeeComponent = () => {
 		e.preventDefault();
 
 		if (
-			employeeData.firstName.length == 0 ||
-			employeeData.lastName.length == 0 ||
-			employeeData.email.length == 0
+			employeeData.firstName.length === 0 ||
+			employeeData.lastName.length === 0 ||
+			employeeData.email.length === 0
 		) {
 			setError(true);
 			setDisable(true);
