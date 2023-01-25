@@ -69,10 +69,10 @@ const ViewPatientComponent = () => {
 							/>
 							<div className="card-body text-center">
 								<h4 className="card-title">
-									Full Name: &nbsp;
-									<i>
+									<p>Full Name:</p>
+									<small>
 										{patient.firstName} {patient.lastName}
-									</i>
+									</small>
 								</h4>
 								<hr />
 
