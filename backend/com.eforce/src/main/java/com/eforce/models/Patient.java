@@ -35,6 +35,8 @@ public class Patient {
     private String city;
     private String state;
     private String zipCode;
+
+    @Lob
     private String note;
 
 

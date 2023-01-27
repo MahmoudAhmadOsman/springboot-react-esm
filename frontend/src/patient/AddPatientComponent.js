@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import PatientService from "../service/PatientService";
 import "./Patient.css";
 const AddPatientComponent = () => {
@@ -377,6 +376,7 @@ const AddPatientComponent = () => {
 												id="note"
 												rows="2"
 											></textarea>
+
 											{error && note.length <= 0 ? (
 												<span className="text-danger">Note is required!</span>
 											) : (

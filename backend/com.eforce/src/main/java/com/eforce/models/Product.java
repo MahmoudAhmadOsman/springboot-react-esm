@@ -31,13 +31,15 @@ public class Product {
             @JoinColumn(name = "image_id")
     }
     )
-    private Set<ImageModel> prodductImages;
+    private Set<ImageModel> productImages;
 
-    public Set<ImageModel> getProdductImages() {
-        return prodductImages;
+    public Set<ImageModel> getProductImages() {
+        return productImages;
     }
 
-    public void setProdductImages(Set<ImageModel> prodductImages) {
-        this.prodductImages = prodductImages;
+    public void setproductImages(Set<ImageModel> productImages) {
+        this.productImages = productImages;
     }
+
+
 }

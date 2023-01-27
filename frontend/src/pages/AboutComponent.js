@@ -26,7 +26,7 @@ const AboutComponent = () => {
 							Maven, Apache Tomcat & Docker.
 						</p>
 						<Link
-							to="http://mahmoudosman.com"
+							to="#"
 							className="btn btn-outline-primary btn-lg"
 							target="_blank"
 						>
