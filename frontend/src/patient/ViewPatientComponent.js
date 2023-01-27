@@ -195,12 +195,12 @@ const ViewPatientComponent = () => {
 								>
 									UPDATE
 								</Link>
-								<Link
+								<button
 									onClick={(e) => deletePatient(e, patient.id)}
 									className="btn btn-outline-danger"
 								>
 									DELETE
-								</Link>
+								</button>
 							</p>
 						</div>
 					</div>
