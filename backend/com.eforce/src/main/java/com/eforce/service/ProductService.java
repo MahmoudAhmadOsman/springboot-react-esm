@@ -13,6 +13,7 @@ import java.util.List;
 public class ProductService implements ProductDAO {
 
     private final ProductRepository productRepository;
+
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }

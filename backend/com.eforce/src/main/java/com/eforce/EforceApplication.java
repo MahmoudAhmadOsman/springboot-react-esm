@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class EforceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EforceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(EforceApplication.class, args);
+    }
 
 }

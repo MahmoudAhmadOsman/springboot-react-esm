@@ -18,7 +18,11 @@ import java.util.Set;
 @RequestMapping("/api/v3/products")
 public class ProductController {
     @Autowired
-    private ProductService productService;
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
 
     @PostMapping(value = "/save", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
@@ -43,11 +47,7 @@ public class ProductController {
         Set<ImageModel> imageModels = new HashSet<>();
 
         for (MultipartFile file : multipartFiles) {
-            ImageModel imageModel = new ImageModel(
-                    file.getOriginalFilename(),
-                    file.getContentType(),
-                    file.getBytes()
-            );
+            ImageModel imageModel = new ImageModel(file.getOriginalFilename(), file.getContentType(), file.getBytes());
             imageModels.add(imageModel);
         }
         return imageModels;

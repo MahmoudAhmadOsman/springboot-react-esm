@@ -24,13 +24,7 @@ public class Product {
 
     //Image model
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "product_images",
-            joinColumns = {
-            @JoinColumn(name = "product_id")},
-            inverseJoinColumns = {
-            @JoinColumn(name = "image_id")
-    }
-    )
+    @JoinTable(name = "product_images", joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "image_id")})
     private Set<ImageModel> productImages;
 
     public Set<ImageModel> getProductImages() {
