@@ -13,6 +13,8 @@ import AddPatientComponent from "./patient/AddPatientComponent";
 import PatientListComponent from "./patient/PatientListComponent";
 import ViewPatientComponent from "./patient/ViewPatientComponent";
 import UpdatePatientComponent from "./patient/UpdatePatientComponent";
+import ProductListComponent from "./product/ProductListComponent";
+import AddProductComponent from "./product/AddProductComponent";
 
 function App() {
 	return (
@@ -29,10 +31,18 @@ function App() {
 						path="/update-employee/:id"
 						element={<UpdateEmployeeComponent />}
 					/>
-					<Route path="/add-employee" element={<AddEmployeeComponent />} />
+					<Route
+						path="/employees/add-employee"
+						element={<AddEmployeeComponent />}
+					/>
 					<Route path="/employees" element={<EmployeeListComponent />} />
-					<Route path="/patients" element={<PatientListComponent />} />
 
+					{/* Product routes */}
+					<Route path="/products" element={<ProductListComponent />} />
+					<Route path="/add-product" element={<AddProductComponent />} />
+
+					{/* Patient routes */}
+					<Route path="/patients" element={<PatientListComponent />} />
 					<Route
 						path="/update-patient/:id"
 						element={<UpdatePatientComponent />}
