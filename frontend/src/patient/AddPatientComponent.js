@@ -92,10 +92,7 @@ const AddPatientComponent = () => {
 		}
 	};
 
-
-
-
-//write base64 image to file and call upload function to upload to server
+	//write base64 image to file and call upload function to upload to server
 	// const uploadImage = (e) => {
 	// 	const file = e.target.files[0];
 	// 	const reader = new FileReader();
@@ -105,16 +102,6 @@ const AddPatientComponent = () => {
 	// 		upload(base64data);
 	// 	};
 	// };
-	 
- 
-
-
-
-
-
-
-
-
 
 	return (
 		<section className="add-patient">
@@ -550,25 +537,6 @@ const AddPatientComponent = () => {
 										</div>
 									</div>
 
-									{/* <p className="float-end mt-3">
-										<label htmlFor="creationDate">Today's Date</label>
-										<input
-											type="text"
-											value={creationDate}
-											onChange={(e) => setCreationDate(e.target.value)}
-											className="form-control form-control-sm "
-											name="creationDate"
-											id="creationDate"
-											placeholder="mm/dd/yyyy"
-										/>
-										{error && creationDate.length <= 0 ? (
-											<span className="text-danger">
-												Date is required!
-											</span>
-										) : (
-											""
-										)}
-									</p> */}
 									{/* End of insurance details */}
 								</div>
 							</div>
