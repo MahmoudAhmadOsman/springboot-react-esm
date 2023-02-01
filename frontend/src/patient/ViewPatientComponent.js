@@ -44,12 +44,16 @@ const ViewPatientComponent = () => {
 
 	const deletePatient = async (e, id) => {
 		e.preventDefault();
-		alert("Are you sure, you want to delete this record?");
-		await PatientService.deletePatient(id)
-			.then(navigate("/patients"))
-			.catch((e) => {
-				console.log(e.message);
-			});
+
+		if (window.confirm("Are you sure, you want to delete this record?")) {
+			await PatientService.deletePatient(id)
+				.then(navigate("/patients"))
+				.catch((e) => {
+					console.log(e.message);
+				});
+		} else {
+			return;
+		}
 	};
 	useEffect(() => {
 		loadPatientData();
@@ -82,7 +86,7 @@ const ViewPatientComponent = () => {
 										<span
 											data-bs-toggle="tooltip"
 											data-bs-placement="top"
-											title="Date of creation of this record"
+											title="The date this record was created."
 											className="badge rounded-pill bg-dark ms-1"
 										>
 											?

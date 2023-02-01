@@ -98,6 +98,7 @@ const AddEmployeeComponent = () => {
 									""
 								)}
 							</div>
+
 							<div className="d-flex flex-row bd-highlight mb-3">
 								<div className="p-2 bd-highlight">
 									<button
@@ -114,7 +115,7 @@ const AddEmployeeComponent = () => {
 									</button>
 								</div>
 								<div className="p-2 bd-highlight">
-									<Link to="/" className="btn btn-outline-danger">
+									<Link to="/employees" className="btn btn-outline-danger">
 										{" "}
 										Cancel
 									</Link>

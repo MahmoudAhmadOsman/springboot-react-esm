@@ -21,16 +21,28 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-    private boolean status;
+//    private boolean status;
+    private String status;
+//    private int status = 0;
+
+//  private String department_id;
+
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date creationDate;
 
+
     @PrePersist
     private void onCreate() {
         creationDate = new Date();
     }
+
+
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "department_id", insertable = false, updatable = false,
+//            referencedColumnName = "id")
+//    private Department department;
 
 
 }

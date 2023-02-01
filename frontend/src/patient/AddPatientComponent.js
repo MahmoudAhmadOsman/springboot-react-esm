@@ -92,6 +92,30 @@ const AddPatientComponent = () => {
 		}
 	};
 
+
+
+
+//write base64 image to file and call upload function to upload to server
+	// const uploadImage = (e) => {
+	// 	const file = e.target.files[0];
+	// 	const reader = new FileReader();
+	// 	reader.readAsDataURL(file);
+	// 	reader.onloadend = () => {
+	// 		const base64data = reader.result;
+	// 		upload(base64data);
+	// 	};
+	// };
+	 
+ 
+
+
+
+
+
+
+
+
+
 	return (
 		<section className="add-patient">
 			<div className="container mb-5">

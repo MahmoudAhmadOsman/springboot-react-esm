@@ -8,12 +8,12 @@ const UpdateEmployeeComponent = () => {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [error, setError] = useState(false);
-	// const [status, setStatus] = useState("");
+	const [status, setStatus] = useState("");
 
 	const navigate = useNavigate();
 	const { id } = useParams();
 
-	const employeeData = { firstName, lastName, email };
+	const employeeData = { firstName, lastName, email, status };
 
 	const updateEmployee = (e) => {
 		e.preventDefault();
@@ -29,11 +29,13 @@ const UpdateEmployeeComponent = () => {
 
 		if (id) {
 			EmployeeService.patchEmployee(id, employeeData)
+
 				.then(navigate("/view-employee/" + id))
 
 				.catch((e) => console.log(e));
 			// console.log(employeeData);
 		}
+		console.log(employeeData);
 	};
 
 	const updateTitle = () => {
@@ -51,11 +53,11 @@ const UpdateEmployeeComponent = () => {
 					setFirstName(res.data.firstName);
 					setLastName(res.data.lastName);
 					setEmail(res.data.email);
-					// setStatus(res.data.status);
+					setStatus(res.data.status);
 				})
 				.catch((e) => {
 					console.log(e.message);
-					e.status(401).send("Error: ", e.message);
+					// e.status(401).send("Error: ", e.message);
 				});
 		}
 	}, []);
@@ -64,7 +66,7 @@ const UpdateEmployeeComponent = () => {
 		<>
 			<div className="container mt-3">
 				<div className="row">
-					<div className="col-md-6 mx-auto">
+					<div className="col-md-8 mx-auto">
 						<h2 className="text-success mb-3">{updateTitle()}</h2> <hr /> <br />
 						<form>
 							<div className="mb-3 mt-">
@@ -118,7 +120,29 @@ const UpdateEmployeeComponent = () => {
 								)}
 							</div>
 
-							<div className="d-flex flex-row bd-highlight mb-3">
+							{/* activate */}
+							<div className="p-2 bd-highlight float-end">
+								<label htmlFor="status" className="text-muted">
+									{" "}
+									Activate user status
+								</label>
+								<select
+									name="status"
+									value={status}
+									onChange={(e) => setStatus(e.target.value)}
+									className="form-select form-select-md"
+									aria-label="Default select"
+									style={{ width: "100px" }}
+								>
+									<option selected disabled>
+										Activate
+									</option>
+									<option value="1">YES</option>
+									<option value="0">NO</option>
+								</select>
+							</div>
+
+							<div className="d-flex flex-row mb-3">
 								<div className="p-2 bd-highlight">
 									<button
 										onClick={(e) => updateEmployee(e)}
@@ -128,7 +152,9 @@ const UpdateEmployeeComponent = () => {
 										SUBMIT
 									</button>
 								</div>
-								<div className="p-2 bd-highlight">
+
+								{/* Cancel */}
+								<div className="float-end p-2 ">
 									<Link
 										to={`/view-employee/${id}`}
 										className="btn btn-outline-danger"

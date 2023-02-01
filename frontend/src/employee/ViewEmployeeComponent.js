@@ -28,12 +28,15 @@ const ViewEmployeeComponent = () => {
 
 	const deleteEmployee = async (e, id) => {
 		e.preventDefault();
-		alert("Are you sure, you want to delete this record?");
-		await EmployeeService.deleteEmployee(id)
-			.then(navigate("/employees"))
-			.catch((e) => {
-				console.log(e.message);
-			});
+		if (window.confirm("Are you sure, you want to delete this record?")) {
+			await EmployeeService.deleteEmployee(id)
+				.then(navigate("/employees"))
+				.catch((e) => {
+					console.log(e.message);
+				});
+		} else {
+			return;
+		}
 	};
 
 	useEffect(() => {
@@ -80,7 +83,7 @@ const ViewEmployeeComponent = () => {
 												<span className="text-success">ADMIN</span> | &nbsp;
 												<Link
 													className="btn btn-outline-success btn-sm"
-													to="/add-employee"
+													to="/employees/add-employee"
 												>
 													add new employee
 												</Link>
@@ -90,7 +93,7 @@ const ViewEmployeeComponent = () => {
 										)}
 									</td>
 									<td>
-										{employee.status === 1 ? (
+										{employee.status == 1 ? (
 											<span className="text-success">APPROVED</span>
 										) : (
 											<span className="text-danger">PENDING</span>

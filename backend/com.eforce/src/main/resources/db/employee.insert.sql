@@ -1,5 +1,10 @@
-insert into employees (firstName, lastName, email, status) values ('Moll', 'Calow', 'mcalow0@gmpg.org', 0);
-insert into employees (firstName, lastName, email, status) values ('Ron', 'Goward', 'rgoward1@prnewswire.com', 1);
-insert into employees (firstName, lastName, email, status) values ('Blinnie', 'Yakob', 'byakob2@geocities.com', 0);
-insert into employees (firstName, lastName, email, status) values ('Avivah', 'Lanmeid', 'alanmeid3@spiegel.de', 1);
-insert into employees (firstName, lastName, email, status) values ('Mavra', 'Devin', 'mdevin4@wisc.edu', 1);
+insert into employees (id, firstName, lastName, email, status, creationDate) values (1, 'Hilario', 'Clémence', 'hitzakovitz0@ask.com', 0, '2017/10/10');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (2, 'Kalie', 'Pénélope', 'kodo1@naver.com', 0, '2015/03/06');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (3, 'Lonny', 'Valérie', 'lhassewell2@princeton.edu', 0, '2019/08/14');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (4, 'Andriana', 'Cléa', 'apenella3@google.com.br', 0, '2021/04/20');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (5, 'Alasteir', 'Gaïa', 'aleirmonth4@arizona.edu', 0, '2018/05/29');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (6, 'Misty', 'Noémie', 'mhaffenden5@com.com', 0, '2019/01/22');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (7, 'Sammie', 'Styrbjörn', 'smcneil6@discovery.com', 0, '2017/01/02');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (8, 'Bennie', 'Léonie', 'bdacth7@smugmug.com', 0, '2022/09/20');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (9, 'Catie', 'Nuó', 'crablan8@nyu.edu', 0, '2017/10/05');
+insert into employees (id, firstName, lastName, email, status, creationDate) values (10, 'Yves', 'Frédérique', 'ylacroce9@creativecommons.org', 0, '2020/09/18');

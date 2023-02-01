@@ -20,8 +20,11 @@ import java.util.Optional;
 @Service
 public class EmployeeService implements EmployeeDAO {
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
     @Override
     public Employee saveEmployee(Employee employee) {
@@ -46,8 +49,9 @@ public class EmployeeService implements EmployeeDAO {
         employeeToUpdate.setFirstName(employee.getFirstName());
         employeeToUpdate.setLastName(employee.getFirstName());
         employeeToUpdate.setEmail(employee.getEmail());
-        employeeToUpdate.setStatus(employee.isStatus());
-        return employeeRepository.save(employeeToUpdate);
+       //employeeToUpdate.setStatus(employee.isStatus()); // if boolean
+         employeeToUpdate.setStatus(employee.getStatus()); // if string = 0 or 1
+        return employeeRepository.save(employeeToUpdate); // if status equals to 0
     }
 
     @Override

@@ -56,7 +56,7 @@ const EmployeeListComponent = () => {
 							<div className="col-md-1 float-end">
 								<Link
 									className="btn btn-outline-success"
-									to="/add-employee"
+									to="/employees/add-employee"
 									title="Add New Employee"
 								>
 									<i className="fa fa-pencil" />

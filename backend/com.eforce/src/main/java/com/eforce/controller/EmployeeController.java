@@ -1,5 +1,4 @@
 package com.eforce.controller;
-
 import com.eforce.models.Employee;
 import com.eforce.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,7 @@ public class EmployeeController {
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
+
 
     @PostMapping(value = "/save")
     public Employee saveEmployee(@RequestBody Employee employee) {
