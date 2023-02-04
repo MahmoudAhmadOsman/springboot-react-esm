@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PatientService from "../service/PatientService";
-import "./Patient.css";
+import "./PatientStyle.css";
 
 const ViewPatientComponent = () => {
 	const navigate = useNavigate();

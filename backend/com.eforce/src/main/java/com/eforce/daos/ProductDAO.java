@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductDAO {
 
-   Product saveProduct(Product product);
+   Product saveProduct(Product product) ;
 
 
     List<Product> getAllProducts();

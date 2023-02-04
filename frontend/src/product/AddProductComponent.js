@@ -8,11 +8,33 @@ const AddProductComponent = () => {
 
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("");
-	const [file, setFile] = useState("");
+	const [file, setFile] = useState(null);
+
 	const [description, setDescription] = useState("");
-	const [error, setError] = useState(false);
+	// const [error, setError] = useState(false);
+
+	//const [selectedImage, setSelectedImage] = useState(""); // image state
 
 	const productData = { name, price, file, description };
+
+	const base64ConversionForImages = async (e) => {
+		console.log(e);
+		if (e.target.files[0]) {
+			await getBase64(e.target.files[0]);
+		}
+	};
+
+	const getBase64 = (file) => {
+		let reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = function() {
+			// JSON.stringify(productData);
+			setFile(reader.result);
+		};
+		reader.onerror = function(error) {
+			console.log("An Error has occured: ", error);
+		};
+	};
 
 	const saveProduct = async (e) => {
 		e.preventDefault();
@@ -20,15 +42,16 @@ const AddProductComponent = () => {
 		if (
 			productData.name.length === 0 ||
 			productData.price.length === 0 ||
-			productData.file.length === 0 ||
+			//  productData.file.length === 0 ||
 			productData.description.length === 0
 		) {
-			setError(true);
+			// setError(true);
+			alert("Please fill all the fields");
 			return;
 		} else {
 			console.log(productData);
 
-			await ProductService.saveProduct(saveProduct)
+			await ProductService.saveProduct(productData)
 				.then((res) => {
 					navigate("/products");
 				})
@@ -42,7 +65,7 @@ const AddProductComponent = () => {
 		<section className="add-product">
 			<div className="container">
 				<h2 className="text-success">Add New Product</h2> <hr />
-				<form method="POST" enctype="multipart/form-data">
+				<form method="POST" enctype="multipart/form-data" autoComplete="on">
 					<div className="row">
 						<div className="col-md-6">
 							<div className="mb-3 mt-3">
@@ -58,11 +81,11 @@ const AddProductComponent = () => {
 									className="form-control form-control-lg"
 									placeholder="Product name"
 								/>
-								{error && name.length <= 0 ? (
+								{/* {error && name.length <= 0 ? (
 									<span className="text-danger">Product name is required!</span>
 								) : (
 									""
-								)}
+								)} */}
 							</div>
 						</div>
 						<div className="col-md-6">
@@ -79,13 +102,13 @@ const AddProductComponent = () => {
 									className="form-control form-control-lg"
 									placeholder="Product price $"
 								/>
-								{error && price.length <= 0 ? (
+								{/* {error && price.length <= 0 ? (
 									<span className="text-danger">
 										Product price is required!
 									</span>
 								) : (
 									""
-								)}
+								)} */}
 							</div>
 						</div>
 					</div>
@@ -97,21 +120,32 @@ const AddProductComponent = () => {
 									Choose Product Image
 								</label>
 
-								<input
+								{/* <input
 									accept="image/*"
 									type="file"
 									value={file}
+										id="file"
+									name="file"
 									onChange={(e) => setFile(e.target.value)}
+								
+									className="form-control form-control-lg "
+								/> */}
+
+								<input
+									type="file"
+									accept="image/*"
+									//  value={file}
 									id="file"
 									name="file"
 									className="form-control form-control-lg "
+									onChange={(e) => base64ConversionForImages(e)}
 								/>
 							</div>
-							{error && file.length <= 0 ? (
+							{/* {error && file.length <= 0 ? (
 								<span className="text-danger">Product image is required!</span>
 							) : (
 								""
-							)}
+							)} */}
 						</div>
 					</div>
 
@@ -132,13 +166,13 @@ const AddProductComponent = () => {
 									rows="5"
 								></textarea>
 							</div>
-							{error && description.length <= 0 ? (
+							{/* {error && description.length <= 0 ? (
 								<span className="text-danger">
 									Product description is required!
 								</span>
 							) : (
 								""
-							)}
+							)} */}
 						</div>
 					</div>
 

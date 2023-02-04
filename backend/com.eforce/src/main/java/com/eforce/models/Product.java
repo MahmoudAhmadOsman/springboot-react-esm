@@ -25,6 +25,8 @@ public class Product {
     @Lob
     private String image;
     private double price;
+
+    @Lob
     private String description;
 
 

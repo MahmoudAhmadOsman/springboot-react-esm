@@ -7,14 +7,13 @@ import com.eforce.models.Product;
 import com.eforce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.util.Base64;
+import javax.transaction.Transactional;
+
 import java.util.List;
 
 @Service
+@Transactional
 public class ProductService implements ProductDAO {
 
     @Autowired
@@ -31,27 +30,19 @@ public class ProductService implements ProductDAO {
     }
 
 
-//    public void  saveProduct(MultipartFile file, String name, String description
-//            , int price)
-//    {
-//        Product p = new Product();
-//        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-//        if(fileName.contains(".."))
-//        {
-//            System.out.println("not a a valid file");
-//        }
-//        try {
-//            p.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
-//        } catch (IOException e) {
-//            System.out.println("Unable to save product with images: " + e.getMessage());
-//            e.printStackTrace();
-//        }
-//        p.setDescription(description);
+    //added 2/3
+//    @Override
+//    public Product saveProduct(Product product) {
 //
-//        p.setName(name);
-//        p.setPrice(price);
-//        productRepository.save(p);
+//        product.setName(product.getName());
+//        product.setImage(product.getImage());
+//        product.setPrice(product.getPrice());
+//        product.setDescription(product.getDescription());
+//        return productRepository.save(product);
 //    }
+
+
+
 
 
     @Override

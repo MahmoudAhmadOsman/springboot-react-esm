@@ -1,10 +1,8 @@
 import React from "react";
-import "./About.css";
+import "./AboutStyle.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const AboutComponent = () => {
-	const navigate = useNavigate();
-
 	return (
 		<div className="about-me">
 			<div className="container">
@@ -20,13 +18,12 @@ const AboutComponent = () => {
 					</div>
 					<div className="col-md-8">
 						<p>
-							I'm a software engineer, I have a strong understanding of
-							computer programming and the ability to design and develop complex
-							software systems. I’m skilled in multiple programming languages
-							such Java, JavaScript, SQL, and frameworks like React, Angular,
-							Spring boot, Express and other technologies such as MYSQL,
-							PostgreSQL, Docker, JDBC, Maven, AWS, Bootstrap, HTML5, CSS3 and
-							more.
+							I'm a software engineer, I have a strong understanding of computer
+							programming and the ability to design and develop complex software
+							systems. I’m skilled in multiple programming languages such Java,
+							JavaScript, SQL, and frameworks like React, Angular, Spring boot,
+							Express and other technologies such as MYSQL, PostgreSQL, Docker,
+							JDBC, Maven, AWS, Bootstrap, HTML5, CSS3 and more.
 						</p>
 						<p>
 							I have experience in working on a variety of projects, from
@@ -34,7 +31,8 @@ const AboutComponent = () => {
 							analyze requirements and come up with efficient solutions, and
 							have a keen eye for detail to ensure that the code is clean,
 							maintainable, and free of errors.
-						</p> <hr />
+						</p>{" "}
+						<hr />
 						<Link
 							to="#"
 							className="btn btn-outline-primary btn-lg"
@@ -42,7 +40,7 @@ const AboutComponent = () => {
 						>
 							LEARN MORE
 						</Link>
-					</div>   
+					</div>
 				</div>
 			</div>
 		</div>

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import PatientService from "../service/PatientService";
 import Loading from "../utils/Loading";
 
-import "./Patient.css";
+import "./PatientStyle.css";
 
 const PatientListComponent = () => {
 	const navigate = useNavigate();

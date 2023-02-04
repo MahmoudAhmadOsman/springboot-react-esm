@@ -38,7 +38,7 @@ const AddEmployeeComponent = () => {
 	};
 
 	return (
-		<>
+		<section className="add-employee">
 			<div className="container mt-3">
 				<div className="row">
 					<div className="col-md-6 mx-auto">
@@ -125,7 +125,7 @@ const AddEmployeeComponent = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</section>
 	);
 };
 

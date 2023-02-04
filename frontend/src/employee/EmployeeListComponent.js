@@ -4,6 +4,7 @@ import EmployeeService from "../service/EmployeeService";
 import { useNavigate } from "react-router-dom";
 import Pagination from "react-responsive-pagination";
 import Loading from "../utils/Loading";
+import "./EmployeeStyle.css";
 
 const EmployeeListComponent = () => {
 	const navigate = useNavigate();

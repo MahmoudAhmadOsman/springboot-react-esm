@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PatientService from "../service/PatientService";
-import "./Patient.css";
+import "./PatientStyle.css";
 const AddPatientComponent = () => {
 	const navigate = useNavigate();
 
@@ -13,21 +13,17 @@ const AddPatientComponent = () => {
 	const [gender, setGender] = useState("");
 	const [martialStatus, setMartialStatus] = useState("");
 	const [ssn, setSNN] = useState("");
-
 	const [streetName, setStreetName] = useState("");
 	const [city, setCity] = useState("");
 	const [state, setState] = useState("");
 	const [zipCode, setZipCode] = useState("");
 	const [note, setNote] = useState("");
-
 	const [providerName, setProviderName] = useState("");
 	const [accountNumber, setAccountNumber] = useState("");
 	const [groupNumber, setGroupNumber] = useState("");
 	const [providerPhone, setProviderPhone] = useState("");
-
 	const [careType, setCareType] = useState("");
 	const [renewalMonth, setRenewalMonth] = useState("");
-	// const [creationDate, setCreationDate] = useState("");
 	const [error, setError] = useState(false);
 
 	const patientData = {
@@ -50,7 +46,6 @@ const AddPatientComponent = () => {
 		providerPhone,
 		careType,
 		renewalMonth,
-		// creationDate,
 	};
 
 	const updatePatient = async (e) => {

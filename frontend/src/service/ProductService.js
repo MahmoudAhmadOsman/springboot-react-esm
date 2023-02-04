@@ -7,8 +7,18 @@ class ProductService {
 		return axios.get(BASE_URL + "/list");
 	}
 
+	// saveProduct(productData) {
+	// 	return axios.post(BASE_URL + "/save", productData);
+	// }
+
 	saveProduct(productData) {
-		return axios.post(BASE_URL + "/save", productData);
+		return axios.post(BASE_URL + "/save", productData, {
+			headers: {
+				"Accept":"application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(productData),
+		});
 	}
 }
 export default new ProductService();
