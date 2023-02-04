@@ -27,7 +27,7 @@
  Patients Portal
 ![ERD Schema Design](https://github.com/MahmoudAhmadOsman/springboot-react-esm/blob/master/frontend/public/images/patient-list.png)
 
-Patien Summary Page
+Patient Summary Page
 ![ERD Schema Design](https://github.com/MahmoudAhmadOsman/springboot-react-esm/blob/master/frontend/public/images/patien-summary-page.png)
 
 Patient Registration Form
