@@ -6,9 +6,8 @@ import "./ProductStyle.css";
 
 const ProductListComponent = () => {
 	const productImgHolder = "https://source.unsplash.com/136x136/?laptop";
-	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
-
+	const [products, setProducts] = useState([]);
 	const getAllProducts = async () => {
 		await ProductService.getAllProducts()
 			.then((res) => {
