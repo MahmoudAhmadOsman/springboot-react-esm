@@ -8,6 +8,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -15,6 +18,10 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v3/products")
 public class ProductController {
+
+//    public static String uploadDirectory = System.getProperty("user.dir") + "/src/main/resources/static/images";
+
+
     @Autowired
     private final ProductService productService;
 
@@ -51,8 +58,15 @@ public class ProductController {
 
 
     @PostMapping(value = "/save")
-    public Product saveProduct(@RequestBody Product product) {
+//    @RequestBody
+    //public Product saveProduct(Product product, @RequestParam("image") MultipartFile file)
+    public Product saveProduct(@RequestBody Product product, @RequestParam("image") MultipartFile file) {
+//        StringBuilder fileNames = new StringBuilder();
+//        String fileName = product.getId()  + file.getOriginalFilename().substring(file.getOriginalFilename().length() -4);
+//        Path fileNameAndPath = Paths.get(uploadDirectory, fileName);
+
         try {
+//            Files.write(fileNameAndPath, file.getBytes());
             return productService.saveProduct(product);
         }
         catch(Exception e){
