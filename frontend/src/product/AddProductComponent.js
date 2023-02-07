@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +14,7 @@ const AddProductComponent = () => {
 	const [description, setDescription] = useState("");
 	// const [error, setError] = useState(false);
 
-	//const [selectedImage, setSelectedImage] = useState(""); // image state
+	const [selectedImage, setSelectedImage] = useState(""); // image state
 
 	const productData = { name, price, file, description };
 
@@ -50,6 +51,8 @@ const AddProductComponent = () => {
 			return;
 		} else {
 			console.log(productData);
+
+			console.log(JSON.stringify(productData));
 
 			await ProductService.saveProduct(productData)
 				.then((res) => {

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import ProductService from "../service/ProductService";
 import Loading from "../utils/Loading";
 import "./ProductStyle.css";
 
 const ProductListComponent = () => {
-	const productImgHolder = "https://source.unsplash.com/136x136/?laptop";
+	const productImgHolder = "https://source.unsplash.com/136x136";
 	const [loading, setLoading] = useState(true);
 	const [products, setProducts] = useState([]);
+
 	const getAllProducts = async () => {
 		await ProductService.getAllProducts()
 			.then((res) => {
@@ -23,13 +24,14 @@ const ProductListComponent = () => {
 		// console.log(products);
 		getAllProducts();
 	}, [products]);
+
 	return (
 		<section className="product-list">
 			<div className="container">
 				<h1 className="text-success">Product List</h1> <hr />
 				<div className="loadding">
 					{loading && (
-						<div className="">
+						<div className="loading">
 							<Loading />
 						</div>
 					)}
@@ -39,19 +41,29 @@ const ProductListComponent = () => {
 						return (
 							<div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 								<div className="card mt-3 shadow-lg bg-body rounded">
-									<img
-										src={product.image ? product.image : productImgHolder}
-										className="card-img-top img-fluid"
-										alt={product.name}
-									/>
+									<Link to={`/view-product/${product.id}`}>
+										<img
+											src={
+												product.image
+													? product.image
+													: productImgHolder + "?/" + product.name
+											}
+											className="card-img-top img-fluid"
+											alt={product.name}
+										/>
+									</Link>
+
 									<div className="card-body mb-3">
 										<h3 className="card-title">{product.name}</h3> <hr />
 										<p className="text-muted">{product.description}</p> <hr />
 										<h3 className="card-text text-danger">
-											Price: ${product.price}
+											${product.price}
 										</h3>{" "}
 										<br />
-										<Link to="#" class="btn btn-outline-success">
+										<Link
+											to={`/view-product/${product.id}`}
+											class="btn btn-outline-success"
+										>
 											view
 										</Link>
 									</div>
@@ -59,6 +71,13 @@ const ProductListComponent = () => {
 							</div>
 						);
 					})}
+					{products.length == 0 ? (
+						<div className="alert alert-danger text-center">
+							No Products found!
+						</div>
+					) : (
+						""
+					)}
 				</div>
 			</div>
 		</section>

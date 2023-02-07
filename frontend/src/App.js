@@ -15,6 +15,7 @@ import ViewPatientComponent from "./patient/ViewPatientComponent";
 import UpdatePatientComponent from "./patient/UpdatePatientComponent";
 import ProductListComponent from "./product/ProductListComponent";
 import AddProductComponent from "./product/AddProductComponent";
+import ViewProductComponent from "./product/ViewProductComponent";
 
 function App() {
 	return (
@@ -38,9 +39,9 @@ function App() {
 					<Route path="/employees" element={<EmployeeListComponent />} />
 
 					{/* Product routes */}
-					<Route path="/products" element={<ProductListComponent />} />
+					<Route path="/view-product/:id" element={<ViewProductComponent />} />
 					<Route path="/add-product" element={<AddProductComponent />} />
-
+					<Route path="/products" element={<ProductListComponent />} />
 					{/* Patient routes */}
 					<Route path="/patients" element={<PatientListComponent />} />
 					<Route

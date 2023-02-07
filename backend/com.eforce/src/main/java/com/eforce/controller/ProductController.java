@@ -60,7 +60,7 @@ public class ProductController {
     @PostMapping(value = "/save")
 //    @RequestBody
     //public Product saveProduct(Product product, @RequestParam("image") MultipartFile file)
-    public Product saveProduct(@RequestBody Product product, @RequestParam("image") MultipartFile file) {
+    public Product saveProduct(@RequestBody Product product) {
 //        StringBuilder fileNames = new StringBuilder();
 //        String fileName = product.getId()  + file.getOriginalFilename().substring(file.getOriginalFilename().length() -4);
 //        Path fileNameAndPath = Paths.get(uploadDirectory, fileName);
@@ -68,18 +68,29 @@ public class ProductController {
         try {
 //            Files.write(fileNameAndPath, file.getBytes());
             return productService.saveProduct(product);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Unable to save product data into the database: " + e.getMessage());
             e.printStackTrace();
         }
-      return null;
+        return null;
 
     }
 
     @GetMapping(value = "/list")
     public List<Product> getAllPatients() {
         return productService.getAllProducts();
+    }
+
+
+    @GetMapping(value = "/{id}")
+    public Product getProductById(@PathVariable Long id) {
+        return productService.getProductById(id).get();
+    }
+
+
+    @DeleteMapping(value = "/delete/{id}")
+    public void deleteProduct(@PathVariable Long id) {
+        productService.deleteProductById(id);
     }
 
 

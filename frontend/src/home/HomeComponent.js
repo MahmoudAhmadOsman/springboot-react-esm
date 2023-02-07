@@ -7,7 +7,7 @@ const HomeComponent = () => {
 			<br />
 			<div className="container">
 				<div className="row">
-					<h1 className="text-success">WELCOME TO ESS SYSTEMS</h1> <hr />
+					<h1 className="text-success">Welcome to eforce systems </h1> <hr />
 				</div>
 			</div>
 
@@ -17,13 +17,13 @@ const HomeComponent = () => {
 						{/* flex-container 1 */}
 						<div className="flex-container">
 							<div className="mobile">
-								<i class="fa fa-mobile" aria-hidden="true"></i>
+								<i className="fa fa-mobile" aria-hidden="true"></i>
 							</div>
 							<div className="intro">
 								<span>INTRODUCTION PHONE CALL</span>
 							</div>
 							<div className="min">
-								<i class="fa fa-clock-o" aria-hidden="true"></i> &nbsp;
+								<i className="fa fa-clock-o" aria-hidden="true"></i> &nbsp;
 								<span>30 MIN</span>
 							</div>
 						</div>
@@ -32,13 +32,13 @@ const HomeComponent = () => {
 						<div className="flex-container">
 							<div className="mobile">
 								{/* <i class="fa fa-mobile" aria-hidden="true"></i> */}
-								<i class="fa fa-video-camera" aria-hidden="true"></i>
+								<i className="fa fa-video-camera" aria-hidden="true"></i>
 							</div>
 							<div className="intro">
 								<span>VIDEO MEETING</span>
 							</div>
 							<div className="min">
-								<i class="fa fa-clock-o" aria-hidden="true"></i> &nbsp;
+								<i className="fa fa-clock-o" aria-hidden="true"></i> &nbsp;
 								<span>25 MIN</span>
 							</div>
 						</div>
@@ -66,9 +66,8 @@ const HomeComponent = () => {
 								</span>
 								<b> Schedule on appointment</b> <br />
 								<span className="text-muted">
-									{" "}
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-									iusto eligendi deserunt aspernatur repudiandae sapiente.
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+									fugit ratione ducimus officia cupiditate tenetur!
 								</span>
 							</p>
 						</div>
