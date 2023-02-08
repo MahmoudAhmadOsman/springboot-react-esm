@@ -1,0 +1,3 @@
+- [npm run test] = run all tests
+- [npm run test 'testname']
+- [npm run coverage 'testname' ex. 'HomeComponent.test.js']

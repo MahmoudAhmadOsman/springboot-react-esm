@@ -6,7 +6,8 @@ const AboutComponent = () => {
 	return (
 		<div className="about-me">
 			<div className="container">
-				<h1>About Me</h1> <hr />
+				<h1 className="text-success">About Me</h1>{" "}
+				<hr className="text-danger" />
 				<div className="row">
 					<div className="col-md-2">
 						<img
@@ -14,7 +15,6 @@ const AboutComponent = () => {
 							src="https://media.licdn.com/dms/image/C4E03AQH_3cIm6ypvLA/profile-displayphoto-shrink_200_200/0/1594223983097?e=1680134400&v=beta&t=W0uJKkOZB8nGbpFF9ok_lvlX6RvFGwSUu73DZRvmf2E"
 							alt="Mahmoud Osman"
 						/>
-						<h3>Mahmoud Osman</h3>
 					</div>
 					<div className="col-md-8">
 						<p>
@@ -33,13 +33,25 @@ const AboutComponent = () => {
 							maintainable, and free of errors.
 						</p>{" "}
 						<hr />
-						<Link
-							to="#"
-							className="btn btn-outline-primary btn-lg"
-							target="_blank"
-						>
-							LEARN MORE
-						</Link>
+						<div className="social-container">
+							<h3>Mahmoud Osman</h3>
+							<p>I'm Software Engineer</p>
+							<div className="social-links">
+								{" "}
+								<Link to="#" className="me-2">
+									<i class="fa fa-twitter"></i>
+								</Link>{" "}
+								<Link to="#" className="me-2">
+									<i class="fa fa-facebook"></i>
+								</Link>{" "}
+								<Link to="#" className="me-2">
+									<i class="fa fa-linkedin"></i>
+								</Link>{" "}
+								<Link to="#" class="me-2">
+									<i className="fa fa-github"></i>
+								</Link>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

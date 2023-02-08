@@ -31,7 +31,6 @@ const HomeComponent = () => {
 						{/* Start of 2nd flex container */}
 						<div className="flex-container">
 							<div className="mobile">
-								{/* <i class="fa fa-mobile" aria-hidden="true"></i> */}
 								<i className="fa fa-video-camera" aria-hidden="true"></i>
 							</div>
 							<div className="intro">
