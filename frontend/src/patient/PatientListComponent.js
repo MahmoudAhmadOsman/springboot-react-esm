@@ -121,7 +121,7 @@ const PatientListComponent = () => {
 						</div>
 					</React.Fragment>
 				) : (
-					<div>{/* <Loading /> */}</div>
+					""
 				)}
 
 				{patients.length == 0 ? (
