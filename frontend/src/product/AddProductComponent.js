@@ -42,7 +42,6 @@ const AddProductComponent = () => {
 			productData.description.length === 0
 		) {
 			setError(true);
-			// alert("Please fill all the fields");
 			return;
 		} else {
 			const formData = new FormData();
