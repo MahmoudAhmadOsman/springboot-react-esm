@@ -3,13 +3,18 @@ package com.eforce.service;
 
 import com.eforce.daos.ProductDAO;
 
+import com.eforce.dto.ProductData;
+import com.eforce.mapper.ProductMapper;
 import com.eforce.models.Product;
 import com.eforce.repository.ProductRepository;
+import com.eforce.util.ImageProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,24 +29,14 @@ public class ProductService implements ProductDAO {
         this.productRepository = productRepository;
     }
 
-
     @Override
-    public Product saveProduct(Product product) {
-        return productRepository.save(product);
+    public String saveProduct(ProductData productData, MultipartFile file) throws IOException {
+        if (!file.isEmpty()) {
+            productData.setImage(ImageProcessor.uploadImage(file));
+        }
+        productRepository.save(ProductMapper.mapToEntity(productData));
+        return "Saved Successfully";
     }
-
-
-    //added 2/3
-//    @Override
-//    public Product saveProduct(Product product) {
-//
-//        product.setName(product.getName());
-//        product.setImage(product.getImage());
-//        product.setPrice(product.getPrice());
-//        product.setDescription(product.getDescription());
-//        return productRepository.save(product);
-//    }
-
 
     @Override
     public List<Product> getAllProducts() {

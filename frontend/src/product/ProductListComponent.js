@@ -45,7 +45,7 @@ const ProductListComponent = () => {
 										<img
 											src={
 												product.image
-													? product.image
+													? `http://localhost:8080/${product.image}`
 													: productImgHolder + "?/" + product.name
 											}
 											className="card-img-top img-fluid"

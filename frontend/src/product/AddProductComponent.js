@@ -9,27 +9,22 @@ const AddProductComponent = () => {
 
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("");
-	const [file, setFile] = useState(null);
+	const [file, setFile] = useState("");
 
 	const [description, setDescription] = useState("");
-	// const [error, setError] = useState(false);
-
-	const [selectedImage, setSelectedImage] = useState(""); // image state
+	const [error, setError] = useState(false);
 
 	const productData = { name, price, file, description };
 
 	const base64ConversionForImages = async (e) => {
-		console.log(e);
-		if (e.target.files[0]) {
-			await getBase64(e.target.files[0]);
-		}
+		console.log(e.target.files[0]);
+		setFile(e.target.files[0]);
 	};
 
 	const getBase64 = (file) => {
 		let reader = new FileReader();
 		reader.readAsDataURL(file);
 		reader.onload = function() {
-			// JSON.stringify(productData);
 			setFile(reader.result);
 		};
 		reader.onerror = function(error) {
@@ -43,24 +38,40 @@ const AddProductComponent = () => {
 		if (
 			productData.name.length === 0 ||
 			productData.price.length === 0 ||
-			//  productData.file.length === 0 ||
+			productData.file.length === 0 ||
 			productData.description.length === 0
 		) {
-			// setError(true);
-			alert("Please fill all the fields");
+			setError(true);
+			// alert("Please fill all the fields");
 			return;
 		} else {
-			console.log(productData);
+			const formData = new FormData();
 
-			console.log(JSON.stringify(productData));
+			formData.append(
+				"product",
+				`{ "name":"${name}",
+				"description":"${description}",
+				"image":null,
+				"price":"${price}"}`
+			);
 
-			await ProductService.saveProduct(productData)
+			formData.append("image", file);
+
+			await ProductService.saveProduct(formData)
 				.then((res) => {
-					navigate("/products");
+					console.log(res);
 				})
 				.catch((err) => {
 					console.log(err);
 				});
+
+			// axios.post(`http://localhost:8080/api/v3/products/save`, formData)
+			//     .then(response => console.log(response))
+			//     .catch(error => console.log(error));
+
+			setTimeout(() => {
+				navigate("/products");
+			}, 1000);
 		}
 	};
 
@@ -84,11 +95,11 @@ const AddProductComponent = () => {
 									className="form-control form-control-lg"
 									placeholder="Product name"
 								/>
-								{/* {error && name.length <= 0 ? (
+								{error && name.length <= 0 ? (
 									<span className="text-danger">Product name is required!</span>
 								) : (
 									""
-								)} */}
+								)}
 							</div>
 						</div>
 						<div className="col-md-6">
@@ -105,13 +116,13 @@ const AddProductComponent = () => {
 									className="form-control form-control-lg"
 									placeholder="Product price $"
 								/>
-								{/* {error && price.length <= 0 ? (
+								{error && price.length <= 0 ? (
 									<span className="text-danger">
 										Product price is required!
 									</span>
 								) : (
 									""
-								)} */}
+								)}
 							</div>
 						</div>
 					</div>
@@ -123,17 +134,6 @@ const AddProductComponent = () => {
 									Choose Product Image
 								</label>
 
-								{/* <input
-									accept="image/*"
-									type="file"
-									value={file}
-										id="file"
-									name="file"
-									onChange={(e) => setFile(e.target.value)}
-								
-									className="form-control form-control-lg "
-								/> */}
-
 								<input
 									type="file"
 									accept="image/*"
@@ -144,11 +144,11 @@ const AddProductComponent = () => {
 									onChange={(e) => base64ConversionForImages(e)}
 								/>
 							</div>
-							{/* {error && file.length <= 0 ? (
+							{error && file.length <= 0 ? (
 								<span className="text-danger">Product image is required!</span>
 							) : (
 								""
-							)} */}
+							)}
 						</div>
 					</div>
 
@@ -169,13 +169,13 @@ const AddProductComponent = () => {
 									rows="5"
 								></textarea>
 							</div>
-							{/* {error && description.length <= 0 ? (
+							{error && description.length <= 0 ? (
 								<span className="text-danger">
 									Product description is required!
 								</span>
 							) : (
 								""
-							)} */}
+							)}
 						</div>
 					</div>
 

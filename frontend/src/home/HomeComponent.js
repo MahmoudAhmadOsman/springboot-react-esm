@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./HomeStyle.css";
 
 const HomeComponent = () => {
@@ -46,13 +47,17 @@ const HomeComponent = () => {
 					<div className="col-md-3">
 						<div className="right-panel">
 							<div>
-								<i className="fa fa-linkedin"></i>
+								<Link to="https://www.linkedin.com/in/mahmoudaosman/">
+									<i className="fa fa-linkedin"></i>
+								</Link>
 							</div>
 							<div>
 								<i className="fa fa-facebook"></i>
 							</div>
 							<div>
-								<i className="fa fa-github"></i>
+								<Link to="https://github.com/MahmoudAhmadOsman">
+									<i className="fa fa-github"></i>
+								</Link>
 							</div>
 
 							<p className="p-4 text-center">

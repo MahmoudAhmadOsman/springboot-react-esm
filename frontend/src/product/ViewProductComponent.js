@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ProductService from "../service/ProductService";
+import "./ProductStyle.css";
 
 const ViewProductComponent = () => {
 	const navigate = useNavigate();
@@ -47,16 +48,20 @@ const ViewProductComponent = () => {
 	return (
 		<section className="view-product">
 			<div className="container mt-3">
-				<h3 className="text-success mb-3">Product Details</h3> <hr />
+				<h2 className="text-success mb-3">Product Details</h2> <hr />
 				<div className="row mt-3">
-					<div className="col-md-4 col-sm-6 col-xs-12">
+					<div className="col-md-4 col-sm-12 col-xs-12 mb-4 view-pro-img">
 						<img
-							src={product.image ? product.image : productImgHolder}
+							src={
+								product.image
+									? `http://localhost:8080/${product.image}`
+									: productImgHolder + "?/" + product.name
+							}
 							className="card-img-top img-fluid"
 							alt={product.name}
 						/>
 					</div>
-					<div className="col-md-6 col-sm-6 col-xs-12">
+					<div className="col-lg-8 col-md-8 col-sm-12 col-xs-12 view-pro-right">
 						<h2>{product.name}</h2>
 						<h4>
 							Price: <b className="text-danger">${product.price}</b>
