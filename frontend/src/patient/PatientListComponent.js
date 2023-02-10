@@ -8,12 +8,14 @@ import "./PatientStyle.css";
 const PatientListComponent = () => {
 	const navigate = useNavigate();
 	const [patients, setPatients] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const [search, setSearch] = useState("");
 
 	const getPatients = async () => {
 		await PatientService.getAllPatients()
 			.then((res) => {
 				setPatients(res.data);
+				setLoading(false);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -27,6 +29,14 @@ const PatientListComponent = () => {
 	return (
 		<section className="patietn-list">
 			<div className="container">
+				<div className="loadding">
+					{loading && (
+						<div className="loading">
+							<Loading />
+						</div>
+					)}
+				</div>
+
 				{patients.length > 0 ? (
 					<React.Fragment>
 						<h2 className="text-success">Patient Portal</h2> <hr />
@@ -111,9 +121,17 @@ const PatientListComponent = () => {
 						</div>
 					</React.Fragment>
 				) : (
-					<div>
-						<Loading />
+					<div>{/* <Loading /> */}</div>
+				)}
+
+				{patients.length == 0 ? (
+					<div className="mt-4">
+						<div className="alert alert-danger text-center">
+							No Patients found!
+						</div>
 					</div>
+				) : (
+					""
 				)}
 			</div>
 		</section>
