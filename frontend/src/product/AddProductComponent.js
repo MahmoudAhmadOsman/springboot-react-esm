@@ -58,7 +58,10 @@ const AddProductComponent = () => {
 
 			await ProductService.saveProduct(formData)
 				.then((res) => {
-					console.log(res);
+					// console.log(res);
+					setTimeout(() => {
+						navigate("/products");
+					}, 1000);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -68,9 +71,9 @@ const AddProductComponent = () => {
 			//     .then(response => console.log(response))
 			//     .catch(error => console.log(error));
 
-			setTimeout(() => {
-				navigate("/products");
-			}, 1000);
+			// setTimeout(() => {
+			// 	navigate("/products");
+			// }, 1000);
 		}
 	};
 
