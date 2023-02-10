@@ -70,10 +70,6 @@ const AddProductComponent = () => {
 			// axios.post(`http://localhost:8080/api/v3/products/save`, formData)
 			//     .then(response => console.log(response))
 			//     .catch(error => console.log(error));
-
-			// setTimeout(() => {
-			// 	navigate("/products");
-			// }, 1000);
 		}
 	};
 
