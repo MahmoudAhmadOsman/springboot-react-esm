@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -54,8 +57,11 @@ public class ProductController {
 
 
     @DeleteMapping(value = "/delete/{id}")
-    public void deleteProduct(@PathVariable Long id) {
+    public void deleteProduct(@PathVariable Long id) throws IOException {
+        Path path = Paths.get("C:/Users/fidow/OneDrive/Documents/java-react-2023/backend/com.eforce/src/main/resources/static/images/" + productService.getProductById(id).get().getImage());
+        Files.delete(path);
         productService.deleteProductById(id);
+
     }
 
 

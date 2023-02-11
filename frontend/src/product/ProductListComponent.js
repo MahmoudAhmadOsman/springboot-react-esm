@@ -21,7 +21,6 @@ const ProductListComponent = () => {
 	};
 
 	useState(() => {
-		// console.log(products);
 		getAllProducts();
 	}, [products]);
 

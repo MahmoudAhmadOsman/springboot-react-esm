@@ -135,7 +135,6 @@ const AddProductComponent = () => {
 								<input
 									type="file"
 									accept="image/*"
-									//  value={file}
 									id="file"
 									name="file"
 									className="form-control form-control-lg "

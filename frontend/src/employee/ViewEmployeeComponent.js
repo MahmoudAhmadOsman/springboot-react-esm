@@ -5,6 +5,7 @@ import EmployeeService from "../service/EmployeeService";
 
 const ViewEmployeeComponent = () => {
 	const navigate = useNavigate();
+	const [message, setMessage] = useState(false);
 
 	const [employee, setEmployee] = useState({
 		firstName: "",
@@ -30,7 +31,12 @@ const ViewEmployeeComponent = () => {
 		e.preventDefault();
 		if (window.confirm("Are you sure, you want to delete this record?")) {
 			await EmployeeService.deleteEmployee(id)
-				.then(navigate("/employees"))
+				.then(
+					setMessage(true),
+					setTimeout(() => {
+						navigate("/employees");
+					}, 3000)
+				)
 				.catch((e) => {
 					console.log(e.message);
 				});
@@ -41,10 +47,18 @@ const ViewEmployeeComponent = () => {
 
 	useEffect(() => {
 		loadEmployeeDetails();
-	}, [employee]);
+	}, []);
 
 	return (
 		<div className="container my-3">
+			{message && (
+				<div
+					className="alert alert-danger alert-dismissible fade show"
+					role="alert"
+				>
+					<strong>Warning!</strong> Employee deleted successfully!!.
+				</div>
+			)}
 			<h3 className="text-success">
 				<span className="text-info">{employee.firstName}</span> Profile Details
 			</h3>{" "}

@@ -65,7 +65,7 @@ const PatientListComponent = () => {
 									<i className="fa fa-pencil" />
 								</Link>
 							</div>
-						</div>{" "}
+						</div> 
 						<br />
 						<div className="row">
 							<div className="col-md-12">
