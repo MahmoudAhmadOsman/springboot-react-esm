@@ -3,23 +3,19 @@
 	position: relative;
 }
 
-
-
 /* View product style */
-
-.view-product{
+.view-product {
 	position: relative;
 }
 
-.view-product .view-pro-img{
+.view-product .view-pro-img {
 	height: 60vh;
 	background-color: #fff;
-	padding:  20px 0px;
-
+	padding: 20px 0px;
 }
-.view-product .view-pro-right{
-		height: 60vh;
+.view-product .view-pro-right {
+	height: 60vh;
 	background-color: #fff;
-	padding: 5px  50px ;
+	padding: 5px 50px;
 	border-left: 5px solid #ebebeb;
 }
