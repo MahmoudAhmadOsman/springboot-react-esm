@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddEmployeeComponent from "./employee/AddEmployeeComponent";
 import EmployeeListComponent from "./employee/EmployeeListComponent";
 import FooterComponent from "./footer/FooterComponent";

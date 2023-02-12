@@ -1,6 +1,6 @@
 import React from "react";
 import "./AboutStyle.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AboutComponent = () => {
 	return (
@@ -35,19 +35,19 @@ const AboutComponent = () => {
 						<hr />
 						<div className="social-container">
 							<h3>Mahmoud Osman</h3>
-							<p>I'm Software Engineer</p>
+							<p>Software Engineer</p>
 							<div className="social-links">
 								{" "}
 								<Link to="#" className="me-2">
-									<i class="fa fa-twitter"></i>
+									<i className="fa fa-twitter"></i>
 								</Link>{" "}
 								<Link to="#" className="me-2">
-									<i class="fa fa-facebook"></i>
+									<i className="fa fa-facebook"></i>
 								</Link>{" "}
 								<Link to="#" className="me-2">
-									<i class="fa fa-linkedin"></i>
+									<i className="fa fa-linkedin"></i>
 								</Link>{" "}
-								<Link to="#" class="me-2">
+								<Link to="#" className="me-2">
 									<i className="fa fa-github"></i>
 								</Link>
 							</div>

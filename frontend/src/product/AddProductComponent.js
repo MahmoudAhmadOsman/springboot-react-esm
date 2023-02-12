@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -21,16 +20,16 @@ const AddProductComponent = () => {
 		setFile(e.target.files[0]);
 	};
 
-	const getBase64 = (file) => {
-		let reader = new FileReader();
-		reader.readAsDataURL(file);
-		reader.onload = function() {
-			setFile(reader.result);
-		};
-		reader.onerror = function(error) {
-			console.log("An Error has occured: ", error);
-		};
-	};
+	// const getBase64 = (file) => {
+	// 	let reader = new FileReader();
+	// 	reader.readAsDataURL(file);
+	// 	reader.onload = function() {
+	// 		setFile(reader.result);
+	// 	};
+	// 	reader.onerror = function(error) {
+	// 		console.log("An Error has occured: ", error);
+	// 	};
+	// };
 
 	const saveProduct = async (e) => {
 		e.preventDefault();

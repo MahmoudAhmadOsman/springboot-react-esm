@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
-import EmployeeStyles from "./EmployeeStyle.css";
+import "./EmployeeStyle.css";
 
 const AddEmployeeComponent = () => {
 	const navigate = useNavigate();
@@ -10,13 +10,13 @@ const AddEmployeeComponent = () => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
-	const [status, setStatus] = useState("");
+	// const [status, setStatus] = useState("");
 	const [phone, setPhone] = useState("");
 
 	const [error, setError] = useState(false);
 	const [disable, setDisable] = useState(true);
 
-	const employeeData = { firstName, lastName, email, phone, status };
+	const employeeData = { firstName, lastName, email, phone };
 
 	const saveEmployee = async (e) => {
 		e.preventDefault();

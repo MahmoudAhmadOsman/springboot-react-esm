@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ProductService from "../service/ProductService";
 import Loading from "../utils/Loading";
@@ -74,7 +74,7 @@ const ProductListComponent = () => {
 							</div>
 						);
 					})}
-					{products.length == 0 ? (
+					{products.length === 0 ? (
 						<div className="alert alert-danger text-center">
 							No Products found!
 						</div>

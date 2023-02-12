@@ -4,9 +4,9 @@ import "./FooterStyle.css";
 
 const FooterComponent = () => {
 	return (
-		<footer className="text-center text-lg-start bg-secondary text-white">
+		<section className="text-center text-lg-start bg-secondary text-white">
 			{/* Section: Social media */}
-			<section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+			<div className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
 				{/* Left */}
 				<div className="me-5 d-none d-lg-block">
 					<span>Get connected with us on social networks:</span>
@@ -35,10 +35,10 @@ const FooterComponent = () => {
 					</Link>
 				</div>
 				{/* Right */}
-			</section>
+			</div>
 			{/* Section: Social media */}
 			{/* Section: Links  */}
-			<section className>
+			<div>
 				<div className="container text-center text-md-start mt-5">
 					{/* Grid row */}
 					<div className="row mt-3">
@@ -125,7 +125,7 @@ const FooterComponent = () => {
 					</div>
 					{/* Grid row */}
 				</div>
-			</section>
+			</div>
 			{/* Section: Links  */}
 			{/* Copyright */}
 			<div
@@ -136,7 +136,7 @@ const FooterComponent = () => {
 				ESS SYSTEMS
 			</div>
 			{/* Copyright */}
-		</footer>
+		</section>
 	);
 };
 
