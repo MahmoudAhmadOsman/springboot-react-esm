@@ -46,19 +46,23 @@ const ViewProductComponent = () => {
 
 	useEffect(() => {
 		loadProductDetails();
-	}, [product]);
+	}, []);
 
 	return (
 		<section className="view-product">
 			<div className="container mt-3">
-				{message && (
-					<div
-						className="alert alert-danger alert-dismissible fade show"
-						role="alert"
-					>
-						<strong>Warning!</strong> Product deleted successfully!!.
-					</div>
-				)}
+				<div className="mt-3">
+					{message && (
+						<div
+							className="alert alert-danger alert-dismissible fade show"
+							role="alert"
+						>
+							<i className="fa fa-exclamation-triangle" aria-hidden="true"></i>
+							&nbsp;
+							<strong>Warning!</strong> Product deleted successfully!!.
+						</div>
+					)}
+				</div>
 				<h2 className="text-success mb-3">Product Details</h2> <hr />
 				<div className="row mt-3">
 					<div className="col-md-4 col-sm-12 col-xs-12 mb-4 view-pro-img">

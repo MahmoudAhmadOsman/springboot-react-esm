@@ -55,9 +55,11 @@ const ViewPatientComponent = () => {
 			return;
 		}
 	};
+	// console.log(patient);
+
 	useEffect(() => {
 		loadPatientData();
-	}, [patient]);
+	}, []);
 
 	return (
 		<section className="view-patient">

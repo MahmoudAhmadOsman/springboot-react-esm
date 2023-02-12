@@ -21,10 +21,10 @@ const PatientListComponent = () => {
 				console.log(error);
 			});
 	};
-
+	// console.log(patients);
 	useEffect(() => {
 		getPatients(navigate("/patients"));
-	}, [patients]);
+	}, []);
 
 	return (
 		<section className="patietn-list">
@@ -65,7 +65,7 @@ const PatientListComponent = () => {
 									<i className="fa fa-pencil" />
 								</Link>
 							</div>
-						</div> 
+						</div>
 						<br />
 						<div className="row">
 							<div className="col-md-12">

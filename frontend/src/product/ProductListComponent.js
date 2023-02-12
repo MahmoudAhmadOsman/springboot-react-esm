@@ -19,10 +19,11 @@ const ProductListComponent = () => {
 				console.log(err);
 			});
 	};
+	// console.log(products);
 
 	useState(() => {
 		getAllProducts();
-	}, [products]);
+	}, []);
 
 	return (
 		<section className="product-list">
@@ -54,7 +55,10 @@ const ProductListComponent = () => {
 
 									<div className="card-body mb-3">
 										<h3 className="card-title">{product.name}</h3> <hr />
-										<p className="text-muted">{product.description}</p> <hr />
+										<p className="text-muted">
+											{product.description.slice(0, 100)}...
+										</p>{" "}
+										<hr />
 										<h3 className="card-text text-danger">
 											${product.price}
 										</h3>{" "}

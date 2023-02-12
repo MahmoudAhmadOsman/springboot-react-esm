@@ -10,10 +10,10 @@ const AddProductComponent = () => {
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("");
 	const [file, setFile] = useState("");
-
 	const [description, setDescription] = useState("");
-	const [error, setError] = useState(false);
 
+	const [error, setError] = useState(false);
+	const [message, setMessage] = useState(false);
 	const productData = { name, price, file, description };
 
 	const base64ConversionForImages = async (e) => {
@@ -59,9 +59,10 @@ const AddProductComponent = () => {
 			await ProductService.saveProduct(formData)
 				.then((res) => {
 					// console.log(res);
+					setMessage(true);
 					setTimeout(() => {
 						navigate("/products");
-					}, 1000);
+					}, 3000);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -76,6 +77,17 @@ const AddProductComponent = () => {
 	return (
 		<section className="add-product">
 			<div className="container">
+				<div className="mt-3">
+					{message && (
+						<div
+							className="alert alert-success alert-dismissible fade show"
+							role="alert"
+						>
+							<i className="fa fa-check-square-o" aria-hidden="true"></i> &nbsp;
+							<strong>Success!</strong> Product added successfully!!.
+						</div>
+					)}
+				</div>
 				<h2 className="text-success">Add New Product</h2> <hr />
 				<form method="POST" enctype="multipart/form-data" autoComplete="on">
 					<div className="row">

@@ -46,9 +46,11 @@ const ViewEmployeeComponent = () => {
 		}
 	};
 
+	// console.log(employee);
+
 	useEffect(() => {
 		loadEmployeeDetails();
-	}, [loadEmployeeDetails()]);
+	}, []);
 
 	return (
 		<div className="container my-3">

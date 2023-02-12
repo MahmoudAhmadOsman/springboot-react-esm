@@ -27,10 +27,11 @@ const EmployeeListComponent = () => {
 				}
 			});
 	};
+	// console.log(employees);
 
 	useEffect(() => {
 		getAllEmployees(navigate("/employees"));
-	}, [employees]);
+	}, []);
 
 	return (
 		<section className="employee-list">
