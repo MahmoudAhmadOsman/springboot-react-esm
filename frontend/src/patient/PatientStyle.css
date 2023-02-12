@@ -5,6 +5,7 @@
 	height: 100vh;
 }
 .add-patient input::placeholder,
+.add-patient textarea::placeholder,
 .add-patient select {
 	font-size: 14px;
 }

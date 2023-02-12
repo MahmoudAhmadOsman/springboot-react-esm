@@ -301,21 +301,6 @@ const UpdatePatientComponent = () => {
 												) : (
 													""
 												)}
-												{/* <input
-													type="text"
-													value={martialStatus}
-													onChange={(e) => setMartialStatus(e.target.value)}
-													name="martialStatus"
-													className="form-control form-control-lg"
-													placeholder="Enter marial status"
-												/>
-												{error && martialStatus.length <= 0 ? (
-													<span className="text-danger">
-														Martial status is required!
-													</span>
-												) : (
-													""
-												)} */}
 											</div>
 											<div className="col-md-3">
 												<label htmlFor="ssn">SSN</label>
@@ -562,14 +547,40 @@ const UpdatePatientComponent = () => {
 											</div>
 											<div className="col-md-4">
 												<label htmlFor="renewalMonth">Renewal Month</label>
-												<input
+												{/* <input
 													type="text"
 													value={renewalMonth}
 													onChange={(e) => setRenewalMonth(e.target.value)}
 													name="renewalMonth"
 													className="form-control form-control-lg"
 													placeholder="Enter renewal month: ex. J, F, M"
-												/>
+												/> */}
+
+												<select
+													value={renewalMonth}
+													onChange={(e) => setRenewalMonth(e.target.value)}
+													name="renewalMonth"
+													className="form-select form-select-lg"
+												>
+													<option value="" disabled selected>
+														Select Renewal Month
+													</option>
+													<option value="January" selected>
+														January
+													</option>
+													<option value="February">February</option>
+													<option value="March">March</option>
+													<option value="April">April</option>
+													<option value="May">May</option>
+													<option value="June">June</option>
+													<option value="July">July</option>
+													<option value="August">August</option>
+													<option value="September">September</option>
+													<option value="October">October</option>
+													<option value="November">November</option>
+													<option value="December"></option>
+												</select>
+
 												{error && renewalMonth.length <= 0 ? (
 													<span className="text-danger">
 														Renewal month is required!

@@ -381,6 +381,7 @@ const AddPatientComponent = () => {
 												name="note"
 												id="note"
 												rows="2"
+												placeholder="Enter note here"
 											></textarea>
 
 											{error && note.length <= 0 ? (
