@@ -547,22 +547,13 @@ const UpdatePatientComponent = () => {
 											</div>
 											<div className="col-md-4">
 												<label htmlFor="renewalMonth">Renewal Month</label>
-												{/* <input
-													type="text"
-													value={renewalMonth}
-													onChange={(e) => setRenewalMonth(e.target.value)}
-													name="renewalMonth"
-													className="form-control form-control-lg"
-													placeholder="Enter renewal month: ex. J, F, M"
-												/> */}
-
 												<select
 													value={renewalMonth}
 													onChange={(e) => setRenewalMonth(e.target.value)}
 													name="renewalMonth"
 													className="form-select form-select-lg"
 												>
-													<option value="" disabled selected>
+													<option disabled selected>
 														Select Renewal Month
 													</option>
 													<option value="January" selected>
