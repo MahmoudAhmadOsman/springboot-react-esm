@@ -15,17 +15,23 @@ const FooterComponent = () => {
 				{/* Right */}
 				<div>
 					<Link to="#" className="me-4 text-reset">
-						<i className="fab fa-facebook-f" />
+						<i className="fa fa-facebook-f" />
 					</Link>
 					<Link to="#" className="me-4 text-reset">
-						<i className="fab fa-twitter" />
+						<i className="fa fa-twitter" />
 					</Link>
 
-					<Link to="#" className="me-4 text-reset">
-						<i className="fab fa-linkedin" />
+					<Link
+						to="https://www.linkedin.com/in/mahmoudaosman/"
+						className="me-4 text-reset"
+					>
+						<i className="fa fa-linkedin" />
 					</Link>
-					<Link to="#" className="me-4 text-reset">
-						<i className="fab fa-github" />
+					<Link
+						to="https://github.com/MahmoudAhmadOsman"
+						className="me-4 text-reset"
+					>
+						<i className="fa fa-github" />
 					</Link>
 				</div>
 				{/* Right */}
@@ -40,7 +46,7 @@ const FooterComponent = () => {
 						<div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 							{/* Content */}
 							<h6 className="text-uppercase fw-bold mb-4">
-								<i className="fas fa-gem me-3" />
+								<i className="fa fa-gem me-3" />
 								ESS SYSTEMS
 							</h6>
 							<p>
@@ -55,7 +61,7 @@ const FooterComponent = () => {
 							<h6 className="text-uppercase fw-bold mb-4">Products</h6>
 							<p>
 								<Link to="#" className="text-reset">
-									Angular
+									Spring Boot
 								</Link>
 							</p>
 							<p>
@@ -65,12 +71,12 @@ const FooterComponent = () => {
 							</p>
 							<p>
 								<Link to="#" className="text-reset">
-									Vue
+									JPA
 								</Link>
 							</p>
 							<p>
 								<Link to="#" className="text-reset">
-									Laravel
+									SQL
 								</Link>
 							</p>
 						</div>
@@ -102,17 +108,17 @@ const FooterComponent = () => {
 							{/* Links */}
 							<h6 className="text-uppercase fw-bold mb-4">Contact</h6>
 							<p>
-								<i className="fas fa-home me-3" /> New York, NY 10012, US
+								<i className="fa fa-home me-3" /> Minnesota, MN 10012, US
 							</p>
 							<p>
-								<i className="fas fa-envelope me-3" />
-								info@example.com
+								<i className="fa fa-envelope me-3" />
+								info@suport.com
 							</p>
 							<p>
-								<i className="fas fa-phone me-3" /> + 01 234 567 88
+								<i className="fa fa-phone me-3" /> + 01 234 567 88
 							</p>
 							<p>
-								<i className="fas fa-print me-3" /> + 01 234 567 89
+								<i className="fa fa-print me-3" /> + 01 234 567 89
 							</p>
 						</div>
 						{/* Grid column */}
@@ -126,11 +132,8 @@ const FooterComponent = () => {
 				className="text-center p-4"
 				style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
 			>
-				&copy; 2022 Copyright: &nbsp;
-				<Link className="text-reset fw-bold" to="/">
-					ESS SYSTEMS
-				</Link>
-				. Alrights reserved.
+				&copy; Copyright.{new Date().getFullYear()}. All rights reserved. &nbsp;
+				ESS SYSTEMS
 			</div>
 			{/* Copyright */}
 		</footer>

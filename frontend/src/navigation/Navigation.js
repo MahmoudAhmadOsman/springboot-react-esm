@@ -10,7 +10,7 @@ const Nav = () => {
 			<nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 				<div className="container-fluid ">
 					<Link className="navbar-brand " to="/">
-						ESS SYSTEM
+						ESS SYSTEMS
 					</Link>
 					<button
 						className="navbar-toggler"

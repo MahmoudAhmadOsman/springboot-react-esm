@@ -582,25 +582,6 @@ const UpdatePatientComponent = () => {
 											</div>
 										</div>
 
-										{/* <p className="float-end mt-3">
-											<label htmlFor="creationDate">Today's Date</label>
-											<input
-												type="text"
-												value={creationDate}
-												onChange={(e) => setCreationDate(e.target.value)}
-												className="form-control form-control-sm "
-												name="creationDate"
-												id="creationDate"
-												placeholder="mm/dd/yyyy"
-											/>
-											{error && creationDate.length <= 0 ? (
-												<span className="text-danger">
-													This field is required!
-												</span>
-											) : (
-												""
-											)}
-										</p> */}
 										{/* End of insurance details */}
 									</div>
 								</div>
