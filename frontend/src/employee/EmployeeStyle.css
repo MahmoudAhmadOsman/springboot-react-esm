@@ -2,3 +2,15 @@
 	position: relative;
 	height: 100vh;
 }
+
+/* Add emplyee style */
+
+.add-employee {
+	position: relative;
+	height: 100vh;
+}
+
+.add-employee input::placeholder {
+	font-size: 13px;
+	color: #888;
+}

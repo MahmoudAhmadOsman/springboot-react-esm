@@ -7,13 +7,14 @@ const UpdateEmployeeComponent = () => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
 	const [error, setError] = useState(false);
 	const [status, setStatus] = useState("");
 
 	const navigate = useNavigate();
 	const { id } = useParams();
 
-	const employeeData = { firstName, lastName, email, status };
+	const employeeData = { firstName, lastName, email, phone, status };
 
 	const updateEmployee = (e) => {
 		e.preventDefault();
@@ -21,7 +22,8 @@ const UpdateEmployeeComponent = () => {
 		if (
 			employeeData.firstName.length === 0 ||
 			employeeData.lastName.length === 0 ||
-			employeeData.firstName.length === 0
+			employeeData.email.length === 0 ||
+			employeeData.phone.length === 0
 		) {
 			setError(true);
 			return;
@@ -53,10 +55,12 @@ const UpdateEmployeeComponent = () => {
 					setFirstName(res.data.firstName);
 					setLastName(res.data.lastName);
 					setEmail(res.data.email);
+					setPhone(res.data.phone);
 					setStatus(res.data.status);
 				})
 				.catch((e) => {
 					console.log(e.message);
+					alert("Error: ", e.message);
 					// e.status(401).send("Error: ", e.message);
 				});
 		}
@@ -115,6 +119,23 @@ const UpdateEmployeeComponent = () => {
 									<span className="text-danger">
 										Email address is required!
 									</span>
+								) : (
+									""
+								)}
+							</div>
+
+							<div className="mb-3">
+								<label htmlFor="phone">Phone Number</label>
+								<input
+									type="text"
+									value={phone}
+									onChange={(e) => setPhone(e.target.value)}
+									className="form-control form-control-lg"
+									id="phone"
+									placeholder="Enter phone number"
+								/>
+								{error && phone.length <= 0 ? (
+									<span className="text-danger">Phone number is required!</span>
 								) : (
 									""
 								)}

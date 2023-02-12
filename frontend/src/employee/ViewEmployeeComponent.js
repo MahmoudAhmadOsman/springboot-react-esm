@@ -11,6 +11,7 @@ const ViewEmployeeComponent = () => {
 		firstName: "",
 		lastName: "",
 		email: "",
+		phone: "",
 		status: "",
 	});
 
@@ -47,7 +48,7 @@ const ViewEmployeeComponent = () => {
 
 	useEffect(() => {
 		loadEmployeeDetails();
-	}, []);
+	}, [loadEmployeeDetails()]);
 
 	return (
 		<div className="container my-3">
@@ -76,6 +77,10 @@ const ViewEmployeeComponent = () => {
 						<li className="list-group-item">
 							<b>Emaill Address: </b>
 							{employee.email}
+						</li>
+						<li className="list-group-item">
+							<b>Phone Number: </b>
+							{employee.phone}
 						</li>
 					</ul>
 				</div>

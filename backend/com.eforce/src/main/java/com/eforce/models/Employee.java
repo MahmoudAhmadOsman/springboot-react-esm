@@ -21,7 +21,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-//    private boolean status;
+    private String phone;
     private String status;
 //    private int status = 0;
 
