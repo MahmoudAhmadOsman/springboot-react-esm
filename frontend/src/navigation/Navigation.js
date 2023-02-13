@@ -132,6 +132,11 @@ const Nav = () => {
 									About
 								</Link>
 							</li>
+							<li className="nav-item">
+								<Link className="nav-link" to="/register-new-customer">
+									New Customer
+								</Link>
+							</li>
 						</ul>
 					</div>
 				</div>
