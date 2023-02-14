@@ -16,7 +16,6 @@ import UpdatePatientComponent from "./patient/UpdatePatientComponent";
 import ProductListComponent from "./product/ProductListComponent";
 import AddProductComponent from "./product/AddProductComponent";
 import ViewProductComponent from "./product/ViewProductComponent";
-import AddSenderComponent from "./sender/AddSenderComponent";
 
 function App() {
 	return (
@@ -58,11 +57,6 @@ function App() {
 
 					<Route path="/about" element={<AboutComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
-
-					<Route
-						path="/register-new-customer"
-						element={<AddSenderComponent />}
-					/>
 				</Routes>
 			</React.Fragment>
 			<FooterComponent />

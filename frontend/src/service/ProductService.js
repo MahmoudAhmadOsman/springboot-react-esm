@@ -7,9 +7,16 @@ class ProductService {
 		return axios.get(BASE_URL + "/list");
 	}
 
+	// saveProduct(formData) {
+	// 	return axios
+	// 		.post(`http://localhost:8080/api/v3/products/save`, formData)
+	// 		.then((response) => console.log(response))
+	// 		.catch((error) => console.log(error));
+	// }
+
 	saveProduct(formData) {
 		return axios
-			.post(`http://localhost:8080/api/v3/products/save`, formData)
+			.post(`${BASE_URL}` + "/save", formData)
 			.then((response) => console.log(response))
 			.catch((error) => console.log(error));
 	}

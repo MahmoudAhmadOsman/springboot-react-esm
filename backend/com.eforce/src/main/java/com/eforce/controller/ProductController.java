@@ -34,7 +34,7 @@ public class ProductController {
 
 
     @PostMapping(value = "/save")
-    public String saveProduct(@RequestParam("product") String product, @RequestParam("image") MultipartFile file) throws IOException, IOException {
+    public String saveProduct(@RequestParam("product") String product, @RequestParam("image") MultipartFile file) throws IOException {
         ProductData productData = objectMapper.readValue(product, ProductData.class);
         return productService.saveProduct(productData, file);
     }

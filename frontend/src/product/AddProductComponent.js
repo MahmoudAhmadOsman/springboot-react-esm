@@ -111,7 +111,7 @@ const AddProductComponent = () => {
 								)}
 							</div>
 						</div>
-						<div className="col-md-6">
+						<div className="col-md-2">
 							<div className="mb-3 mt-3">
 								<label htmlFor="price" className="form-label">
 									Product Price
@@ -123,7 +123,7 @@ const AddProductComponent = () => {
 									name="price"
 									id="price"
 									className="form-control form-control-lg"
-									placeholder="Product price $"
+									placeholder="Price $"
 								/>
 								{error && price.length <= 0 ? (
 									<span className="text-danger">
