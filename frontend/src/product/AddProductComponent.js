@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProductService from "../service/ProductService";
 
 const AddProductComponent = () => {
@@ -62,7 +62,18 @@ const AddProductComponent = () => {
 					setTimeout(() => {
 						navigate("/products");
 					}, 3000);
+
+					// if (res.ok) {
+					// 	setMessage(true);
+					// 	setTimeout(() => {
+					// 		navigate("/products");
+					// 	}, 300);
+					// } else {
+					// 	alert("Something went wrong!");
+					// 	return;
+					// }
 				})
+
 				.catch((err) => {
 					console.log(err);
 				});
@@ -70,6 +81,10 @@ const AddProductComponent = () => {
 			// axios.post(`http://localhost:8080/api/v3/products/save`, formData)
 			//     .then(response => console.log(response))
 			//     .catch(error => console.log(error));
+
+			setName("");
+			setPrice("");
+			setDescription("");
 		}
 	};
 
@@ -188,13 +203,16 @@ const AddProductComponent = () => {
 					</div>
 
 					<button
-						className="btn btn-outline-success btn-lg"
+						className="btn btn-outline-success btn-lg me-3"
 						onClick={(e) => {
 							saveProduct(e);
 						}}
 					>
 						SUBMIT
 					</button>
+					<Link to="/products" className="btn btn-outline-danger btn-lg">
+						CANCEL
+					</Link>
 				</form>
 			</div>
 		</section>

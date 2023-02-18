@@ -54,7 +54,7 @@ public class ProductController {
 
     @DeleteMapping(value = "/delete/{id}")
     public void deleteProduct(@PathVariable Long id) throws IOException {
-        Path path = Paths.get("C:/Users/fidow/OneDrive/Documents/java-react-2023/backend/com.eforce/src/main/resources/static/images/" + productService.getProductById(id).get().getImage());
+        Path path = Paths.get("C:/Users/fidow/OneDrive/Documents/java-react-2023/backend/src/main/resources/static/images/" + productService.getProductById(id).get().getImage());
         Files.delete(path);
         productService.deleteProductById(id);
 

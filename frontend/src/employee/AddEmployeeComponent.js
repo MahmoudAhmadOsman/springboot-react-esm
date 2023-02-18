@@ -15,6 +15,7 @@ const AddEmployeeComponent = () => {
 
 	const [error, setError] = useState(false);
 	const [disable, setDisable] = useState(true);
+	const [message, setMessage] = useState(false);
 
 	const employeeData = { firstName, lastName, email, phone };
 
@@ -32,17 +33,35 @@ const AddEmployeeComponent = () => {
 		} else {
 			await EmployeeService.saveEmployee(employeeData)
 				.then((res) => {
-					navigate("/employees");
+					setMessage(true);
+					setTimeout(() => {
+						navigate("/employees");
+					}, 2000);
 				}) // console.log(res.data);
 				.catch((e) => {
 					console.log(e.message);
 				});
+			setFirstName("");
+			setLastName("");
+			setEmail("");
+			setPhone("");
 		}
 	};
 
 	return (
 		<section className="add-employee">
 			<div className="container mt-3">
+				<div className="mt-3">
+					{message && (
+						<div
+							className="alert alert-success alert-dismissible fade show"
+							role="alert"
+						>
+							<i className="fa fa-check-square-o" aria-hidden="true"></i> &nbsp;
+							<strong>Success!</strong> New Employee added successfully!!.
+						</div>
+					)}
+				</div>
 				<h2 className="text-success mb-3">Add New Employee</h2> <hr />
 				<form>
 					<div className="row">
