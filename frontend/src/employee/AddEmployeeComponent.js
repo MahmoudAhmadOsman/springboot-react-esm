@@ -36,7 +36,7 @@ const AddEmployeeComponent = () => {
 					setMessage(true);
 					setTimeout(() => {
 						navigate("/employees");
-					}, 2000);
+					}, 200);
 				}) // console.log(res.data);
 				.catch((e) => {
 					console.log(e.message);
