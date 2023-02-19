@@ -24,9 +24,9 @@ public class Authority implements Serializable {
     public Authority() {
     }
 
-    public Authority(Long id, String name) {
-        this.id = id;
+    public Authority(String name, Set<Role> roles) {
         this.name = name;
+        this.roles = roles;
     }
 
     public Long getId() {

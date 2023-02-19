@@ -16,22 +16,27 @@ public class User implements Serializable {
     private Long id;
     private String fristName;
     private String lastName;
+    private String userName;
     private String emailId;
     private String password;
     private boolean enabled;
 
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id",
+            referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id",
+                    referencedColumnName = "id"))
     private Set<Role> roles;
 
     public User() {
     }
 
-    public User(Long id, String fristName, String lastName, String emailId, String password, boolean enabled) {
+    public User(Long id, String fristName, String lastName, String userName, String emailId, String password, boolean enabled) {
         this.id = id;
         this.fristName = fristName;
         this.lastName = lastName;
+        this.userName = userName;
         this.emailId = emailId;
         this.password = password;
         this.enabled = enabled;
@@ -61,6 +66,14 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public String getEmailId() {
         return emailId;
     }
@@ -84,15 +97,6 @@ public class User implements Serializable {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
 
     @Override
     public boolean equals(Object o) {
