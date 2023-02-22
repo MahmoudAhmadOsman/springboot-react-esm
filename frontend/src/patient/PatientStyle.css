@@ -2,7 +2,7 @@
 
 .add-patient {
 	position: relative;
-	height: 100vh;
+	height: auto;
 }
 .add-patient input::placeholder,
 .add-patient textarea::placeholder,

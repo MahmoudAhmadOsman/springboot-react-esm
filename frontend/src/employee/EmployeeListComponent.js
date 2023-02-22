@@ -11,6 +11,7 @@ const EmployeeListComponent = () => {
 
 	const [employees, setEmployees] = useState([]);
 	const [search, setSearch] = useState("");
+	const [loading, setLoading] = useState(true);
 
 	//Pagination
 	const [currentPage, setCurrentPage] = useState(4);
@@ -19,7 +20,10 @@ const EmployeeListComponent = () => {
 	const getAllEmployees = async () => {
 		await EmployeeService.getAllEmployees()
 			.then((res) => {
-				setEmployees(res.data);
+				setTimeout(() => {
+					setEmployees(res.data);
+					setLoading(false);
+				}, 1000);
 			})
 			.catch((e) => {
 				if (e.error) {
@@ -39,6 +43,13 @@ const EmployeeListComponent = () => {
 				{employees.length > 0 ? (
 					<React.Fragment>
 						<h2 className="text-success">List of Employees</h2> <hr />
+						<div className="loadding">
+							{loading && (
+								<div className="loading">
+									<Loading />
+								</div>
+							)}
+						</div>
 						<div className="row">
 							<div className="col-md-11">
 								<div className="input-group rounded">
@@ -68,6 +79,17 @@ const EmployeeListComponent = () => {
 						<br />
 						<div className="row">
 							<div className="col-md-11">
+								{employees.length <= 1 ? (
+									<div className="border-bottom border-5 border-danger">
+										<small className="text-muted">
+											Employee list is {employees.length} and it's time to add
+											more employees.
+										</small>
+									</div>
+								) : (
+									""
+								)}
+								<br />
 								<div className="table-responsive">
 									<table className="table table-hover">
 										<thead className="table-secondary">
@@ -142,8 +164,8 @@ const EmployeeListComponent = () => {
 						</div>
 					</React.Fragment>
 				) : (
-					<div>
-						<Loading />
+					<div className="alert alert-danger text-center">
+						No Employees Found!
 					</div>
 				)}
 			</div>

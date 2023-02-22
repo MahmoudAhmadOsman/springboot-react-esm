@@ -158,8 +158,8 @@ const UpdateEmployeeComponent = () => {
 									<option selected disabled>
 										Activate
 									</option>
-									<option value="1">YES</option>
 									<option value="0">NO</option>
+									<option value="1">YES</option>
 								</select>
 							</div>
 
