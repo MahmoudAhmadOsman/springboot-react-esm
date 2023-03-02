@@ -1,0 +1,9 @@
+.register-user {
+	position: relative;
+	background-color: #fff;
+}
+
+.register-user .card {
+	background-color: #f4f4f4;
+	border: 0px;
+}

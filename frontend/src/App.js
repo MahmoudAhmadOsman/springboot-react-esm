@@ -16,6 +16,7 @@ import UpdatePatientComponent from "./patient/UpdatePatientComponent";
 import ProductListComponent from "./product/ProductListComponent";
 import AddProductComponent from "./product/AddProductComponent";
 import ViewProductComponent from "./product/ViewProductComponent";
+import RegisterComponent from "./register/RegisterUserComponent";
 
 function App() {
 	return (
@@ -54,6 +55,8 @@ function App() {
 						path="/patient/add-patient"
 						element={<AddPatientComponent />}
 					/>
+
+					<Route path="/register" element={<RegisterComponent />} />
 
 					<Route path="/about" element={<AboutComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
