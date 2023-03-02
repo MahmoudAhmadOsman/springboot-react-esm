@@ -16,7 +16,7 @@ import UpdatePatientComponent from "./patient/UpdatePatientComponent";
 import ProductListComponent from "./product/ProductListComponent";
 import AddProductComponent from "./product/AddProductComponent";
 import ViewProductComponent from "./product/ViewProductComponent";
-import RegisterComponent from "./register/RegisterUserComponent";
+import RegisterComponent from "./register/UserComponent";
 
 function App() {
 	return (

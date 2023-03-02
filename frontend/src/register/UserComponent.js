@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./RegisterUserStyle.css";
+import "./UserStyle.css";
 
-const RegisterUserComponent = () => {
+const UserComponent = () => {
 	return (
 		<section className="register-user">
 			<div className="container">
@@ -103,4 +103,4 @@ const RegisterUserComponent = () => {
 	);
 };
 
-export default RegisterUserComponent;
+export default UserComponent;
