@@ -1,12 +1,15 @@
 package com.eforce.service;
 
 import com.eforce.dto.UserDto;
-import org.springframework.stereotype.Service;
 
+import java.util.List;
 
+//acts as DAO - moved to [dao] folder later
 public interface UserService {
 
-    public UserDto createUser(UserDto userDto);
+    List<UserDto> getAllUsers();
 
-    UserDto updateUser(UserDto userDto);
+    public UserDto createUser(UserDto userDto); //create user
+
+    UserDto updateUser(UserDto userDto); // update
 }

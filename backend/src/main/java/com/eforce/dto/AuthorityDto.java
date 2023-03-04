@@ -3,6 +3,10 @@ package com.eforce.dto;
 public class AuthorityDto {
     private String name;
 
+
+    public AuthorityDto() {
+    }
+
     public AuthorityDto(String name) {
         this.name = name;
     }
@@ -13,5 +17,13 @@ public class AuthorityDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @Override
+    public String toString() {
+        return "AuthorityDto{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

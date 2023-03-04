@@ -14,12 +14,13 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fristName;
+    private String firstName;
     private String lastName;
     private String userName;
     private String password;
     private String emailId;
     private boolean enabled;
+
 
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -32,9 +33,9 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(Long id, String fristName, String lastName, String userName, String emailId, String password, boolean enabled) {
+    public User(Long id, String firstName, String lastName, String userName, String emailId, String password, boolean enabled) {
         this.id = id;
-        this.fristName = fristName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.emailId = emailId;
@@ -50,12 +51,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getFristName() {
-        return fristName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFristName(String fristName) {
-        this.fristName = fristName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -97,6 +98,25 @@ public class User implements Serializable {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public boolean equals(Object o) {
