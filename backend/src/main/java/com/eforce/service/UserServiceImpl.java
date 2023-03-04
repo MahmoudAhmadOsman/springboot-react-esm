@@ -40,9 +40,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<UserDto> getAllUsers() {
+    public List<User> getAllUsers() {
         System.out.println("getAllUsers");
-       return null;
+       return userRepository.findAll(Sort.by(Sort.Direction.DESC,"id"));
     }
 
     @Override
