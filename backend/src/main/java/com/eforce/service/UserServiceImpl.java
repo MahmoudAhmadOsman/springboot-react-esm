@@ -9,7 +9,6 @@ import com.eforce.models.User;
 import com.eforce.repository.RoleRepository;
 import com.eforce.repository.UserRepository;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -41,8 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-        System.out.println("getAllUsers");
-       return userRepository.findAll(Sort.by(Sort.Direction.DESC,"id"));
+       return userRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override
@@ -60,7 +57,7 @@ public class UserServiceImpl implements UserService {
         user.setUserName(userDto.getUserName().toLowerCase());
 
 
-        Optional<Role> role = roleRepository.findById(3L);// get the default roles from the database
+        Optional<Role> role = roleRepository.findById(2L);//=====******** get the default roles from the database
 
 
         Set<Role> roles = new HashSet<>(); // set the roles to the user

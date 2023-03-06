@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
 import "./EmployeeStyle.css";
 
@@ -11,7 +10,7 @@ const AddEmployeeComponent = () => {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	// const [status, setStatus] = useState("");
-	const [phone, setPhone] = useState("");
+	const [phone, setPhone] = useState(false);
 
 	const [error, setError] = useState(false);
 	const [disable, setDisable] = useState(true);
