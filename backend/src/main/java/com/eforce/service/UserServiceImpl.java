@@ -68,6 +68,7 @@ public class UserServiceImpl implements UserService {
         user.setEnabled(true);
 
 
+
         //generate a random password for the user
         String password = RandomStringUtils.random(7, true, true);
         System.out.println("password = " + password);
@@ -137,7 +138,6 @@ public class UserServiceImpl implements UserService {
         Set<Role> rSet = new HashSet<>(); // set the roles to the user
 
         for (RoleDto rDto : userDto.getRoles()) {
-//            Role role = roleRepository.findByName(rDto.getName());
             rSet.add(roleRepository.findByName(rDto.getName()));
         }
         user.setRoles(rSet);

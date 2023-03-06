@@ -17,12 +17,15 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private  UserService userService;
+    private final   UserService userService;
 
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-
+    public UserController(UserService userService, UserRepository userRepository) {
+        this.userService = userService;
+        this.userRepository = userRepository;
+    }
 
 
     @GetMapping(path = "/users")
