@@ -187,7 +187,7 @@ const UserComponent = () => {
 										</button>
 									</div>
 									<div className="p-2 bd-highlight">
-										<Link to="/register" className="text-danger">
+										<Link to="/login" className="text-danger">
 											Already have an account?
 										</Link>
 									</div>

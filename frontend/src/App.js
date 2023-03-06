@@ -17,6 +17,7 @@ import ProductListComponent from "./product/ProductListComponent";
 import AddProductComponent from "./product/AddProductComponent";
 import ViewProductComponent from "./product/ViewProductComponent";
 import RegisterComponent from "./register/UserComponent";
+import LoginComponent from "./login/LoginComponent";
 
 function App() {
 	return (
@@ -57,6 +58,7 @@ function App() {
 					/>
 
 					<Route path="/register" element={<RegisterComponent />} />
+					<Route path="/login" element={<LoginComponent />} />
 
 					<Route path="/about" element={<AboutComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
