@@ -10,7 +10,7 @@ const AddEmployeeComponent = () => {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	// const [status, setStatus] = useState("");
-	const [phone, setPhone] = useState(false);
+	const [phone, setPhone] = useState("");
 
 	const [error, setError] = useState(false);
 	const [disable, setDisable] = useState(true);
