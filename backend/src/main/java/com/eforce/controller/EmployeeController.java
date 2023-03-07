@@ -1,4 +1,5 @@
 package com.eforce.controller;
+
 import com.eforce.models.Employee;
 import com.eforce.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping("/api/v1/employees")
+@RequestMapping(path = "/api/v1/employees")
 public class EmployeeController {
 
     @Autowired
@@ -22,7 +23,7 @@ public class EmployeeController {
     }
 
 
-    @PostMapping(value = "/save")
+    @PostMapping(path = "/save")
     public Employee saveEmployee(@RequestBody Employee employee) {
         return employeeService.saveEmployee(employee);
     }
@@ -32,25 +33,25 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(path = "/{id}")
     public Optional<Employee> getEmployeeById(@PathVariable Long id) {
         return employeeService.getEmployeeById(id);
     }
 
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(path = "/{id}")
     public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
         return employeeService.updateEmployee(id, employee);
     }
 
 
-    @PatchMapping(value = "/{id}")
+    @PatchMapping(path = "/{id}")
     public Employee updateEmployeeFields(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
         return employeeService.updateEmployeeByFields(id, fields);
     }
 
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(path = "/delete/{id}")
     public void deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployeeById(id);
     }
