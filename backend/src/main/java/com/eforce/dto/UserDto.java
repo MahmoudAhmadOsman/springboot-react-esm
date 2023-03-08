@@ -5,7 +5,7 @@ import java.util.Set;
 public class UserDto {
 
     private Long id;
-    private String fristName;
+    private String firstName;
     private String lastName;
     private String userName;
     private String password;
@@ -22,12 +22,12 @@ public class UserDto {
         this.id = id;
     }
 
-    public String getFristName() {
-        return fristName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFristName(String fristName) {
-        this.fristName = fristName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -82,7 +82,7 @@ public class UserDto {
     public String toString() {
         return "UserDto{" +
                 "id=" + id +
-                ", fristName='" + fristName + '\'' +
+                ", fristName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +

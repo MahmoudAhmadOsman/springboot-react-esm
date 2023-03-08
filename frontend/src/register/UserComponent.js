@@ -33,7 +33,7 @@ const UserComponent = () => {
 			userData.emailId.length === 0 ||
 			userData.password.length === 0
 		) {
-			// alert("Please fill all the fields");
+	
 			setError(true);
 			return;
 		} else {

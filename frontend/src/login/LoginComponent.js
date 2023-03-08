@@ -1,8 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import UserService from "../service/UserService";
 import "./LoginStyle.css";
 
 const LoginComponent = () => {
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [error, setError] = useState(false);
+
+	const navigate = useNavigate();
+
+	const loginData = {
+		username,
+		password,
+	};
+
+	const loginUser = async (e) => {
+		e.preventDefault();
+		if (loginData.username.length === 0 || loginData.password.length === 0) {
+			setError(true);
+			return;
+		} else {
+			await UserService.userLogin(loginData)
+				.then((res) => {
+					console.log(res);
+					setTimeout(() => {
+						navigate("/patients");
+					}, 200);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+			console.log(loginData);
+			setUsername("");
+			setPassword("");
+		}
+	};
+
 	return (
 		<section className="login">
 			<div className="container mt-3">
@@ -26,13 +61,19 @@ const LoginComponent = () => {
 												UserName
 											</label>
 											<input
-												type="email"
+												type="text"
 												id="username"
 												name="username"
 												class="form-control form-control-lg"
 												placeholder="Enter username"
+												onChange={(e) => setUsername(e.target.value)}
 											/>
 										</div>
+										{error && username.length <= 0 ? (
+											<span className="text-danger">Username is required!</span>
+										) : (
+											""
+										)}
 										<div className="mb-3">
 											<label class="form-label" for="password">
 												Password
@@ -43,10 +84,22 @@ const LoginComponent = () => {
 												name="password"
 												class="form-control form-control-lg"
 												placeholder="Enter password"
+												onChange={(e) => setPassword(e.target.value)}
 											/>
+											{error && password.length <= 0 ? (
+												<span className="text-danger">
+													Password is required!
+												</span>
+											) : (
+												""
+											)}
 										</div>
 
-										<button type="submit" className="btn btn-outline-success">
+										<button
+											onClick={(e) => loginUser(e)}
+											type="submit"
+											className="btn btn-outline-success"
+										>
 											Login
 										</button>
 										<Link to="/register" className="text-danger ms-2">
