@@ -1,3 +1,5 @@
+/* 1. create role first */
+
 {
     "name": "ROLE_ADMIN",
     "authorities": [{

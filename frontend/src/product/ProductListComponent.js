@@ -39,7 +39,10 @@ const ProductListComponent = () => {
 				<div className="row mt-3">
 					{products.map((product) => {
 						return (
-							<div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+							<div
+								key={product.id}
+								className="col-lg-3 col-md-4 col-sm-6 col-xs-12"
+							>
 								<div className="card mt-3 shadow-lg bg-body rounded">
 									<Link to={`/view-product/${product.id}`}>
 										<img
@@ -65,7 +68,7 @@ const ProductListComponent = () => {
 										<br />
 										<Link
 											to={`/view-product/${product.id}`}
-											class="btn btn-outline-success"
+											className="btn btn-outline-success"
 										>
 											view
 										</Link>

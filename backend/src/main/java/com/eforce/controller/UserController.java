@@ -43,17 +43,17 @@ public class UserController {
     }
 
 
-    //login controller ~~
-    @RequestMapping("/login")
-    public User getUserDetailsAfterLogin(Authentication authentication){
-        List<User> users = (List<User>) userRepository.findUserByUserName(authentication.getName()); // something wrong here
-
-        if (users.size() > 0) {
-            return users.get(0);
-        } else {
-            return null;
-        }
-    }
+    //login controller ~~// something wrong here
+//    @RequestMapping("/login")
+//    public User getUserDetailsAfterLogin(Authentication authentication){
+//        List<User> users = (List<User>) userRepository.findUserByUserName(authentication.getName());
+//
+//        if (users.size() > 0) {
+//            return users.get(0);
+//        } else {
+//            return null;
+//        }
+//    }
 
 
     @PutMapping(path = "/update-user/{id}", consumes = {MediaType.APPLICATION_JSON_VALUE},

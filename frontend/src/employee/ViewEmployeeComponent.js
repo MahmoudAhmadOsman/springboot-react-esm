@@ -50,7 +50,7 @@ const ViewEmployeeComponent = () => {
 
 	useEffect(() => {
 		loadEmployeeDetails();
-	}, []);
+	}, [employee]);
 
 	return (
 		<div className="container my-3">
@@ -63,6 +63,7 @@ const ViewEmployeeComponent = () => {
 				</div>
 			)}
 			<h3 className="text-success">
+				<i className="fa fa-book me-2" aria-hidden="true"></i>
 				<span className="text-info">{employee.firstName}</span> Profile Details
 			</h3>{" "}
 			<hr />
