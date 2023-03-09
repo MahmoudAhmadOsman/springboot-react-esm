@@ -35,7 +35,7 @@ public class ProductService implements ProductDAO {
             productData.setImage(ImageProcessor.uploadImage(file));
         }
         productRepository.save(ProductMapper.mapToEntity(productData));
-        return "Saved Successfully";
+        return "Product Saved Successfully!!";
     }
 
     @Override

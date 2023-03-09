@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import RatingComponent from "../rating/RatingComponent";
+
 import ProductService from "../service/ProductService";
 import "./ProductStyle.css";
 
@@ -78,10 +80,17 @@ const ViewProductComponent = () => {
 					</div>
 					<div className="col-lg-8 col-md-8 col-sm-12 col-xs-12 view-pro-right">
 						<h2>{product.name}</h2>
-						<h4>
+						<h3>
 							Price: <b className="text-danger">${product.price}</b>
-						</h4>
+						</h3>
 
+						{/* Product Rating */}
+						<div className="product-rating">
+							<RatingComponent rating={product.productRating}></RatingComponent>
+						</div>
+						<hr />
+
+						<h5 className="text-muted">Decription</h5>
 						<p className="text-muted mb-4">{product.description}</p>
 						<br />
 						<div className="btn-action mt-3">

@@ -9,9 +9,10 @@ public class ProductMapper {
 
     public static Product mapToEntity(ProductData productData) {
         Product product = new Product();
-        product.setDescription(productData.getDescription());
-        product.setImage(productData.getImage());
         product.setName(productData.getName());
+        product.setImage(productData.getImage());
+        product.setProductRating(productData.getProductRating());
+        product.setDescription(productData.getDescription());
         product.setPrice(productData.getPrice());
         return product;
     }

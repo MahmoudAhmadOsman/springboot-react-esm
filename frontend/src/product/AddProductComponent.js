@@ -8,12 +8,14 @@ const AddProductComponent = () => {
 
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("");
+	const [productRating, setProductRating] = useState("");
 	const [file, setFile] = useState("");
 	const [description, setDescription] = useState("");
 
 	const [error, setError] = useState(false);
 	const [message, setMessage] = useState(false);
-	const productData = { name, price, file, description };
+	const [disable, setDisable] = useState(true);
+	const productData = { name, price, file, productRating, description };
 
 	const base64ConversionForImages = async (e) => {
 		console.log(e.target.files[0]);
@@ -38,10 +40,11 @@ const AddProductComponent = () => {
 			productData.name.length === 0 ||
 			productData.price.length === 0 ||
 			productData.file.length === 0 ||
+			productData.productRating.length === 0 ||
 			productData.description.length === 0
 		) {
 			setError(true);
-			return;
+			return error;
 		} else {
 			const formData = new FormData();
 
@@ -50,6 +53,7 @@ const AddProductComponent = () => {
 				`{ "name":"${name}",
 				"description":"${description}",
 				"image":null,
+				"productRating":"${productRating}",
 				"price":"${price}"}`
 			);
 
@@ -61,7 +65,7 @@ const AddProductComponent = () => {
 					setMessage(true);
 					setTimeout(() => {
 						navigate("/products");
-					}, 3000);
+					}, 2000);
 
 					// if (res.ok) {
 					// 	setMessage(true);
@@ -82,9 +86,12 @@ const AddProductComponent = () => {
 			//     .then(response => console.log(response))
 			//     .catch(error => console.log(error));
 
+			console.log(productData);
+
 			setName("");
 			setPrice("");
 			setDescription("");
+			setProductRating("");
 		}
 	};
 
@@ -151,10 +158,11 @@ const AddProductComponent = () => {
 						</div>
 					</div>
 					{/* Row 2 file */}
+
 					<div className="row">
-						<div className="mb-3 mt-3">
-							<div className="col-md-4">
-								<label htmlFor="file" className="form-label d-none">
+						<div className="col-md-6">
+							<div className="mb-3 mt-3">
+								<label htmlFor="file" className="form-label">
 									Choose Product Image
 								</label>
 
@@ -166,9 +174,43 @@ const AddProductComponent = () => {
 									className="form-control form-control-lg "
 									onChange={(e) => base64ConversionForImages(e)}
 								/>
+
+								{error && file.length <= 0 ? (
+									<span className="text-danger">
+										Product image is required!
+									</span>
+								) : (
+									""
+								)}
 							</div>
-							{error && file.length <= 0 ? (
-								<span className="text-danger">Product image is required!</span>
+						</div>
+						<div className="col-md-2">
+							<div className=" mt-3">
+								<label htmlFor="productRating" className="form-label">
+									Product Rating
+								</label>
+
+								<input
+									type="text"
+									id="productRating"
+									name="productRating"
+									className="form-control form-control-lg "
+									placeholder="Enter: 1, 2, 3,4 or 5"
+									maxLength="5"
+									value={productRating}
+									onChange={(e) => setProductRating(e.target.value)}
+								/>
+							</div>
+
+							{error && productRating.length <= 0 ? (
+								<span className="text-danger">Product rating is required!</span>
+							) : (
+								""
+							)}
+							{error && productRating > 5 ? (
+								<span className="text-danger">
+									Product rating must not be greater than 5.
+								</span>
 							) : (
 								""
 							)}
@@ -207,6 +249,14 @@ const AddProductComponent = () => {
 						onClick={(e) => {
 							saveProduct(e);
 						}}
+						// disabled={
+						// 	(disable && name.length <= 0) ||
+						// 	price.length <= 0 ||
+						// 	file.length <= 0 ||
+						// 	description.length <= 0 ||
+						// 	productRating.length <= 0 ||
+						// 	productRating.length > 5
+						// }
 					>
 						SUBMIT
 					</button>
