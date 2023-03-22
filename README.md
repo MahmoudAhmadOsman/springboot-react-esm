@@ -7,7 +7,7 @@
 - MYSQL (Localhost)
 
 **Application Tier**
-- Written in Java 8.
+- Written in Java 1.8
 - Intellij
 - Apache Maven
 - Spring Boot (Backend)
