@@ -8,7 +8,7 @@
 
 **Application Tier**
 - Written in Java 1.8
-- Intellij
+- Intellij IDEA
 - Apache Maven
 - Spring Boot (Backend)
 - React JS (Frontend)
