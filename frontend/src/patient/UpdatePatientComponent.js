@@ -286,7 +286,7 @@ const UpdatePatientComponent = () => {
 													<option value="" disabled selected>
 														Select
 													</option>
-													<option value="Single" selected>
+													<option value="Single">
 														Single
 													</option>
 													<option value="Married">Married</option>
