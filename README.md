@@ -15,7 +15,7 @@
 - JSON Web Tokens
 - JUnit
 - Mockito
-- POSTMAN (for backend testing)
+- POSTMAN (API testing)
 
 
 
