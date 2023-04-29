@@ -155,10 +155,10 @@ const UpdateEmployeeComponent = () => {
 									aria-label="Default select"
 									style={{ width: "100px" }}
 								>
-									<option selected disabled>
+									<option  disabled>
 										Activate
 									</option>
-									<option value="0">NO</option>
+									<option value="0" selected>NO</option>
 									<option value="1">YES</option>
 								</select>
 							</div>
