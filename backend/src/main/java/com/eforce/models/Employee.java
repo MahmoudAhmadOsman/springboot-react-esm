@@ -25,7 +25,7 @@ public class Employee {
     private String status;
 //    private int status = 0;
 
-//  private String department_id;
+
 
 
     @Temporal(TemporalType.DATE)
