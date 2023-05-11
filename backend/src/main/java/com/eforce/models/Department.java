@@ -18,11 +18,10 @@ public class Department {
     private Long id;
     private String departmentName;
 
-    private String employee_id;
 
 
 //    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
-//    private List<Employee> employee;
+//    private Set<Employee> employee;
 
 
 }
