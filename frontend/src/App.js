@@ -18,6 +18,7 @@ import AddProductComponent from "./product/AddProductComponent";
 import ViewProductComponent from "./product/ViewProductComponent";
 import RegisterComponent from "./register/UserComponent";
 import LoginComponent from "./login/LoginComponent";
+import NotFound from "./utils/NotFound";
 
 function App() {
 	return (
@@ -62,6 +63,7 @@ function App() {
 
 					<Route path="/about" element={<AboutComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</React.Fragment>
 			<FooterComponent />
