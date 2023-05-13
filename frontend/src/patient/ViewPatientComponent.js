@@ -110,7 +110,7 @@ const ViewPatientComponent = () => {
 										<th>Martial Status</th>
 										<th>Gender</th>
 										<th>Date of Birth</th>
-										<th>SSN</th>
+										<th>Social Security Number</th>
 									</tr>
 								</thead>
 								<tbody>

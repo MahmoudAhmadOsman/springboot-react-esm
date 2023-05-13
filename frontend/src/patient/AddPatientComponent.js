@@ -199,7 +199,7 @@ const AddPatientComponent = () => {
 										<div className="col-md-2">
 											<label htmlFor="dateOfBirth">Date of Birth</label>
 											<input
-												type="text"
+												type="date"
 												value={dateOfBirth}
 												onChange={(e) => setDateOfBirth(e.target.value)}
 												name="dateOfBirth"
@@ -264,7 +264,7 @@ const AddPatientComponent = () => {
 											)}
 										</div>
 										<div className="col-md-3">
-											<label htmlFor="SSN">SSN</label>
+											<label htmlFor="SSN">Social Security Number</label>
 											<input
 												type="text"
 												value={SSN}
