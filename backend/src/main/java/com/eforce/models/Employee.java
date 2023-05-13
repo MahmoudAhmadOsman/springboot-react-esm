@@ -1,5 +1,6 @@
 package com.eforce.models;
 
+import com.eforce.encrypt.MaskData;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,11 +22,11 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
+
+    @MaskData
     private String phone;
     private String status;
 //    private int status = 0;
-
-
 
 
     @Temporal(TemporalType.DATE)
@@ -37,12 +38,6 @@ public class Employee {
     private void onCreate() {
         creationDate = new Date();
     }
-
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "department_id", insertable = false, updatable = false,
-//            referencedColumnName = "id")
-//    private Department department;
 
 
 }

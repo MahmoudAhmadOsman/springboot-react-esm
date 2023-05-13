@@ -77,7 +77,7 @@ const PatientListComponent = () => {
 												<th>First Name</th>
 												<th>Last Name</th>
 												<th>Phone Number</th>
-												<th>DOB</th>
+												<th>Date of Birth</th>
 												<th>View</th>
 											</tr>
 										</thead>

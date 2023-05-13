@@ -37,10 +37,9 @@ const AddEmployeeComponent = () => {
 						navigate("/employees");
 					}, 2000);
 				}) // console.log(res.data);
-				.catch((e) => { 
-
-                                  setError(e.message);
-			          setDisable(true);
+				.catch((e) => {
+					setError(e.message);
+					setDisable(true);
 
 					console.log(e.message);
 				});

@@ -62,8 +62,8 @@ const ViewEmployeeComponent = () => {
 					<strong>Warning!</strong> Employee deleted successfully!!.
 				</div>
 			)}
-			<h3 className="text-success">
-				<i className="fa fa-book me-2" aria-hidden="true"></i>
+			<h3 className="text-info">
+				<i className="fa fa-info-circle me-2" aria-hidden="true"></i>
 				<span className="text-info">{employee.firstName}</span> Profile Details
 			</h3>{" "}
 			<hr />
@@ -167,7 +167,7 @@ const ViewEmployeeComponent = () => {
 						className="btn btn-outline-secondary btn-sm border-0 float-end"
 						disabled
 					>
-						<b>Created At: </b>
+						<b>Member Since: </b>
 						{employee.creationDate != null ? (
 							<span>{employee.creationDate}</span>
 						) : (

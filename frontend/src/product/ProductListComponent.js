@@ -79,7 +79,7 @@ const ProductListComponent = () => {
 					})}
 					{products.length === 0 ? (
 						<div className="alert alert-danger text-center">
-							No Products found!
+							No Products Found!
 						</div>
 					) : (
 						""

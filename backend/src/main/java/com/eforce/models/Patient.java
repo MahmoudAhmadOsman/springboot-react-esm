@@ -1,6 +1,7 @@
 package com.eforce.models;
 
 
+import com.eforce.encrypt.MaskData;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,10 @@ public class Patient {
     private String martialStatus;
 
     private String dateOfBirth;
-    @Column(name = "snn")
+
+
+    @MaskData
+//    @Column(name = "snn")
     private String SSN;
     private String phoneNumber;
 

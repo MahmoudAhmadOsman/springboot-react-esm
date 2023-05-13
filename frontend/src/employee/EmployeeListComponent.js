@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import EmployeeService from "../service/EmployeeService";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ const EmployeeListComponent = () => {
 	const [employees, setEmployees] = useState([]);
 	const [search, setSearch] = useState("");
 	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
 
 	//Pagination
 	const [currentPage, setCurrentPage] = useState(4);
@@ -25,10 +26,9 @@ const EmployeeListComponent = () => {
 					setLoading(false);
 				}, 1000);
 			})
-			.catch((e) => {
-				if (e.error) {
-					console.log(e.res.status);
-				}
+			.catch((error) => {
+				setError(true);
+				console.log("Unable to display employees list: " + error.message);
 			});
 	};
 	// console.log(employees);
@@ -41,12 +41,19 @@ const EmployeeListComponent = () => {
 		<section className="employee-list">
 			<div className="container mt-3">
 				{employees.length > 0 ? (
-					<React.Fragment>
+					<Fragment>
 						<h2 className="text-success">List of Employees</h2> <hr />
 						<div className="loadding">
 							{loading && (
 								<div className="loading">
 									<Loading />
+								</div>
+							)}
+						</div>
+						<div className="error">
+							{error && (
+								<div className="error">
+									<p>{error.message}</p>
 								</div>
 							)}
 						</div>
@@ -162,10 +169,11 @@ const EmployeeListComponent = () => {
 								</span>
 							</div>
 						</div>
-					</React.Fragment>
+					</Fragment>
 				) : (
 					<div className="alert alert-danger text-center">
 						No Employees Found!
+						{error.message}
 					</div>
 				)}
 			</div>

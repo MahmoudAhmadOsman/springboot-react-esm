@@ -12,7 +12,7 @@ const AddPatientComponent = () => {
 	const [dateOfBirth, setDateOfBirth] = useState("");
 	const [gender, setGender] = useState("");
 	const [martialStatus, setMartialStatus] = useState("");
-	const [ssn, setSNN] = useState("");
+	const [SSN, setSSN] = useState("");
 	const [streetName, setStreetName] = useState("");
 	const [city, setCity] = useState("");
 	const [state, setState] = useState("");
@@ -34,7 +34,7 @@ const AddPatientComponent = () => {
 		dateOfBirth,
 		gender,
 		martialStatus,
-		ssn,
+		SSN,
 		streetName,
 		city,
 		state,
@@ -59,7 +59,7 @@ const AddPatientComponent = () => {
 			patientData.dateOfBirth.length === 0 ||
 			patientData.gender.length === 0 ||
 			patientData.martialStatus.length === 0 ||
-			patientData.ssn.length === 0 ||
+			patientData.SSN.length === 0 ||
 			patientData.streetName.length === 0 ||
 			patientData.city.length === 0 ||
 			patientData.state.length === 0 ||
@@ -82,6 +82,7 @@ const AddPatientComponent = () => {
 					navigate("/patients");
 				})
 				.catch((err) => {
+					setError(err.message);
 					console.log(err);
 				});
 		}
@@ -184,7 +185,7 @@ const AddPatientComponent = () => {
 												id="phone"
 												name="phone"
 												className="form-control form-control-lg"
-												placeholder="Enter phone number"
+												placeholder="012-345-6789"
 											/>
 
 											{error && phoneNumber.length <= 0 ? (
@@ -196,7 +197,7 @@ const AddPatientComponent = () => {
 											)}
 										</div>
 										<div className="col-md-2">
-											<label htmlFor="dateOfBirth">DOB</label>
+											<label htmlFor="dateOfBirth">Date of Birth</label>
 											<input
 												type="text"
 												value={dateOfBirth}
@@ -222,7 +223,7 @@ const AddPatientComponent = () => {
 												className="form-select form-select-lg"
 											>
 												<option value="" disabled selected>
-													Select
+													Select one
 												</option>
 												<option value="Male">Male</option>
 												<option value="Female">Female</option>
@@ -244,7 +245,7 @@ const AddPatientComponent = () => {
 												className="form-select form-select-lg"
 											>
 												<option value="" disabled selected>
-													Select
+													Select one
 												</option>
 												<option value="Single" selected>
 													Single
@@ -263,16 +264,16 @@ const AddPatientComponent = () => {
 											)}
 										</div>
 										<div className="col-md-3">
-											<label htmlFor="ssn">SSN</label>
+											<label htmlFor="SSN">SSN</label>
 											<input
 												type="text"
-												value={ssn}
-												onChange={(e) => setSNN(e.target.value)}
-												name="ssn"
+												value={SSN}
+												onChange={(e) => setSSN(e.target.value)}
+												name="SSN"
 												className="form-control form-control-lg"
-												placeholder="ex. 123-45-6789"
+												placeholder="Enter SSN"
 											/>
-											{error && ssn.length <= 0 ? (
+											{error && SSN.length <= 0 ? (
 												<span className="text-danger">SSN is required!</span>
 											) : (
 												""
