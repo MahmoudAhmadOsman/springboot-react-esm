@@ -10,8 +10,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 
-
-
 @JacksonAnnotationsInside
 @JsonSerialize(using = ProtectDataSerializer.class)
 @Target(ElementType.FIELD)
