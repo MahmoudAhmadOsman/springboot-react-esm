@@ -42,7 +42,7 @@ const UpdateEmployeeComponent = () => {
 
 	const updateTitle = () => {
 		if (id) {
-			return "Update Employee";
+			return "Update ";
 		} else {
 			return "";
 		}
@@ -71,7 +71,10 @@ const UpdateEmployeeComponent = () => {
 			<div className="container mt-3">
 				<div className="row">
 					<div className="col-md-8 mx-auto">
-						<h2 className="text-success mb-3">{updateTitle()}</h2> <hr /> <br />
+						<h2 className="text-success mb-3">
+							{updateTitle() + firstName} Profile
+						</h2>{" "}
+						<hr /> <br />
 						<form>
 							<div className="mb-3 mt-">
 								<label htmlFor="firstName">First Name</label>
@@ -155,10 +158,10 @@ const UpdateEmployeeComponent = () => {
 									aria-label="Default select"
 									style={{ width: "100px" }}
 								>
-									<option  disabled>
-										Activate
+									<option disabled>Activate</option>
+									<option value="0" selected>
+										NO
 									</option>
-									<option value="0" selected>NO</option>
 									<option value="1">YES</option>
 								</select>
 							</div>

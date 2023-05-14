@@ -12,7 +12,7 @@ const AddPatientComponent = () => {
 	const [dateOfBirth, setDateOfBirth] = useState("");
 	const [gender, setGender] = useState("");
 	const [martialStatus, setMartialStatus] = useState("");
-	const [SSN, setSSN] = useState("");
+	const [SSNumber, setSSNumber] = useState("");
 	const [streetName, setStreetName] = useState("");
 	const [city, setCity] = useState("");
 	const [state, setState] = useState("");
@@ -24,7 +24,9 @@ const AddPatientComponent = () => {
 	const [providerPhone, setProviderPhone] = useState("");
 	const [careType, setCareType] = useState("");
 	const [renewalMonth, setRenewalMonth] = useState("");
+
 	const [error, setError] = useState(false);
+	const [message, setMessage] = useState(false);
 
 	const patientData = {
 		firstName,
@@ -34,7 +36,7 @@ const AddPatientComponent = () => {
 		dateOfBirth,
 		gender,
 		martialStatus,
-		SSN,
+		SSNumber,
 		streetName,
 		city,
 		state,
@@ -59,7 +61,7 @@ const AddPatientComponent = () => {
 			patientData.dateOfBirth.length === 0 ||
 			patientData.gender.length === 0 ||
 			patientData.martialStatus.length === 0 ||
-			patientData.SSN.length === 0 ||
+			patientData.SSNumber.length === 0 ||
 			patientData.streetName.length === 0 ||
 			patientData.city.length === 0 ||
 			patientData.state.length === 0 ||
@@ -74,24 +76,38 @@ const AddPatientComponent = () => {
 			// patientData.creationDate.length == 0
 		) {
 			setError(true);
-			return;
 		} else {
-			console.log(patientData);
 			await PatientService.savePatient(patientData)
 				.then((res) => {
-					navigate("/patients");
+					setMessage(true);
+
+					setTimeout(() => {
+						navigate("/patients");
+					}, 2000);
 				})
 				.catch((err) => {
 					setError(err.message);
 					console.log(err);
 				});
 		}
+		console.log("New Patient Data: " + patientData);
 	};
 
 	return (
 		<section className="add-patient">
 			<div className="container mb-5">
-				<form action="">
+				<div className="mt-3">
+					{message && (
+						<div
+							className="alert alert-success alert-dismissible fade show"
+							role="alert"
+						>
+							<i className="fa fa-check-square-o" aria-hidden="true"></i> &nbsp;
+							<strong>Success!</strong> New Patient added successfully!!.
+						</div>
+					)}
+				</div>
+				<form>
 					<h1 className="text-success">Register New Patient</h1> <hr />
 					<div className="accordion" id="patientAccordion">
 						<div className="accordion-item">
@@ -199,7 +215,7 @@ const AddPatientComponent = () => {
 										<div className="col-md-2">
 											<label htmlFor="dateOfBirth">Date of Birth</label>
 											<input
-												type="date"
+												type="text"
 												value={dateOfBirth}
 												onChange={(e) => setDateOfBirth(e.target.value)}
 												name="dateOfBirth"
@@ -251,8 +267,8 @@ const AddPatientComponent = () => {
 													Single
 												</option>
 												<option value="Married">Married</option>
-
 												<option value="Divorced">Divorced</option>
+												<option value="Widow">Widow</option>
 											</select>
 
 											{error && martialStatus.length <= 0 ? (
@@ -264,16 +280,17 @@ const AddPatientComponent = () => {
 											)}
 										</div>
 										<div className="col-md-3">
-											<label htmlFor="SSN">Social Security Number</label>
+											<label htmlFor="SSNumber">Social Security Number</label>
 											<input
 												type="text"
-												value={SSN}
-												onChange={(e) => setSSN(e.target.value)}
-												name="SSN"
+												value={SSNumber}
+												onChange={(e) => setSSNumber(e.target.value)}
+												id="SSNumber"
+												name="SSNumber"
 												className="form-control form-control-lg"
 												placeholder="Enter SSN"
 											/>
-											{error && SSN.length <= 0 ? (
+											{error && SSNumber.length <= 0 ? (
 												<span className="text-danger">SSN is required!</span>
 											) : (
 												""

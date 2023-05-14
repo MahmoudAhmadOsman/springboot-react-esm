@@ -22,8 +22,6 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-
-    @MaskData
     private String phone;
     private String status;
 //    private int status = 0;

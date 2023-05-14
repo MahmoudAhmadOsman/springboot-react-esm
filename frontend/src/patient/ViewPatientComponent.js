@@ -14,7 +14,7 @@ const ViewPatientComponent = () => {
 		gender: "",
 		marialStatus: "",
 		dateOfBirth: "",
-		SNN: "",
+		SSNumber: "",
 		phoneNumber: "",
 		streetName: "",
 		city: "",
@@ -122,8 +122,8 @@ const ViewPatientComponent = () => {
 										<td>{patient.dateOfBirth}</td>
 
 										<td>
-											{patient.SSN ? (
-												patient.SSN
+											{patient.SSNumber ? (
+												patient.SSNumber
 											) : (
 												<span className="text-danger">SSN Not Provided! </span>
 											)}

@@ -49,7 +49,7 @@ public class PatientService implements PatientDAO {
         patientToUpdate.setGender(patient.getGender());
         patientToUpdate.setMartialStatus(patient.getMartialStatus());
         patientToUpdate.setDateOfBirth(patient.getDateOfBirth());
-        patientToUpdate.setSSN(patient.getSSN());
+        patientToUpdate.setSSNumber(patient.getSSNumber());
         patientToUpdate.setPhoneNumber(patient.getPhoneNumber());
         patientToUpdate.setStreetName(patient.getStreetName());
         patientToUpdate.setCity(patient.getCity());

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
 import java.util.Date;
 
 @Data
@@ -26,15 +27,12 @@ public class Patient {
     private String email;
     private String gender;
     private String martialStatus;
-
     private String dateOfBirth;
 
+   @MaskData
+    private String SSNumber;
 
-    @MaskData
-//    @Column(name = "snn")
-    private String SSN;
     private String phoneNumber;
-
     private String streetName;
     private String city;
     private String state;
@@ -42,8 +40,6 @@ public class Patient {
 
     @Lob
     private String note;
-
-
     private String providerName;
     private Long accountNumber;
     private int groupNumber;

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PatientService from "../service/PatientService";
 
 const UpdatePatientComponent = () => {
-	const navigate = useNavigate();
-
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -13,7 +11,7 @@ const UpdatePatientComponent = () => {
 	const [dateOfBirth, setDateOfBirth] = useState("");
 	const [gender, setGender] = useState("");
 	const [martialStatus, setMartialStatus] = useState("");
-	const [ssn, setSNN] = useState("");
+	const [SSNumber, setSSNumber] = useState("");
 
 	const [streetName, setStreetName] = useState("");
 	const [city, setCity] = useState("");
@@ -29,8 +27,10 @@ const UpdatePatientComponent = () => {
 	const [careType, setCareType] = useState("");
 	const [renewalMonth, setRenewalMonth] = useState("");
 	const [creationDate, setCreationDate] = useState("");
+	
 	const [error, setError] = useState(false);
 
+	const navigate = useNavigate();
 	const { id } = useParams();
 
 	const patientData = {
@@ -41,7 +41,7 @@ const UpdatePatientComponent = () => {
 		dateOfBirth,
 		gender,
 		martialStatus,
-		ssn,
+		SSNumber,
 		streetName,
 		city,
 		state,
@@ -67,7 +67,7 @@ const UpdatePatientComponent = () => {
 			patientData.dateOfBirth.length === 0 ||
 			patientData.gender.length === 0 ||
 			patientData.martialStatus.length === 0 ||
-			patientData.ssn.length === 0 ||
+			patientData.SSNumber.length === 0 ||
 			patientData.streetName.length === 0 ||
 			patientData.city.length === 0 ||
 			patientData.state.length === 0 ||
@@ -92,7 +92,8 @@ const UpdatePatientComponent = () => {
 					console.log(patientData);
 				})
 				.catch((err) => {
-					console.log(err.message);
+					alert(setError(err.message));
+					console.log("eeror occured message: " + err.message);
 				});
 		}
 	};
@@ -107,7 +108,7 @@ const UpdatePatientComponent = () => {
 				setDateOfBirth(res.data.dateOfBirth);
 				setGender(res.data.gender);
 				setMartialStatus(res.data.martialStatus);
-				setSNN(res.data.ssn);
+				setSSNumber(res.data.SSNumber);
 				setStreetName(res.data.streetName);
 				setCity(res.data.city);
 				setState(res.data.state);
@@ -125,11 +126,11 @@ const UpdatePatientComponent = () => {
 	}, []);
 
 	return (
-		<>
+		<Fragment>
 			<section className="update-patient">
 				<div className="container mt-3">
 					<form action="">
-						<h2 className="text-success">Update Patient Record</h2> <hr />
+						<h2 className="text-success">Update {firstName}'s Record</h2> <hr />
 						<div className="accordion" id="patientAccordion">
 							<div className="accordion-item">
 								<h2 className="accordion-header" id="headingOne">
@@ -235,7 +236,7 @@ const UpdatePatientComponent = () => {
 												)}
 											</div>
 											<div className="col-md-2">
-												<label htmlFor="dateOfBirth">DOB</label>
+												<label htmlFor="dateOfBirth">Date of Birth</label>
 												<input
 													type="text"
 													value={dateOfBirth}
@@ -286,12 +287,10 @@ const UpdatePatientComponent = () => {
 													<option value="" disabled selected>
 														Select
 													</option>
-													<option value="Single">
-														Single
-													</option>
+													<option value="Single">Single</option>
 													<option value="Married">Married</option>
-
 													<option value="Divorced">Divorced</option>
+													<option value="Widow">Widow</option>
 												</select>
 
 												{error && martialStatus.length <= 0 ? (
@@ -303,17 +302,17 @@ const UpdatePatientComponent = () => {
 												)}
 											</div>
 											<div className="col-md-3">
-												<label htmlFor="ssn">SSN</label>
+												<label htmlFor="SSNumber">Socail Security Number</label>
 												<input
 													type="text"
-													value={ssn}
-													onChange={(e) => setSNN(e.target.value)}
-													name="ssn"
+													value={SSNumber}
+													onChange={(e) => setSSNumber(e.target.value)}
+													name="SSNumber"
+													id="SSNumber"
 													className="form-control form-control-lg"
-													placeholder="SSN ex: 123-45-6789"
-													maxLength="11"
+													placeholder="Enter SSN"
 												/>
-												{error && ssn.length <= 0 ? (
+												{error && SSNumber.length <= 0 ? (
 													<span className="text-danger">SSN is required!</span>
 												) : (
 													""
@@ -569,7 +568,7 @@ const UpdatePatientComponent = () => {
 													<option value="September">September</option>
 													<option value="October">October</option>
 													<option value="November">November</option>
-													<option value="December"></option>
+													<option value="December">December</option>
 												</select>
 
 												{error && renewalMonth.length <= 0 ? (
@@ -609,7 +608,7 @@ const UpdatePatientComponent = () => {
 
 				{/* container div end */}
 			</section>
-		</>
+		</Fragment>
 	);
 };
 
