@@ -6,51 +6,47 @@ import "./EmployeeStyle.css";
 const AddEmployeeComponent = () => {
 	const navigate = useNavigate();
 
-	const [formData, setFormData] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		phone: "",
-	});
-
-	const { firstName, lastName, email, phone } = formData; // data destructuring
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [email, setEmail] = useState("");
+	// const [status, setStatus] = useState("");
+	const [phone, setPhone] = useState("");
 
 	const [error, setError] = useState(false);
 	const [disable, setDisable] = useState(true);
 	const [message, setMessage] = useState(false);
 
-	const onChange = (e) => {
-		setFormData({ ...formData, [e.target.name]: e.target.value });
-	};
+	const employeeData = { firstName, lastName, email, phone };
 
 	const saveEmployee = async (e) => {
 		e.preventDefault();
 
 		if (
-			formData.firstName.length === 0 ||
-			formData.lastName.length === 0 ||
-			formData.email.length === 0 ||
-			formData.phone.length === 0
+			employeeData.firstName.length === 0 ||
+			employeeData.lastName.length === 0 ||
+			employeeData.email.length === 0 ||
+			employeeData.phone.length === 0
 		) {
 			setError(true);
+			setDisable(true);
 		} else {
-			await EmployeeService.saveEmployee(formData)
+			await EmployeeService.saveEmployee(employeeData)
 				.then((res) => {
 					setMessage(true);
 					setTimeout(() => {
 						navigate("/employees");
 					}, 2000);
-					console.log(res.data);
-				})
+				}) // console.log(res.data);
 				.catch((e) => {
 					setError(e.message);
+					setDisable(true);
+
 					console.log(e.message);
 				});
-
-			formData.firstName = "";
-			formData.lastName = "";
-			formData.email = "";
-			formData.phone = "";
+			setFirstName("");
+			setLastName("");
+			setEmail("");
+			setPhone("");
 		}
 	};
 
@@ -77,7 +73,7 @@ const AddEmployeeComponent = () => {
 								<input
 									type="text"
 									value={firstName}
-									onChange={onChange}
+									onChange={(e) => setFirstName(e.target.value)}
 									className="form-control form-control-lg"
 									placeholder="Enter first name"
 									name="firstName"
@@ -95,7 +91,7 @@ const AddEmployeeComponent = () => {
 								<input
 									type="text"
 									value={lastName}
-									onChange={onChange}
+									onChange={(e) => setLastName(e.target.value)}
 									className="form-control form-control-lg"
 									placeholder="Enter last name"
 									name="lastName"
@@ -117,7 +113,7 @@ const AddEmployeeComponent = () => {
 								<input
 									type="email"
 									value={email}
-									onChange={onChange}
+									onChange={(e) => setEmail(e.target.value)}
 									className="form-control form-control-lg"
 									placeholder="Enter  email address"
 									name="email"
@@ -138,7 +134,7 @@ const AddEmployeeComponent = () => {
 									type="text"
 									value={phone}
 									name="phone"
-									onChange={onChange}
+									onChange={(e) => setPhone(e.target.value)}
 									className="form-control form-control-lg"
 									placeholder="123-456-7890"
 									maxlength="12"
@@ -159,10 +155,9 @@ const AddEmployeeComponent = () => {
 								type="submit"
 								className="btn btn-outline-success mb-3"
 								disabled={
-									(disable && firstName === "") ||
-									lastName === "" ||
-									email === "" ||
-									email === ""
+									(disable && firstName.length <= 0) ||
+									lastName.length <= 0 ||
+									email.length <= 0
 								}
 							>
 								SUBMIT

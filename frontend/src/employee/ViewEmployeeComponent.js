@@ -36,10 +36,12 @@ const ViewEmployeeComponent = () => {
 					setMessage(true),
 					setTimeout(() => {
 						navigate("/employees");
-					}, 3000)
+						// window.location.reload();
+					}, 2000)
 				)
-				.catch((e) => {
-					console.log(e.message);
+				.catch((error) => {
+					console.log(error.message);
+					alert(error.message);
 				});
 		} else {
 			return;
@@ -50,7 +52,7 @@ const ViewEmployeeComponent = () => {
 
 	useEffect(() => {
 		loadEmployeeDetails();
-	}, [employee]);
+	}, []);
 
 	return (
 		<div className="container my-3">
@@ -62,9 +64,9 @@ const ViewEmployeeComponent = () => {
 					<strong>Warning!</strong> Employee deleted successfully!!.
 				</div>
 			)}
-			<h3 className="text-info">
+			<h3 className="text-success">
 				<i className="fa fa-info-circle me-2" aria-hidden="true"></i>
-				<span className="text-info">{employee.firstName}</span> Profile Details
+				Employee Profile Details
 			</h3>{" "}
 			<hr />
 			<div className="row">

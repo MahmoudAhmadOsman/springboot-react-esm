@@ -8,8 +8,9 @@ const UpdateEmployeeComponent = () => {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
-	const [error, setError] = useState(false);
 	const [status, setStatus] = useState("");
+
+	const [error, setError] = useState(false);
 
 	const navigate = useNavigate();
 	const { id } = useParams();
@@ -36,13 +37,14 @@ const UpdateEmployeeComponent = () => {
 
 				.catch((e) => console.log(e));
 			// console.log(employeeData);
+			window.location.reload();
 		}
 		console.log(employeeData);
 	};
 
 	const updateTitle = () => {
 		if (id) {
-			return "Update ";
+			return "Update Employee Profile ";
 		} else {
 			return "";
 		}
@@ -71,10 +73,7 @@ const UpdateEmployeeComponent = () => {
 			<div className="container mt-3">
 				<div className="row">
 					<div className="col-md-8 mx-auto">
-						<h2 className="text-success mb-3">
-							{updateTitle() + firstName} Profile
-						</h2>{" "}
-						<hr /> <br />
+						<h2 className="text-success mb-3">{updateTitle()}</h2> <hr /> <br />
 						<form>
 							<div className="mb-3 mt-">
 								<label htmlFor="firstName">First Name</label>
