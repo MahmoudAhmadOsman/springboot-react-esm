@@ -13,7 +13,7 @@ const AddEmployeeComponent = () => {
 		phone: "",
 	});
 
-	const { firstName, lastName, email, phone } = formData; // data destructuring
+	const { firstName, lastName, email, phone } = formData;
 
 	const [error, setError] = useState(false);
 	const [disable, setDisable] = useState(true);
@@ -117,10 +117,10 @@ const AddEmployeeComponent = () => {
 								<input
 									type="email"
 									value={email}
+									name="email"
 									onChange={onChange}
 									className="form-control form-control-lg"
 									placeholder="Enter  email address"
-									name="email"
 								/>
 								{error && email.length <= 0 ? (
 									<span className="text-danger">
@@ -135,7 +135,7 @@ const AddEmployeeComponent = () => {
 							<div className="mb-3">
 								<label htmlFor="phone">Phone Number</label>
 								<input
-									type="text"
+									type="number"
 									value={phone}
 									name="phone"
 									onChange={onChange}

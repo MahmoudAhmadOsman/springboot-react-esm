@@ -238,7 +238,7 @@ const AddPatientComponent = () => {
 												onChange={(e) => setGender(e.target.value)}
 												className="form-select form-select-lg"
 											>
-												<option value="" disabled selected>
+												<option  disabled selected>
 													Select one
 												</option>
 												<option value="Male">Male</option>
