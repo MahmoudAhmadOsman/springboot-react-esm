@@ -5,9 +5,7 @@
 
 This project is a web application developed using Spring Boot and React. It aims to provide a seamless user experience by combining the power of a backend Java framework (Spring Boot) with a frontend JavaScript library (React). The application is designed to demonstrate the usage of these technologies and serve as a foundation for building more complex web applications.
 
-## Technologies Used
 
-The following technologies are used in this project:
 
 ### Backend
 - Spring Boot: A Java-based framework for building robust and scalable web applications.
@@ -22,7 +20,9 @@ The following technologies are used in this project:
 - CSS: The style sheet language used for describing the presentation of a document written in HTML.
 
 
-### Technologies
+## Technologies Used
+
+The following technologies are used in this project:
 
 **Persistence Tier**
 - MYSQL (Localhost)
