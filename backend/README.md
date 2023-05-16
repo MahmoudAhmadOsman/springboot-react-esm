@@ -92,4 +92,9 @@ The `src/test` directory contains test files for testing the functionality of th
 The following technologies and frameworks are used in this project:
 
 - Java: The primary programming language used in this project.
-- Spring Boot: A
+- Spring Boot
+- HIBERNATE
+- JPA
+- MYSQL
+- MAVEN
+- LOMBOK
