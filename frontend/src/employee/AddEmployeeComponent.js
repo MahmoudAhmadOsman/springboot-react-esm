@@ -135,7 +135,7 @@ const AddEmployeeComponent = () => {
 							<div className="mb-3">
 								<label htmlFor="phone">Phone Number</label>
 								<input
-									type="number"
+									type="text"
 									value={phone}
 									name="phone"
 									onChange={onChange}

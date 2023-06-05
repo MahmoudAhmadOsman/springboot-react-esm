@@ -12,7 +12,9 @@ const AddPatientComponent = () => {
 	const [dateOfBirth, setDateOfBirth] = useState("");
 	const [gender, setGender] = useState("");
 	const [martialStatus, setMartialStatus] = useState("");
-	const [SSNumber, setSSNumber] = useState("");
+	// const [SSNumber, setSSNumber] = useState("");
+		const [ssn, setSSN] = useState("");
+
 	const [streetName, setStreetName] = useState("");
 	const [city, setCity] = useState("");
 	const [state, setState] = useState("");
@@ -36,7 +38,7 @@ const AddPatientComponent = () => {
 		dateOfBirth,
 		gender,
 		martialStatus,
-		SSNumber,
+		ssn,
 		streetName,
 		city,
 		state,
@@ -61,7 +63,7 @@ const AddPatientComponent = () => {
 			patientData.dateOfBirth.length === 0 ||
 			patientData.gender.length === 0 ||
 			patientData.martialStatus.length === 0 ||
-			patientData.SSNumber.length === 0 ||
+			patientData.snn.length === 0 ||
 			patientData.streetName.length === 0 ||
 			patientData.city.length === 0 ||
 			patientData.state.length === 0 ||
@@ -238,7 +240,7 @@ const AddPatientComponent = () => {
 												onChange={(e) => setGender(e.target.value)}
 												className="form-select form-select-lg"
 											>
-												<option  disabled selected>
+												<option disabled selected>
 													Select one
 												</option>
 												<option value="Male">Male</option>
@@ -280,17 +282,17 @@ const AddPatientComponent = () => {
 											)}
 										</div>
 										<div className="col-md-3">
-											<label htmlFor="SSNumber">Social Security Number</label>
+											<label htmlFor="ssn">Social Security Number</label>
 											<input
 												type="text"
-												value={SSNumber}
-												onChange={(e) => setSSNumber(e.target.value)}
-												id="SSNumber"
-												name="SSNumber"
+												value={ssn}
+												onChange={(e) => setSSN(e.target.value)}
+												id="ssn"
+												name="ssn"
 												className="form-control form-control-lg"
-												placeholder="Enter SSN"
+												placeholder="Enter Social Security Number"
 											/>
-											{error && SSNumber.length <= 0 ? (
+											{error && ssn.length <= 0 ? (
 												<span className="text-danger">SSN is required!</span>
 											) : (
 												""

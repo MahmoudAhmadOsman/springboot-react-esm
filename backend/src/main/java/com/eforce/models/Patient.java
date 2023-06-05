@@ -29,8 +29,10 @@ public class Patient {
     private String martialStatus;
     private String dateOfBirth;
 
+
+//    @Column(name = "ssn")
    @MaskData
-    private String SSNumber;
+    private String ssn;
 
     private String phoneNumber;
     private String streetName;

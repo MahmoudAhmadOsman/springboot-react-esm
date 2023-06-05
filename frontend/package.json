@@ -18,7 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start0": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build && xcopy .\\build\\* ..\\backend\\src\\main\\resources\\templates\\ /s /y",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

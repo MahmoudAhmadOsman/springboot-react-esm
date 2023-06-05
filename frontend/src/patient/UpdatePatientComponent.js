@@ -11,7 +11,8 @@ const UpdatePatientComponent = () => {
 	const [dateOfBirth, setDateOfBirth] = useState("");
 	const [gender, setGender] = useState("");
 	const [martialStatus, setMartialStatus] = useState("");
-	const [SSNumber, setSSNumber] = useState("");
+	// const [SSNumber, setSSNumber] = useState("");
+	const [ssn, setSSN] = useState("");
 
 	const [streetName, setStreetName] = useState("");
 	const [city, setCity] = useState("");
@@ -27,7 +28,7 @@ const UpdatePatientComponent = () => {
 	const [careType, setCareType] = useState("");
 	const [renewalMonth, setRenewalMonth] = useState("");
 	const [creationDate, setCreationDate] = useState("");
-	
+
 	const [error, setError] = useState(false);
 
 	const navigate = useNavigate();
@@ -41,7 +42,7 @@ const UpdatePatientComponent = () => {
 		dateOfBirth,
 		gender,
 		martialStatus,
-		SSNumber,
+		ssn,
 		streetName,
 		city,
 		state,
@@ -67,7 +68,7 @@ const UpdatePatientComponent = () => {
 			patientData.dateOfBirth.length === 0 ||
 			patientData.gender.length === 0 ||
 			patientData.martialStatus.length === 0 ||
-			patientData.SSNumber.length === 0 ||
+			patientData.ssn.length === 0 ||
 			patientData.streetName.length === 0 ||
 			patientData.city.length === 0 ||
 			patientData.state.length === 0 ||
@@ -108,7 +109,7 @@ const UpdatePatientComponent = () => {
 				setDateOfBirth(res.data.dateOfBirth);
 				setGender(res.data.gender);
 				setMartialStatus(res.data.martialStatus);
-				setSSNumber(res.data.SSNumber);
+				setSSN(res.data.ssn);
 				setStreetName(res.data.streetName);
 				setCity(res.data.city);
 				setState(res.data.state);
@@ -302,17 +303,17 @@ const UpdatePatientComponent = () => {
 												)}
 											</div>
 											<div className="col-md-3">
-												<label htmlFor="SSNumber">Socail Security Number</label>
+												<label htmlFor="ssn">Socail Security Number</label>
 												<input
 													type="text"
-													value={SSNumber}
-													onChange={(e) => setSSNumber(e.target.value)}
-													name="SSNumber"
-													id="SSNumber"
+													value={ssn}
+													onChange={(e) => setSSN(e.target.value)}
+													name="ssn"
+													id="ssn"
 													className="form-control form-control-lg"
 													placeholder="Enter SSN"
 												/>
-												{error && SSNumber.length <= 0 ? (
+												{error && ssn.length <= 0 ? (
 													<span className="text-danger">SSN is required!</span>
 												) : (
 													""
