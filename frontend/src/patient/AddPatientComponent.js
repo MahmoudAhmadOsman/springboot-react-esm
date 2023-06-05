@@ -12,8 +12,7 @@ const AddPatientComponent = () => {
 	const [dateOfBirth, setDateOfBirth] = useState("");
 	const [gender, setGender] = useState("");
 	const [martialStatus, setMartialStatus] = useState("");
-	// const [SSNumber, setSSNumber] = useState("");
-		const [ssn, setSSN] = useState("");
+	const [ssn, setSSN] = useState("");
 
 	const [streetName, setStreetName] = useState("");
 	const [city, setCity] = useState("");
