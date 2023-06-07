@@ -86,9 +86,9 @@ const AddPatientComponent = () => {
 						navigate("/patients");
 					}, 2000);
 				})
-				.catch((err) => {
-					setError(err.message);
-					console.log(err);
+				.catch((error) => {
+					setError(error.message);
+					console.log(error);
 				});
 		}
 		console.log("New Patient Data: " + patientData);

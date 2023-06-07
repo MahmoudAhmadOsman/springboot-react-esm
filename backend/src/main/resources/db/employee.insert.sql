@@ -1,10 +1,5 @@
-insert into employees (id, firstName, lastName, email, status, creationDate) values (1, 'Hilario', 'Clémence', 'hitzakovitz0@ask.com', 0, '2017/10/10');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (2, 'Kalie', 'Pénélope', 'kodo1@naver.com', 0, '2015/03/06');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (3, 'Lonny', 'Valérie', 'lhassewell2@princeton.edu', 0, '2019/08/14');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (4, 'Andriana', 'Cléa', 'apenella3@google.com.br', 0, '2021/04/20');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (5, 'Alasteir', 'Gaïa', 'aleirmonth4@arizona.edu', 0, '2018/05/29');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (6, 'Misty', 'Noémie', 'mhaffenden5@com.com', 0, '2019/01/22');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (7, 'Sammie', 'Styrbjörn', 'smcneil6@discovery.com', 0, '2017/01/02');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (8, 'Bennie', 'Léonie', 'bdacth7@smugmug.com', 0, '2022/09/20');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (9, 'Catie', 'Nuó', 'crablan8@nyu.edu', 0, '2017/10/05');
-insert into employees (id, firstName, lastName, email, status, creationDate) values (10, 'Yves', 'Frédérique', 'ylacroce9@creativecommons.org', 0, '2020/09/18');
+insert into employees (id, firstName, lastName, email, phone, status, creationDate) values (1, 'Johnnie', 'Estève', 'jprydden0@slashdot.org', '(407) 6378478', 0, '2022/02/12');
+insert into employees (id, firstName, lastName, email, phone, status, creationDate) values (2, 'Reginald', 'Gérald', 'rvitler1@sciencedaily.com', '(525) 4238773', 0, '2022/11/05');
+insert into employees (id, firstName, lastName, email, phone, status, creationDate) values (3, 'Ashia', 'Bérénice', 'alanfere2@ebay.co.uk', '(917) 5865531', 0, '2018/10/08');
+insert into employees (id, firstName, lastName, email, phone, status, creationDate) values (4, 'Camella', 'Naëlle', 'ctraut3@google.ca', '(486) 8685522', 0, '2021/09/07');
+insert into employees (id, firstName, lastName, email, phone, status, creationDate) values (5, 'Annis', 'Cunégonde', 'apachmann4@dropbox.com', '(683) 1094059', 0, '2022/02/01');

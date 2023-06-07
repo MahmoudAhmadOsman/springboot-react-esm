@@ -11,6 +11,7 @@ const UpdateEmployeeComponent = () => {
 	const [status, setStatus] = useState("");
 
 	const [error, setError] = useState(false);
+	const [disable, setDisable] = useState(true);
 
 	const navigate = useNavigate();
 	const { id } = useParams();
@@ -125,7 +126,6 @@ const UpdateEmployeeComponent = () => {
 									""
 								)}
 							</div>
-
 							<div className="mb-3">
 								<label htmlFor="phone">Phone Number</label>
 								<input
@@ -134,7 +134,7 @@ const UpdateEmployeeComponent = () => {
 									onChange={(e) => setPhone(e.target.value)}
 									className="form-control form-control-lg"
 									id="phone"
-									placeholder="Enter phone number"
+									placeholder="Enter  phone number"
 								/>
 								{error && phone.length <= 0 ? (
 									<span className="text-danger">Phone number is required!</span>
@@ -171,6 +171,12 @@ const UpdateEmployeeComponent = () => {
 										onClick={(e) => updateEmployee(e)}
 										type="submit"
 										className="btn btn-outline-success mb-3"
+										disabled={
+											(disable && firstName === "") ||
+											lastName === "" ||
+											email === "" ||
+											phone === ""
+										}
 									>
 										SUBMIT
 									</button>

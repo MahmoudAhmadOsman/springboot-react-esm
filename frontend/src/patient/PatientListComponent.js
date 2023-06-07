@@ -9,6 +9,7 @@ const PatientListComponent = () => {
 	const navigate = useNavigate();
 	const [patients, setPatients] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
 	const [search, setSearch] = useState("");
 
 	const getPatients = async () => {
@@ -18,6 +19,7 @@ const PatientListComponent = () => {
 				setLoading(false);
 			})
 			.catch((error) => {
+				setError(error);
 				console.log(error);
 			});
 	};
@@ -33,6 +35,14 @@ const PatientListComponent = () => {
 					{loading && (
 						<div className="loading">
 							<Loading />
+						</div>
+					)}
+				</div>
+				<div className="error">
+					{error && (
+						<div className="alert alert-warning text-center mt-4">
+							An Error has occurred:{" "}
+							<b className="text-danger">{error.message}</b>
 						</div>
 					)}
 				</div>
@@ -124,10 +134,10 @@ const PatientListComponent = () => {
 					""
 				)}
 
-				{patients.length === 0 ? (
+				{patients.length <= 0 ? (
 					<div className="mt-4">
 						<div className="alert alert-danger text-center">
-							No Patients found!
+							No Patients Found!
 						</div>
 					</div>
 				) : (

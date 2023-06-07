@@ -162,7 +162,7 @@ const AddEmployeeComponent = () => {
 									(disable && firstName === "") ||
 									lastName === "" ||
 									email === "" ||
-									email === ""
+									phone === ""
 								}
 							>
 								SUBMIT

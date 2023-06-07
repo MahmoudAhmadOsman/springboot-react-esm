@@ -36,8 +36,8 @@ const ViewEmployeeComponent = () => {
 					setMessage(true),
 					setTimeout(() => {
 						navigate("/employees");
-						// window.location.reload();
-					}, 2000)
+						window.location.reload();
+					}, 200)
 				)
 				.catch((error) => {
 					console.log(error.message);

@@ -27,8 +27,8 @@ const EmployeeListComponent = () => {
 				}, 1000);
 			})
 			.catch((error) => {
-				setError(true);
-				console.log("Unable to display employees list: " + error.message);
+				setError(error);
+				// console.log(error.message);
 			});
 	};
 	// console.log(employees);
@@ -40,16 +40,24 @@ const EmployeeListComponent = () => {
 	return (
 		<section className="employee-list">
 			<div className="container mt-3">
+				<div className="loadding">
+					{loading ? (
+						<div className="loading">
+							<Loading />
+						</div>
+					) : null}
+				</div>
+				<div className="error">
+					{error && (
+						<div className="alert alert-warning text-center mt-4">
+							An Error has occurred:{" "}
+							<b className="text-danger">{error.message}</b>
+						</div>
+					)}
+				</div>
 				{employees.length > 0 ? (
 					<Fragment>
 						<h2 className="text-success">List of Employees</h2> <hr />
-						<div className="loadding">
-							{loading && (
-								<div className="loading">
-									<Loading />
-								</div>
-							)}
-						</div>
 						<div className="error">
 							{error && (
 								<div className="error">
@@ -171,10 +179,17 @@ const EmployeeListComponent = () => {
 						</div>
 					</Fragment>
 				) : (
-					<div className="alert alert-danger text-center">
-						No Employees Found!
-						{error.message}
+					""
+				)}
+
+				{employees.length <= 0 ? (
+					<div className="mt-4">
+						<div className="alert alert-danger text-center">
+							No Employees Found!
+						</div>
 					</div>
+				) : (
+					""
 				)}
 			</div>
 		</section>
