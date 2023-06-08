@@ -15,6 +15,7 @@ public class ImageProcessor {
     // Give here images directory where you want to save images
     private static final String IMAGE_DIRECTORY_PATH = "C:/Users/fidow/OneDrive/Documents/java-react-2023/backend/src/main/resources/static/images/";
 
+
     public static String uploadImage(MultipartFile file) throws IOException {
 
         String originalFilename = file.getOriginalFilename();

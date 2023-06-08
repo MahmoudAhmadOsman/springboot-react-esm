@@ -4,6 +4,8 @@ import PatientService from "../service/PatientService";
 import "./PatientStyle.css";
 
 const ViewPatientComponent = () => {
+	const [message, setMessage] = useState(false);
+
 	const navigate = useNavigate();
 	const { id } = useParams();
 
@@ -47,7 +49,13 @@ const ViewPatientComponent = () => {
 
 		if (window.confirm("Are you sure, you want to delete this record?")) {
 			await PatientService.deletePatient(id)
-				.then(navigate("/patients"))
+				.then(
+					setMessage(true),
+					setTimeout(() => {
+						navigate("/patients");
+						window.location.reload();
+					}, 2000)
+				)
 				.catch((e) => {
 					console.log(e.message);
 				});
@@ -66,6 +74,14 @@ const ViewPatientComponent = () => {
 			<div className="container mt-3">
 				<h3 className="text-success">Patient Summary</h3> <hr />
 				<div className="row">
+					{message && (
+						<div className="alert alert-danger  fade show" role="alert">
+							<i className="fa fa-warning fa-fw" aria-hidden="true"></i>
+							<strong>&nbsp;Warning!</strong> Patient record has been deleted
+							successfully!!.
+						</div>
+					)}
+
 					<div className="col-md-3 col-sm-12 col-xs-12">
 						<div className="card">
 							<img
