@@ -19,6 +19,7 @@ import ViewProductComponent from "./product/ViewProductComponent";
 import RegisterComponent from "./register/UserComponent";
 import LoginComponent from "./login/LoginComponent";
 import NotFound from "./utils/NotFound";
+import CartListComponent from "./cart/CartListComponent";
 
 function App() {
 	return (
@@ -45,6 +46,11 @@ function App() {
 					<Route path="/view-product/:id" element={<ViewProductComponent />} />
 					<Route path="/add-product" element={<AddProductComponent />} />
 					<Route path="/products" element={<ProductListComponent />} />
+
+					{/* Cart */}
+
+					<Route path="/cart/:id" element={<CartListComponent />} />
+
 					{/* Patient routes */}
 					<Route path="/patients" element={<PatientListComponent />} />
 					<Route

@@ -16,7 +16,7 @@ const ViewProductComponent = () => {
 		price: "",
 		description: "",
 	});
-	const productImgHolder = `https://source.unsplash.com/136x136/?${product.name}`;
+	const productImgHolder = `https://source.unsplash.com/1600x900/?office/?${product.name}`;
 	const loadProductDetails = async () => {
 		await ProductService.getProductById(id)
 			.then((res) => {
@@ -68,15 +68,17 @@ const ViewProductComponent = () => {
 				<h2 className="text-success mb-3">Product Details</h2> <hr />
 				<div className="row mt-3">
 					<div className="col-md-4 col-sm-12 col-xs-12 mb-4 view-pro-img">
-						<img
-							src={
-								product.image
-									? `http://localhost:8080/${product.image}`
-									: productImgHolder + "?/" + product.name
-							}
-							className="card-img-top img-fluid"
-							alt={product.name}
-						/>
+						<Link to={`/view-product/${product.id}`}>
+							<img
+								src={
+									product.image
+										? `http://localhost:8080/${product.image}`
+										: productImgHolder
+								}
+								className="card-img-top img-fluid"
+								alt={product.name}
+							/>
+						</Link>
 					</div>
 					<div className="col-lg-8 col-md-8 col-sm-12 col-xs-12 view-pro-right">
 						<h2>{product.name}</h2>
@@ -94,7 +96,14 @@ const ViewProductComponent = () => {
 						<p className="text-muted mb-4">{product.description}</p>
 						<br />
 						<div className="btn-action mt-3">
-							<Link className="btn btn-outline-success me-3">Add to Cart</Link>
+							<Link
+								// to="/cart"
+								to={`/cart/${product.id}`}
+								className="btn btn-outline-success me-3"
+							>
+								Add to Cart
+							</Link>
+							{/* to={`/update-employee/${employee.id}`} */}
 							<Link className="btn btn-outline-primary  me-3">Edit</Link>
 							<Link
 								onClick={(e) => deleteProduct(e, product.id)}
