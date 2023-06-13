@@ -5,6 +5,9 @@ import "./EmployeeStyle.css";
 
 const AddEmployeeComponent = () => {
 	const navigate = useNavigate();
+	const [error, setError] = useState(false);
+	const [disable, setDisable] = useState(true);
+	const [message, setMessage] = useState(false);
 
 	const [formData, setFormData] = useState({
 		firstName: "",
@@ -15,23 +18,14 @@ const AddEmployeeComponent = () => {
 
 	const { firstName, lastName, email, phone } = formData;
 
-	const [error, setError] = useState(false);
-	const [disable, setDisable] = useState(true);
-	const [message, setMessage] = useState(false);
-
-	const onChange = (e) => {
+	const HandleSubmit = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
 	const saveEmployee = async (e) => {
 		e.preventDefault();
 
-		if (
-			formData.firstName.length === 0 ||
-			formData.lastName.length === 0 ||
-			formData.email.length === 0 ||
-			formData.phone.length === 0
-		) {
+		if (firstName === "" || lastName === "" || email === "" || phone === "") {
 			setError(true);
 		} else {
 			await EmployeeService.saveEmployee(formData)
@@ -77,7 +71,7 @@ const AddEmployeeComponent = () => {
 								<input
 									type="text"
 									value={firstName}
-									onChange={onChange}
+									onChange={HandleSubmit}
 									className="form-control form-control-lg"
 									placeholder="Enter first name"
 									name="firstName"
@@ -95,7 +89,7 @@ const AddEmployeeComponent = () => {
 								<input
 									type="text"
 									value={lastName}
-									onChange={onChange}
+									onChange={HandleSubmit}
 									className="form-control form-control-lg"
 									placeholder="Enter last name"
 									name="lastName"
@@ -118,7 +112,7 @@ const AddEmployeeComponent = () => {
 									type="email"
 									value={email}
 									name="email"
-									onChange={onChange}
+									onChange={HandleSubmit}
 									className="form-control form-control-lg"
 									placeholder="Enter  email address"
 								/>
@@ -138,7 +132,7 @@ const AddEmployeeComponent = () => {
 									type="text"
 									value={phone}
 									name="phone"
-									onChange={onChange}
+									onChange={HandleSubmit}
 									className="form-control form-control-lg"
 									placeholder="123-456-7890"
 									maxlength="12"

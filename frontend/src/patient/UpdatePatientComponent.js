@@ -261,7 +261,7 @@ const UpdatePatientComponent = () => {
 													onChange={(e) => setGender(e.target.value)}
 													className="form-select form-select-lg"
 												>
-													<option value="" disabled selected>
+													<option value="" disabled defaultValue>
 														Select
 													</option>
 													<option value="Male">Male</option>
@@ -284,7 +284,7 @@ const UpdatePatientComponent = () => {
 													onChange={(e) => setMartialStatus(e.target.value)}
 													className="form-select form-select-lg"
 												>
-													<option value="" disabled selected>
+													<option value="" disabled defaultValue>
 														Select
 													</option>
 													<option value="Single">Single</option>
@@ -552,10 +552,10 @@ const UpdatePatientComponent = () => {
 													name="renewalMonth"
 													className="form-select form-select-lg"
 												>
-													<option disabled selected>
+													<option disabled defaultValue>
 														Select Renewal Month
 													</option>
-													<option value="January" selected>
+													<option value="January" defaultValue>
 														January
 													</option>
 													<option value="February">February</option>

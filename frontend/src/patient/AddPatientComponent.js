@@ -55,26 +55,26 @@ const AddPatientComponent = () => {
 		e.preventDefault();
 
 		if (
-			patientData.firstName.length === 0 ||
-			patientData.lastName.length === 0 ||
-			patientData.email.length === 0 ||
-			patientData.phoneNumber.length === 0 ||
-			patientData.dateOfBirth.length === 0 ||
-			patientData.gender.length === 0 ||
-			patientData.martialStatus.length === 0 ||
-			patientData.snn.length === 0 ||
-			patientData.streetName.length === 0 ||
-			patientData.city.length === 0 ||
-			patientData.state.length === 0 ||
-			patientData.zipCode.length === 0 ||
-			patientData.note.length === 0 ||
-			patientData.providerName.length === 0 ||
-			patientData.accountNumber.length === 0 ||
-			patientData.groupNumber.length === 0 ||
-			patientData.providerPhone.length === 0 ||
-			patientData.careType.length === 0 ||
-			patientData.renewalMonth.length === 0
-			// patientData.creationDate.length == 0
+			patientData.firstName === "" ||
+			patientData.lastName === "" ||
+			patientData.email === "0" ||
+			patientData.phoneNumber === "" ||
+			patientData.dateOfBirth === "" ||
+			patientData.gender === "" ||
+			patientData.martialStatus === "" ||
+			patientData.snn === "" ||
+			patientData.streetName === "" ||
+			patientData.city === "" ||
+			patientData.state === "" ||
+			patientData.zipCode === "" ||
+			patientData.note === "" ||
+			patientData.providerName === "" ||
+			patientData.accountNumber === "" ||
+			patientData.groupNumber === "" ||
+			patientData.providerPhone === "" ||
+			patientData.careType === "" ||
+			patientData.renewalMonth === ""
+			// patientData.creationDate == ""
 		) {
 			setError(true);
 		} else {
@@ -91,7 +91,7 @@ const AddPatientComponent = () => {
 					console.log(error);
 				});
 		}
-		console.log("New Patient Data: " + patientData);
+		// console.log("New Patient Data: " + patientData);
 	};
 
 	return (
@@ -144,7 +144,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter first name"
 											/>
-											{error && firstName.length <= 0 ? (
+											{error && firstName === "" ? (
 												<span className="text-danger">
 													First name is required!
 												</span>
@@ -163,7 +163,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter last name"
 											/>
-											{error && lastName.length <= 0 ? (
+											{error && lastName === "" ? (
 												<span className="text-danger">
 													Last name is required!
 												</span>
@@ -182,7 +182,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter email address"
 											/>
-											{error && email.length <= 0 ? (
+											{error && email === "" ? (
 												<span className="text-danger">
 													Email address is required!
 												</span>
@@ -205,7 +205,7 @@ const AddPatientComponent = () => {
 												placeholder="012-345-6789"
 											/>
 
-											{error && phoneNumber.length <= 0 ? (
+											{error && phoneNumber === "" ? (
 												<span className="text-danger">
 													Phone number is required!
 												</span>
@@ -223,7 +223,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="ex. mm/dd/yyyy"
 											/>
-											{error && dateOfBirth.length <= 0 ? (
+											{error && dateOfBirth === "" ? (
 												<span className="text-danger">
 													Date of birth is required!
 												</span>
@@ -239,14 +239,14 @@ const AddPatientComponent = () => {
 												onChange={(e) => setGender(e.target.value)}
 												className="form-select form-select-lg"
 											>
-												<option disabled selected>
+												<option disabled defaultValue>
 													Select one
 												</option>
 												<option value="Male">Male</option>
 												<option value="Female">Female</option>
 												<option value="Other">Other</option>
 											</select>
-											{error && gender.length <= 0 ? (
+											{error && gender === "" ? (
 												<span className="text-danger">Gender is required!</span>
 											) : (
 												""
@@ -261,10 +261,10 @@ const AddPatientComponent = () => {
 												onChange={(e) => setMartialStatus(e.target.value)}
 												className="form-select form-select-lg"
 											>
-												<option value="" disabled selected>
+												<option value="" disabled defaultValue>
 													Select one
 												</option>
-												<option value="Single" selected>
+												<option value="Single" defaultValue>
 													Single
 												</option>
 												<option value="Married">Married</option>
@@ -272,7 +272,7 @@ const AddPatientComponent = () => {
 												<option value="Widow">Widow</option>
 											</select>
 
-											{error && martialStatus.length <= 0 ? (
+											{error && martialStatus === "" ? (
 												<span className="text-danger">
 													Martial status is required!
 												</span>
@@ -291,7 +291,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter Social Security Number"
 											/>
-											{error && ssn.length <= 0 ? (
+											{error && ssn === "" ? (
 												<span className="text-danger">SSN is required!</span>
 											) : (
 												""
@@ -312,7 +312,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter street name & number"
 											/>
-											{error && streetName.length <= 0 ? (
+											{error && streetName === "" ? (
 												<span className="text-danger">
 													Street name is required!
 												</span>
@@ -331,7 +331,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter city name"
 											/>
-											{error && city.length <= 0 ? (
+											{error && city === "" ? (
 												<span className="text-danger">City is required!</span>
 											) : (
 												""
@@ -348,7 +348,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter state"
 											/>
-											{error && state.length <= 0 ? (
+											{error && state === "" ? (
 												<span className="text-danger">State is required!</span>
 											) : (
 												""
@@ -365,7 +365,7 @@ const AddPatientComponent = () => {
 												placeholder="Enter zip code"
 												maxLength="5"
 											/>
-											{error && zipCode.length <= 0 ? (
+											{error && zipCode === "" ? (
 												<span className="text-danger">
 													Zip code is required!
 												</span>
@@ -392,7 +392,7 @@ const AddPatientComponent = () => {
 												placeholder="Enter note here"
 											></textarea>
 
-											{error && note.length <= 0 ? (
+											{error && note === "" ? (
 												<span className="text-danger">Note is required!</span>
 											) : (
 												""
@@ -435,7 +435,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter provider name"
 											/>
-											{error && providerName.length <= 0 ? (
+											{error && providerName === "" ? (
 												<span className="text-danger">
 													Provider name is required!
 												</span>
@@ -455,7 +455,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter account number"
 											/>
-											{error && accountNumber.length <= 0 ? (
+											{error && accountNumber === "" ? (
 												<span className="text-danger">
 													Account number is required!
 												</span>
@@ -473,7 +473,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter group number"
 											/>
-											{error && groupNumber.length <= 0 ? (
+											{error && groupNumber === "" ? (
 												<span className="text-danger">
 													Group number is required!
 												</span>
@@ -495,7 +495,7 @@ const AddPatientComponent = () => {
 												placeholder="Enter provider's phone number"
 												maxLength={12}
 											/>
-											{error && providerPhone.length <= 0 ? (
+											{error && providerPhone === "" ? (
 												<span className="text-danger">
 													Provider phone number is required!
 												</span>
@@ -513,7 +513,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="Enter care type"
 											/>
-											{error && careType.length <= 0 ? (
+											{error && careType === "" ? (
 												<span className="text-danger">
 													CareType is required!
 												</span>
@@ -531,7 +531,7 @@ const AddPatientComponent = () => {
 												className="form-control form-control-lg"
 												placeholder="ex. J, F, M"
 											/>
-											{error && renewalMonth.length <= 0 ? (
+											{error && renewalMonth === "" ? (
 												<span className="text-danger">
 													Renewal month is required!
 												</span>

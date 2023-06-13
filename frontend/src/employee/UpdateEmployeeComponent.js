@@ -21,12 +21,7 @@ const UpdateEmployeeComponent = () => {
 	const updateEmployee = (e) => {
 		e.preventDefault();
 
-		if (
-			employeeData.firstName.length === 0 ||
-			employeeData.lastName.length === 0 ||
-			employeeData.email.length === 0 ||
-			employeeData.phone.length === 0
-		) {
+		if (firstName === "" || lastName === "" || email === "" || phone === "") {
 			setError(true);
 			return;
 		}
@@ -158,7 +153,7 @@ const UpdateEmployeeComponent = () => {
 									style={{ width: "100px" }}
 								>
 									<option disabled>Activate</option>
-									<option value="0" selected>
+									<option value="0" defaultValue>
 										NO
 									</option>
 									<option value="1">YES</option>
