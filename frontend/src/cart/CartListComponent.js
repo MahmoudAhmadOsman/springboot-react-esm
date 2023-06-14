@@ -152,7 +152,6 @@ const CartListComponent = () => {
 									<tr>
 										<th className="fs-4">Product Name</th>
 
-										{/* <th>QTY</th> */}
 										<th className="fs-4">Price</th>
 									</tr>
 								</thead>
