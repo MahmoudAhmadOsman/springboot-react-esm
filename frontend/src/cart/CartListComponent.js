@@ -159,7 +159,6 @@ const CartListComponent = () => {
 
 								<tr>
 									<td>{product.name}</td>
-									{/* <td>{product.description}</td> */}
 									<td>${parseFloat(product.price).toFixed(2)}</td>
 								</tr>
 							</table>
