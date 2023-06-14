@@ -17,15 +17,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
     @Lob
     private String image;
     private double price;
     private String productRating;
-
-
     @Lob
     private String description;
-
 
 }

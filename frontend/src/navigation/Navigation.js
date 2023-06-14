@@ -124,6 +124,11 @@ const Nav = () => {
 											Add Product
 										</Link>
 									</li>
+									<li>
+										<Link className="dropdown-item" to="/orders">
+											Orders
+										</Link>
+									</li>
 								</ul>
 							</li>
 

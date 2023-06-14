@@ -191,12 +191,12 @@ const AddProductComponent = () => {
 								</label>
 
 								<input
-									type="text"
+									type="number"
 									id="productRating"
 									name="productRating"
 									className="form-control form-control-lg "
 									placeholder="Enter: 1, 2, 3,4 or 5"
-									maxLength="5"
+									maxLength="1"
 									value={productRating}
 									onChange={(e) => setProductRating(e.target.value)}
 								/>

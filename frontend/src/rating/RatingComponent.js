@@ -63,9 +63,9 @@ const RatingComponent = (props) => {
 
 			<span>
 				{rating > 5 ? (
-					<span>{5 + " Stars"}</span>
+					<span> {5 + " Stars"}</span>
 				) : (
-					<small>{rating + " Stars"}</small>
+					<small> {rating + " Stars"}</small>
 				)}
 			</span>
 		</section>

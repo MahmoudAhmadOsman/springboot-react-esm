@@ -37,7 +37,7 @@ const ViewProductComponent = () => {
 					setMessage(true);
 					setTimeout(() => {
 						navigate("/products");
-					}, 3000);
+					}, 2000);
 				})
 				.catch((err) => {
 					setMessage(true);

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductService from "../service/ProductService";
+import OrderService from "../service/OrderService";
 
 const CartListComponent = () => {
 	const { id } = useParams();
+	const navigate = useNavigate();
 	const [message, setMessage] = useState(false);
 
 	const [product, setProduct] = useState({
@@ -12,18 +14,44 @@ const CartListComponent = () => {
 		price: "",
 		description: "",
 	});
+	const productImgHolder = `https://source.unsplash.com/1600x900/?office/?${product.name}`;
+
+	const { name, image, price, description } = product;
+
+	// const HandleSubmit = (e) => {
+	// 	setProduct({ ...product, [e.target.name]: e.target.value });
+	// };
+
+	const saveOrder = async (e) => {
+		e.preventDefault();
+
+		if (name === "" || image === "" || price === "" || description === "") {
+			alert("please select an order");
+		} else {
+			console.log("Order Product: ", product);
+
+			await OrderService.saveOrder(product)
+				.then((res) => {
+					setMessage(true);
+					setTimeout(() => {
+						navigate("/orders");
+					}, 3000);
+					console.log("Product Rest Data: ", res.data);
+				})
+				.catch((e) => {
+					console.log(e.message);
+				});
+		}
+	};
 
 	const tax = 0.06;
-	// const totalPrice = product.price * tax;
 
-	const productImgHolder = `https://source.unsplash.com/1600x900/?office/?${product.name}`;
 	const loadCartProductDetails = async () => {
 		await ProductService.getProductById(id)
 			.then((res) => {
 				setProduct(res.data);
 			})
 			.catch((err) => {
-				setMessage(true);
 				console.log(err);
 			});
 	};
@@ -36,8 +64,34 @@ const CartListComponent = () => {
 		<section className="cart">
 			<div className="container">
 				<div className="row">
-					<h1 className="text-success mb-3">Shopping Cart</h1> <hr />
-					<div className="col-md-6">
+					<div className="col">
+						<div className="mt-3">
+							{message && (
+								<div
+									className="alert alert-success alert-dismissible fade show"
+									role="alert"
+								>
+									<i className="fa fa-check-square-o" aria-hidden="true"></i>{" "}
+									&nbsp;
+									<strong>Success!</strong> New order has been placed
+									successfully!!.
+								</div>
+							)}
+						</div>
+						<h1 className="text-success mb-3">Shopping Cart</h1> <hr />
+						<div className="float-end">
+							<i className="fa fa-shopping-cart rounded-pill  bg-danger p-3 fs-4"></i>
+							<span className="badge rounded-pill bg-primary fs-5 mb-3">
+								{product.length > 1 ? <span>{product.length}1</span> : null}
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div className="container card p-5">
+				<div className="row ">
+					<div className="col">
 						<div className="table-responsive">
 							<table className="table">
 								<tbody>
@@ -60,23 +114,31 @@ const CartListComponent = () => {
 												{product.description}
 											</td>
 										</td>
-										<td>
+										{/* <td>
 											<select
 												name="qty"
+												value={qty}
 												className="form-select form-select-md"
 												aria-label="Default select"
+											
+												onChange={HandleSubmit}
 											>
 												<option disabled>select qty</option>
-												<option value="">1</option>
-
-												<option value="">2</option>
-												<option value="">3</option>
-												<option value="">4</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
 											</select>
-										</td>
+										</td>  
 
-										<button className="btn btn-outline-danger">
-											<i className="fa fa-trash-o" />
+										{/* onChange={(e) => setProduct(e.target.value)} */}
+
+										<button
+											className="btn btn-outline-danger rounded-pill"
+											title="Remove item"
+											// onClick={() => removeFromCart(product.id)}
+										>
+											<i className="fa fa-trash-o " />
 										</button>
 									</tr>
 								</tbody>
@@ -138,7 +200,12 @@ const CartListComponent = () => {
 				<div className="row">
 					<div className="col-md-10"></div>
 					<div className="col-md-2">
-						<button className="btn btn-warning btn-lg">PLACE ORDER</button>
+						<button
+							className="btn btn-warning btn-lg"
+							onClick={(e) => saveOrder(e)}
+						>
+							PLACE ORDER
+						</button>
 					</div>
 				</div>
 

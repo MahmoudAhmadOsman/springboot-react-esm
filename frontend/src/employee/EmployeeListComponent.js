@@ -7,7 +7,7 @@ import Loading from "../utils/Loading";
 import "./EmployeeStyle.css";
 
 const EmployeeListComponent = () => {
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	const [employees, setEmployees] = useState([]);
 	const [search, setSearch] = useState("");
@@ -19,8 +19,9 @@ const EmployeeListComponent = () => {
 			.then((res) => {
 				setTimeout(() => {
 					setEmployees(res.data);
+				 
 					setLoading(false);
-				}, 1000);
+				}, 2000);
 			})
 			.catch((error) => {
 				setError(error);
@@ -30,8 +31,8 @@ const EmployeeListComponent = () => {
 	// console.log(employees);
 
 	useEffect(() => {
-		getAllEmployees(navigate("/employees"));
-	}, []);
+		getAllEmployees();
+	}, [employees]);
 
 	return (
 		<section className="employee-list">

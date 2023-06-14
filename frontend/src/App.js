@@ -20,6 +20,7 @@ import RegisterComponent from "./register/UserComponent";
 import LoginComponent from "./login/LoginComponent";
 import NotFound from "./utils/NotFound";
 import CartListComponent from "./cart/CartListComponent";
+import OrderListComponent from "./cart/OrderListComponent";
 
 function App() {
 	return (
@@ -50,6 +51,7 @@ function App() {
 					{/* Cart */}
 
 					<Route path="/cart/:id" element={<CartListComponent />} />
+					<Route path="/orders" element={<OrderListComponent />} />
 
 					{/* Patient routes */}
 					<Route path="/patients" element={<PatientListComponent />} />

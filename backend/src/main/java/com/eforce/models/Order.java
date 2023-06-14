@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+ import java.util.Date;
 
 
 @Data
@@ -21,12 +21,29 @@ public class Order {
     private Long id;
 
     private String name;
-    private Long quantity;
     private String image;
     private Double price;
-    private String OrderStatus;
-    private LocalDate orderDate;
+//    private int qty;
+    private String productRating;
+
+    @Lob
+    private String description;
+
+//    @Basic(optional = false)
+//    @Column(insertable = false, updatable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date orderDate;
+    private String OrderStatus ="RECEIVED";
 
 
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
+    private Date orderDate;
+
+
+    @PrePersist
+    private void onCreate() {
+        orderDate = new Date();
+    }
 
 }
