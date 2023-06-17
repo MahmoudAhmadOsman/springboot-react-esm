@@ -9,6 +9,7 @@ const ViewProductComponent = () => {
 	const navigate = useNavigate();
 	const { id } = useParams();
 	const [message, setMessage] = useState(false);
+	const [cart, setCart] = useState([]);
 
 	const [product, setProduct] = useState({
 		name: "",
@@ -16,6 +17,7 @@ const ViewProductComponent = () => {
 		price: "",
 		description: "",
 	});
+
 	const productImgHolder = `https://source.unsplash.com/1600x900/?office/?${product.name}`;
 	const loadProductDetails = async () => {
 		await ProductService.getProductById(id)
@@ -47,8 +49,51 @@ const ViewProductComponent = () => {
 	};
 
 	useEffect(() => {
-		loadProductDetails();
+		// Load cart data from localStorage when the component mounts
+		const data = localStorage.getItem("cartItems");
+		if (data) {
+			setCart(JSON.parse(data));
+		}
+		// const cartData = window.localStorage.getItem("cartItems");
+		// setCart(JSON.parse(cartData)); // same as above
 	}, []);
+
+	useEffect(() => {
+		const data = localStorage.getItem("cartItems");
+		if (data) {
+			setCart(JSON.parse(data));
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem("cartItems", JSON.stringify(cart));
+	}, [cart]);
+
+	/*============new way of saving localStorage data============*/
+	//get cart data from localStorage
+	// useEffect(() => {
+	// 	const cartData = window.localStorage.getItem("cartItems");
+	// 	setCart(JSON.parse(cartData));
+	// }, []);
+
+	// //save the data to localStorage
+	// useEffect(() => {
+	// 	window.localStorage.setItem("cartItems", JSON.stringify(cart));
+	// });
+
+	const addToCart = (e) => {
+		e.preventDefault();
+		setCart([...cart, product]);
+	};
+
+	const RemoveCartItem = (e, item) => {
+		e.preventDefault();
+		setCart(cart.filter((x) => x.id !== item.id));
+	};
+
+	useEffect(() => {
+		loadProductDetails();
+	}, [product]);
 
 	return (
 		<section className="view-product">
@@ -96,14 +141,23 @@ const ViewProductComponent = () => {
 						<p className="text-muted mb-4">{product.description}</p>
 						<br />
 						<div className="btn-action mt-3">
-							<Link
-								// to="/cart"
+							<button
+								// onClick={(e) => addToCart(e, product.id)}
+								//  <Pressable onPress={() => setCart([...cart,item])}>
+								// onClick={() => setCart([...cart, product])}
+								onClick={(e) => addToCart(e, product.id)}
+								className="btn btn-outline-danger me-3"
+							>
+								Add to Cart
+							</button>
+
+							{/* <Link
 								to={`/cart/${product.id}`}
 								className="btn btn-outline-success me-3"
 							>
 								Add to Cart
-							</Link>
-							{/* to={`/update-employee/${employee.id}`} */}
+							</Link> */}
+
 							<Link className="btn btn-outline-primary  me-3">Edit</Link>
 							<Link
 								onClick={(e) => deleteProduct(e, product.id)}
@@ -119,6 +173,60 @@ const ViewProductComponent = () => {
 						</div>
 					</div>
 				</div>
+				{/* Start of cart item  */}
+				<hr />
+				{cart.length > 0 ? (
+					<>
+						<h3>Cart Items</h3> <hr />
+						<div className="d-flex mt-3 bg-white p-4 ">
+							{cart.map((item) => (
+								<div key={item.id}>
+									<h4>{item.name}</h4>
+									<p>${item.price}</p> <hr />
+									<p>Starts | {item.productRating}</p>
+									<p>{item.description}</p> <hr />
+									<button
+										onClick={(e) => RemoveCartItem(e, item)}
+										className="btn btn-outline-danger"
+									>
+										REMOVE FROM CART
+									</button>
+								</div>
+							))}
+
+							<Link to={`/cart/${product.id}`}>
+								<div className="cart-items">
+									<button
+										type="button"
+										className="btn btn-dark position-relative"
+									>
+										<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+										<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+											{cart.length}
+											<span className="visually-hidden">cart items</span>
+										</span>
+									</button>
+								</div>
+							</Link>
+						</div>
+						{/* End of cart item  */}
+					</>
+				) : (
+					<div className="cart-items d-flex">
+						<button type="button" className="btn btn-dark position-relative">
+							<i className="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;
+							<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+								{cart.length}
+								<span className="visually-hidden">cart items</span>
+							</span>
+						</button>
+
+						<h5 className="text-center">
+							{" "}
+							&nbsp;&nbsp;&nbsp; Your cart is empty!
+						</h5>
+					</div>
+				)}
 			</div>
 		</section>
 	);

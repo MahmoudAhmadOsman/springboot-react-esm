@@ -70,7 +70,7 @@ const ProductListComponent = () => {
 											to={`/view-product/${product.id}`}
 											className="btn btn-outline-success"
 										>
-											view
+											View
 										</Link>
 									</div>
 								</div>
