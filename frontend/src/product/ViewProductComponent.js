@@ -174,6 +174,16 @@ const ViewProductComponent = () => {
 						<div className="d-flex mt-3 bg-white p-4 ">
 							{cart.map((item) => (
 								<div key={item.id}>
+									<img
+										src={
+											product.image
+												? `http://localhost:8080/${item.image}`
+												: productImgHolder + "?/" + item.name
+										}
+										className="card-img-top img-fluid"
+										alt={item.name}
+										style={{ width: 100 }}
+									/>
 									<h4>{item.name}</h4>
 									<p>${item.price}</p> <hr />
 									<p>Starts | {item.productRating}</p>
