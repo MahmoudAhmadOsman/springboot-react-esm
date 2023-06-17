@@ -59,13 +59,6 @@ const ViewProductComponent = () => {
 	}, []);
 
 	useEffect(() => {
-		const data = localStorage.getItem("cartItems");
-		if (data) {
-			setCart(JSON.parse(data));
-		}
-	}, []);
-
-	useEffect(() => {
 		localStorage.setItem("cartItems", JSON.stringify(cart));
 	}, [cart]);
 
