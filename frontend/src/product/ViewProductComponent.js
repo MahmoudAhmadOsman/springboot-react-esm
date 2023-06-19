@@ -4,12 +4,18 @@ import RatingComponent from "../rating/RatingComponent";
 
 import ProductService from "../service/ProductService";
 import "./ProductStyle.css";
+import ShoppingCartComponent from "../cart/ShoppingCartComponent";
 
 const ViewProductComponent = () => {
+	const isAdmin = false;
+
 	const navigate = useNavigate();
 	const { id } = useParams();
 	const [message, setMessage] = useState(false);
-	const [cart, setCart] = useState([]);
+
+	const [cart, setCart] = useState(() => {
+		return JSON.parse(localStorage.getItem("cartItems")) || [];
+	});
 
 	const [product, setProduct] = useState({
 		name: "",
@@ -48,35 +54,23 @@ const ViewProductComponent = () => {
 		}
 	};
 
+	//get localStorage key
 	useEffect(() => {
-		// Load cart data from localStorage when the component mounts
 		const data = localStorage.getItem("cartItems");
 		if (data) {
 			setCart(JSON.parse(data));
 		}
-		// const cartData = window.localStorage.getItem("cartItems");
-		// setCart(JSON.parse(cartData)); // same as above
 	}, []);
 
+	//set localStorage key
 	useEffect(() => {
 		localStorage.setItem("cartItems", JSON.stringify(cart));
 	}, [cart]);
 
-	/*============new way of saving localStorage data============*/
-	//get cart data from localStorage
-	// useEffect(() => {
-	// 	const cartData = window.localStorage.getItem("cartItems");
-	// 	setCart(JSON.parse(cartData));
-	// }, []);
-
-	// //save the data to localStorage
-	// useEffect(() => {
-	// 	window.localStorage.setItem("cartItems", JSON.stringify(cart));
-	// });
-
 	const addToCart = (e) => {
 		e.preventDefault();
 		setCart([...cart, product]);
+		alert("added to the cart!");
 	};
 
 	const RemoveCartItem = (e, item) => {
@@ -86,7 +80,15 @@ const ViewProductComponent = () => {
 
 	useEffect(() => {
 		loadProductDetails();
-	}, [product]);
+	}, []);
+
+	const calculateTotalPrice = () => {
+		let totalPrice = 0;
+		for (const item of cart) {
+			totalPrice += item.price;
+		}
+		return totalPrice;
+	};
 
 	return (
 		<section className="view-product">
@@ -103,16 +105,26 @@ const ViewProductComponent = () => {
 						</div>
 					)}
 				</div>
-				<h2 className="text-success mb-3">Product Details</h2> <hr />
+				<h2 className="text-success mb-3">Product Details</h2>
+				<Link className="float-end" to="/shopping-cart">
+					Go Shopping cart
+				</Link>
+				<hr />
 				<div className="row mt-3">
 					<div className="col-md-4 col-sm-12 col-xs-12 mb-4 view-pro-img">
 						<Link to={`/view-product/${product.id}`}>
-							<img
+							{/* <img
 								src={
 									product.image
 										? `http://localhost:8080/${product.image}`
 										: productImgHolder
 								}
+								className="card-img-top img-fluid"
+								alt={product.name}
+							/> */}
+
+							<img
+								src={product.image}
 								className="card-img-top img-fluid"
 								alt={product.name}
 							/>
@@ -135,29 +147,29 @@ const ViewProductComponent = () => {
 						<br />
 						<div className="btn-action mt-3">
 							<button
-								// onClick={(e) => addToCart(e, product.id)}
-								//  <Pressable onPress={() => setCart([...cart,item])}>
-								// onClick={() => setCart([...cart, product])}
 								onClick={(e) => addToCart(e, product.id)}
 								className="btn btn-outline-danger me-3"
 							>
 								Add to Cart
 							</button>
 
-							{/* <Link
-								to={`/cart/${product.id}`}
-								className="btn btn-outline-success me-3"
-							>
-								Add to Cart
-							</Link> */}
+							{/*
+					<Link to={`/cart/${product.id}`} className="btn btn-outline-success me-3">
+					Add to Cart
+					</Link> */}
 
-							<Link className="btn btn-outline-primary  me-3">Edit</Link>
-							<Link
-								onClick={(e) => deleteProduct(e, product.id)}
-								className="btn btn-outline-danger me-3"
-							>
-								Delete
-							</Link>
+							{isAdmin === true ? (
+								<div>
+									<Link className="btn btn-outline-primary  me-3">Edit</Link>
+
+									<Link
+										onClick={(e) => deleteProduct(e, product.id)}
+										className="btn btn-outline-danger me-3"
+									>
+										Delete
+									</Link>
+								</div>
+							) : null}
 
 							<Link className="btn btn-outline-secondary" to="/products">
 								{" "}
@@ -165,39 +177,42 @@ const ViewProductComponent = () => {
 							</Link>
 						</div>
 					</div>
-				</div>
-				{/* Start of cart item  */}
+				</div>{" "}
 				<hr />
-				{cart.length > 0 ? (
+				{/* Start of cart item */}
+				{/* <ShoppingCartComponent cartItems={cart} /> */}
+				{/* {cart.length > 0 ? (
 					<>
-						<h3>Cart Items</h3> <hr />
+						<h3>Cart Items</h3>
+						<hr />
 						<div className="d-flex mt-3 bg-white p-4 ">
 							{cart.map((item) => (
-								<div key={item.id}>
-									<img
-										src={
-											product.image
-												? `http://localhost:8080/${item.image}`
-												: productImgHolder + "?/" + item.name
-										}
-										className="card-img-top img-fluid"
-										alt={item.name}
-										style={{ width: 100 }}
-									/>
-									<h4>{item.name}</h4>
-									<p>${item.price}</p> <hr />
-									<p>Starts | {item.productRating}</p>
-									<p>{item.description}</p> <hr />
-									<button
-										onClick={(e) => RemoveCartItem(e, item)}
-										className="btn btn-outline-danger"
-									>
-										REMOVE FROM CART
-									</button>
-								</div>
+								<>
+									<div key={item.id}>
+										<img
+											src={product.image}
+											className="card-img-top img-fluid"
+											alt={item.name}
+											style={{ width: 100 }}
+										/>
+										<h5>{item.name}</h5>
+										<p className="text-danger fw-bold">${item.price}</p>{" "}
+										<p>{item.description.slice(0, 20)}...</p>
+										<p className="text-warning">
+											Starts | {item.productRating}
+										</p>
+										<button
+											title="REMOVE"
+											onClick={(e) => RemoveCartItem(e, item)}
+											className="btn btn-outline-danger"
+										>
+											<i className="fa fa-trash"></i>
+										</button>
+									</div>
+								</>
 							))}
 
-							<Link to={`/cart/${product.id}`}>
+							<Link to={`/shopping-cart`}>
 								<div className="cart-items">
 									<button
 										type="button"
@@ -211,8 +226,18 @@ const ViewProductComponent = () => {
 									</button>
 								</div>
 							</Link>
+
+							<div className="float-end ms-4">
+								<h3>Total Price</h3>
+								<hr />
+								<p>
+									<b>Total Price:</b>
+									<span className="text-danger fw-bold">
+										&nbsp; ${calculateTotalPrice()}
+									</span>
+								</p>
+							</div>
 						</div>
-						{/* End of cart item  */}
 					</>
 				) : (
 					<div className="cart-items d-flex">
@@ -220,16 +245,15 @@ const ViewProductComponent = () => {
 							<i className="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;
 							<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 								{cart.length}
-								<span className="visually-hidden">cart items</span>
 							</span>
 						</button>
 
 						<h5 className="text-center">
-							{" "}
 							&nbsp;&nbsp;&nbsp; Your cart is empty!
 						</h5>
 					</div>
-				)}
+				)} */}
+				{/* End of cart item */}
 			</div>
 		</section>
 	);

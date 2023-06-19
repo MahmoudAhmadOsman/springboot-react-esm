@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import RatingComponent from "../rating/RatingComponent";
 import { Link } from "react-router-dom";
 import ProductService from "../service/ProductService";
 import Loading from "../utils/Loading";
@@ -19,7 +20,6 @@ const ProductListComponent = () => {
 				console.log(err);
 			});
 	};
-	// console.log(products);
 
 	useState(() => {
 		getAllProducts();
@@ -45,12 +45,17 @@ const ProductListComponent = () => {
 							>
 								<div className="card mt-3 shadow-lg bg-body rounded">
 									<Link to={`/view-product/${product.id}`}>
-										<img
+										{/* <img
 											src={
 												product.image
 													? `http://localhost:8080/${product.image}`
 													: productImgHolder + "?/" + product.name
 											}
+											className="card-img-top img-fluid"
+											alt={product.name}
+										/> */}
+										<img
+											src={product.image}
 											className="card-img-top img-fluid"
 											alt={product.name}
 										/>

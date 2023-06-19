@@ -124,6 +124,12 @@ const Nav = () => {
 											Add Product
 										</Link>
 									</li>
+
+									<li>
+										<Link className="dropdown-item" to="/shopping-cart">
+											Shopping Cart
+										</Link>
+									</li>
 									<li>
 										<Link className="dropdown-item" to="/orders">
 											Orders
