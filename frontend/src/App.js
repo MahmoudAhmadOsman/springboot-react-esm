@@ -1,6 +1,7 @@
 import React from "react";
-
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import AddEmployeeComponent from "./employee/AddEmployeeComponent";
 import EmployeeListComponent from "./employee/EmployeeListComponent";
 import FooterComponent from "./footer/FooterComponent";
@@ -26,6 +27,7 @@ import ShoppingCartComponent from "./cart/ShoppingCartComponent";
 function App() {
 	return (
 		<BrowserRouter>
+			<ToastContainer />
 			<Navigation />
 			<React.Fragment>
 				<Routes>

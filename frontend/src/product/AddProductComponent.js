@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProductService from "../service/ProductService";
+import { toast } from "react-toastify";
 
 const AddProductComponent = () => {
 	const navigate = useNavigate();
@@ -11,9 +12,7 @@ const AddProductComponent = () => {
 	const [productRating, setProductRating] = useState("");
 	const [file, setFile] = useState("");
 	const [description, setDescription] = useState("");
-
 	const [error, setError] = useState(false);
-	const [message, setMessage] = useState(false);
 	const [disable, setDisable] = useState(true);
 	const productData = { name, price, file, productRating, description };
 
@@ -21,17 +20,6 @@ const AddProductComponent = () => {
 		console.log(e.target.files[0]);
 		setFile(e.target.files[0]);
 	};
-
-	// const getBase64 = (file) => {
-	// 	let reader = new FileReader();
-	// 	reader.readAsDataURL(file);
-	// 	reader.onload = function() {
-	// 		setFile(reader.result);
-	// 	};
-	// 	reader.onerror = function(error) {
-	// 		console.log("An Error has occured: ", error);
-	// 	};
-	// };
 
 	const saveProduct = async (e) => {
 		e.preventDefault();
@@ -61,25 +49,19 @@ const AddProductComponent = () => {
 
 			await ProductService.saveProduct(formData)
 				.then((res) => {
-					// console.log(res);
-					setMessage(true);
 					setTimeout(() => {
 						navigate("/products");
 					}, 2000);
-
-					// if (res.ok) {
-					// 	setMessage(true);
-					// 	setTimeout(() => {
-					// 		navigate("/products");
-					// 	}, 300);
-					// } else {
-					// 	alert("Something went wrong!");
-					// 	return;
-					// }
+					toast.success("New product has been created!", {
+						position: "top-right",
+					});
 				})
 
 				.catch((err) => {
-					console.log(err);
+					toast.warn("Unable to created new product!", {
+						position: "top-right",
+					});
+					// console.log(err);
 				});
 
 			// axios.post(`http://localhost:8080/api/v3/products/save`, formData)
@@ -98,17 +80,6 @@ const AddProductComponent = () => {
 	return (
 		<section className="add-product">
 			<div className="container">
-				<div className="mt-3">
-					{message && (
-						<div
-							className="alert alert-success alert-dismissible fade show"
-							role="alert"
-						>
-							<i className="fa fa-check-square-o" aria-hidden="true"></i> &nbsp;
-							<strong>Success!</strong> Product added successfully!!.
-						</div>
-					)}
-				</div>
 				<h2 className="text-success">Add New Product</h2> <hr />
 				<form method="POST" enctype="multipart/form-data" autoComplete="on">
 					<div className="row">
