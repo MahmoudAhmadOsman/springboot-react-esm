@@ -10,5 +10,9 @@ class OrderService {
 	getAllOrders() {
 		return axios.get(BASE_URL + "/orderList");
 	}
+
+	deleteOrder(id) {
+		return axios.delete(BASE_URL + "/delete/" + id);
+	}
 }
 export default new OrderService();

@@ -26,4 +26,10 @@ public class OrderService implements OrderDAO {
     public List<Order> getAllOrders() {
         return orderRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
+
+    @Override
+    public void deleteOrderById(Long id) {
+         orderRepository.deleteById(id);
+
+    }
 }

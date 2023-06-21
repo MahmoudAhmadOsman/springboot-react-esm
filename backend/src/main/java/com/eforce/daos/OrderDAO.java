@@ -8,4 +8,8 @@ public interface OrderDAO {
     Order saveOrder(Order order);
 
     List<Order> getAllOrders();
+
+    void deleteOrderById(Long id);
+
+
 }

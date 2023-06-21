@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import OrderService from "../service/OrderService";
 import Loading from "../utils/Loading";
 import RatingComponent from "../rating/RatingComponent";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const OrderListComponent = () => {
+	const navigate = useNavigate();
 	const productImgHolder = "https://source.unsplash.com/136x136";
 	const [orders, setOrders] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -29,9 +32,33 @@ const OrderListComponent = () => {
 		return totalPrice;
 	};
 
+	const deleteOrder = async (e, id) => {
+		e.preventDefault();
+		if (window.confirm("Are you sure, you want to delete this order?")) {
+			await OrderService.deleteOrder(id)
+
+				.then(
+					setTimeout(() => {
+						toast.success(`Order delete successfully!!`, {
+							position: "top-right",
+						});
+						navigate("/orders");
+					}, 200)
+				)
+				.catch((error) => {
+					toast.warn(`An Error ${error} has occured while deleting order!!`, {
+						position: "top-right",
+					});
+					console.log(error.message);
+				});
+		} else {
+			return;
+		}
+	};
+
 	useEffect(() => {
 		getOrders();
-	}, []);
+	}, [orders]);
 
 	return (
 		<section className="order-list">
@@ -115,6 +142,15 @@ const OrderListComponent = () => {
 															</td>
 
 															<td>{order.orderDate}</td>
+
+															<td>
+																<button
+																	onClick={(e) => deleteOrder(e, order.id)}
+																	className="btn btn-outline-danger btn-sm"
+																>
+																	Delete
+																</button>
+															</td>
 														</tr>
 													))}
 												</tbody>
