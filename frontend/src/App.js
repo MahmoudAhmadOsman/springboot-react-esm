@@ -20,7 +20,6 @@ import ViewProductComponent from "./product/ViewProductComponent";
 import RegisterComponent from "./register/UserComponent";
 import LoginComponent from "./login/LoginComponent";
 import NotFound from "./utils/NotFound";
-import CartListComponent from "./cart/CartListComponent";
 import OrderListComponent from "./cart/OrderListComponent";
 import ShoppingCartComponent from "./cart/ShoppingCartComponent";
 
@@ -52,8 +51,6 @@ function App() {
 					<Route path="/products" element={<ProductListComponent />} />
 
 					{/* Cart */}
-
-					<Route path="/cart/:id" element={<CartListComponent />} />
 					<Route path="/shopping-cart" element={<ShoppingCartComponent />} />
 					<Route path="/orders" element={<OrderListComponent />} />
 

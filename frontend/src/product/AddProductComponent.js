@@ -49,19 +49,19 @@ const AddProductComponent = () => {
 
 			await ProductService.saveProduct(formData)
 				.then((res) => {
-					setTimeout(() => {
-						navigate("/products");
-					}, 2000);
 					toast.success("New product has been created!", {
 						position: "top-right",
 					});
+
+					setTimeout(() => {
+						navigate("/products");
+					}, 2000);
 				})
 
 				.catch((err) => {
 					toast.warn("Unable to created new product!", {
 						position: "top-right",
 					});
-					// console.log(err);
 				});
 
 			// axios.post(`http://localhost:8080/api/v3/products/save`, formData)
@@ -220,14 +220,14 @@ const AddProductComponent = () => {
 						onClick={(e) => {
 							saveProduct(e);
 						}}
-						// disabled={
-						// 	(disable && name.length <= 0) ||
-						// 	price.length <= 0 ||
-						// 	file.length <= 0 ||
-						// 	description.length <= 0 ||
-						// 	productRating.length <= 0 ||
-						// 	productRating.length > 5
-						// }
+						disabled={
+							(disable && name.length <= 0) ||
+							price.length <= 0 ||
+							file.length <= 0 ||
+							description.length <= 0 ||
+							productRating.length <= 0 ||
+							productRating.length > 5
+						}
 					>
 						SUBMIT
 					</button>

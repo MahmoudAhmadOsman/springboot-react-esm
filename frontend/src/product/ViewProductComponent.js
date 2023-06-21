@@ -32,7 +32,6 @@ const ViewProductComponent = () => {
 				toast.warn(`An Error ${error} has occured!!`, {
 					position: "top-right",
 				});
-				console.log(error);
 			});
 	};
 
@@ -83,22 +82,9 @@ const ViewProductComponent = () => {
 		}, 200);
 	};
 
-	// const RemoveCartItem = (e, item) => {
-	// 	e.preventDefault();
-	// 	setCart(cart.filter((x) => x.id !== item.id));
-	// };
-
 	useEffect(() => {
 		loadProductDetails();
 	}, []);
-
-	// const calculateTotalPrice = () => {
-	// 	let totalPrice = 0;
-	// 	for (const item of cart) {
-	// 		totalPrice += item.price;
-	// 	}
-	// 	return totalPrice;
-	// };
 
 	return (
 		<section className="view-product">
@@ -150,11 +136,6 @@ const ViewProductComponent = () => {
 							>
 								Add to Cart
 							</button>
-
-							{/*
-					<Link to={`/cart/${product.id}`} className="btn btn-outline-success me-3">
-					Add to Cart
-					</Link> */}
 
 							{isAdmin === true ? (
 								<div>
