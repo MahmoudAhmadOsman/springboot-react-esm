@@ -20,7 +20,6 @@ const OrderListComponent = () => {
 			.catch((err) => {
 				console.log(err);
 			});
-		// console.log(orders);
 	};
 
 	//Calculate total price
