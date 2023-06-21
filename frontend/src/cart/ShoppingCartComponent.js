@@ -155,7 +155,7 @@ const ShoppingCartComponent = () => {
 									</table>
 									<div className="float-end">
 										<div className="table-responsive">
-											<table class="table table-hover">
+											<table className="table table-hover table-secondary">
 												<thead>
 													<tr>
 														<th>Total Price</th>
