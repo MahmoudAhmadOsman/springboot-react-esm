@@ -17,8 +17,12 @@ const OrderListComponent = () => {
 				setOrders(res.data);
 				setLoading(false);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				toast.warn(`An Error ${error} has occured!!`, {
+					position: "top-right",
+					autoClose: 3000,
+				});
+				console.log(error.message);
 			});
 	};
 
