@@ -101,6 +101,11 @@ const FooterComponent = () => {
 									Help
 								</Link>
 							</p>
+							<p>
+								<Link to="/about" className="text-reset">
+									About
+								</Link>
+							</p>
 						</div>
 						{/* Grid column */}
 						{/* Grid column */}

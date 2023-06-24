@@ -30,7 +30,7 @@ const ViewProductComponent = () => {
 			})
 			.catch((error) => {
 				toast.warn(`An Error ${error} has occured!!`, {
-					position: "top-right",
+					position: "bottom-right",
 				});
 			});
 	};
@@ -43,18 +43,32 @@ const ViewProductComponent = () => {
 				.then((res) => {
 					setTimeout(() => {
 						toast.warn("Product has been deleted successfully!!", {
-							position: "top-right",
+							position: "bottom-right",
 						});
 						navigate("/products");
 					}, 2000);
 				})
 				.catch((error) => {
 					toast.warn(`An Error ${error} has occured!!`, {
-						position: "top-right",
+						position: "bottom-right",
 					});
 					console.log(error);
 				});
 		}
+	};
+
+	const addToCart = (e) => {
+		e.preventDefault();
+		setCart([...cart, product]);
+
+		setTimeout(() => {
+			toast.success("Item added to the cart!", {
+				position: "bottom-right",
+				autoClose: 5000,
+			});
+			navigate("/shopping-cart");
+			window.location.reload();
+		}, 200);
 	};
 
 	//get localStorage key
@@ -69,18 +83,6 @@ const ViewProductComponent = () => {
 	useEffect(() => {
 		localStorage.setItem("cartItems", JSON.stringify(cart));
 	}, [cart]);
-
-	const addToCart = (e) => {
-		e.preventDefault();
-		setCart([...cart, product]);
-
-		setTimeout(() => {
-			toast.success("Item added to the cart!", {
-				position: "top-right",
-			});
-			navigate("/shopping-cart");
-		}, 200);
-	};
 
 	useEffect(() => {
 		loadProductDetails();

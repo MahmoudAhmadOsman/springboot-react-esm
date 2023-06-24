@@ -15,7 +15,8 @@ const ShoppingCartComponent = () => {
 		const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
 		setCart(updatedCart);
 		toast.warn("Cart item has been removed!!", {
-			position: "top-right",
+			position: "bottom-right",
+			autoClose: 2000,
 		});
 	};
 
@@ -40,16 +41,19 @@ const ShoppingCartComponent = () => {
 			OrderService.saveOrder(itemData)
 				.then((res) => {
 					toast.success(`Order is placed successfully!!`, {
-						position: "top-right",
+						position: "bottom-right",
+						autoClose: 3000,
 					});
+					setCart([]);
 					setTimeout(() => {
 						navigate("/orders");
+						window.location.reload();
 					}, 200);
-					setCart([]);
 				})
 				.catch((error) => {
 					toast.warn(`An Error ${error} has occured!!`, {
 						position: "top-right",
+						autoClose: 3000,
 					});
 					console.log(error.message);
 				});
@@ -96,7 +100,7 @@ const ShoppingCartComponent = () => {
 							<Link className="float-end btn btn-outline-info" to={"/products"}>
 								Back to shopping
 							</Link>
-						</div>{" "}
+						</div>
 						<hr />
 						<br />
 						<div className="row mt-3">
@@ -106,33 +110,45 @@ const ShoppingCartComponent = () => {
 									<table className="table table-hover">
 										<thead>
 											<tr>
-												<th>Product ID</th>
+												{/* <th>Product ID</th>
 												<th>Product Image & Description</th>
 												<th>Product Name</th>
 												<th>Price</th>
 												<th>Rating</th>
-												<th>Actions</th>
+													<th>Actions</th> */}
+												{/* <th></th> */}
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
 											</tr>
 										</thead>
 										<tbody>
 											{cart.map((item) => (
 												<tr key={item.id}>
-													<td>{item.id}</td>
+													{/* <td>{item.id}</td> */}
 													<td>
 														<Link to={`/view-product/${item.id}`}>
 															<img
 																src={item.image}
 																alt={item.name}
-																className="rounded-circle bg-dark"
+																className="img-thumbnail bg-dark"
 																style={{ width: "80px", height: "80px" }}
 															/>{" "}
 														</Link>
-														<p className="card-text">
-															{item.description.slice(0, 40)}...
+														<p className="cart-text text-muted mt-3">
+															<b className="h6">Product Description</b>
+															<br />
+															{item.description.slice(0, 50)}...
 														</p>
 													</td>
-													<td>{item.name}</td>
-													<td>${item.price}</td>
+													<td>
+														<h4>{item.name}</h4>
+													</td>
+													<td>
+														<h4>${item.price}</h4>
+													</td>
 													<td>
 														<p className="text-warning fw-bold">
 															<RatingComponent
@@ -164,10 +180,13 @@ const ShoppingCartComponent = () => {
 												</thead>
 												<tbody>
 													<tr>
-														<td> ${calculateTotalPrice()} </td>
+														<td className="text-danger fw-bold">
+															{" "}
+															${calculateTotalPrice()}{" "}
+														</td>
 														<td>
 															{calculateTotalPrice() > 160 ? (
-																<span>FREE</span>
+																<span className="text-success">FREE</span>
 															) : (
 																<span>
 																	${calculateTotalPrice() * 0.06 + 3.99}
@@ -185,10 +204,10 @@ const ShoppingCartComponent = () => {
 						</div>
 						<div className="float-end">
 							<button
-								className="btn btn-warning btn-lg fw-bold"
+								className="btn btn-outline-warning btn-lg fw-bold"
 								onClick={handlePlaceOrder}
 							>
-								PLACE ORDER
+								PROCEED TO CHECKOUT
 							</button>
 						</div>
 					</>

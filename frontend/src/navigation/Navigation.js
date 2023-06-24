@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
+import "./NavigationStyle.css";
+import OrderService from "../service/OrderService";
 
 const Nav = () => {
 	const isLogin = false;
 
+	const [cart, setCart] = useState(() => {
+		return JSON.parse(localStorage.getItem("cartItems")) || [];
+	});
+	const [orders, setOrders] = useState([]);
+
+	const [cartCount, setCartCount] = useState(cart.length);
+
+	const getOrders = async () => {
+		await OrderService.getAllOrders()
+			.then((res) => {
+				setOrders(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
+	useEffect(() => {
+		setCartCount(cart.length);
+	}, [cart]);
+
+	// console.log(cart[0].name);
+
+	useEffect(() => {
+		getOrders();
+	}, [orders]);
+
 	return (
-		<div>
+		<div className="site_navigation">
 			<nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 				<div className="container-fluid ">
 					<Link className="navbar-brand " to="/">
@@ -124,25 +153,51 @@ const Nav = () => {
 											Add Product
 										</Link>
 									</li>
-
-									<li>
-										<Link className="dropdown-item" to="/shopping-cart">
-											Shopping Cart
-										</Link>
-									</li>
-									<li>
-										<Link className="dropdown-item" to="/orders">
-											Orders
-										</Link>
-									</li>
+									{cartCount > 0 ? (
+										<li>
+											<Link className="dropdown-item" to="/shopping-cart">
+												Shopping Cart
+											</Link>
+										</li>
+									) : (
+										""
+									)}
+									{orders.length > 0 ? (
+										<li>
+											<Link className="dropdown-item" to="/orders">
+												Orders
+											</Link>
+										</li>
+									) : (
+										""
+									)}
 								</ul>
 							</li>
 
-							<li className="nav-item">
-								<Link className="nav-link" to="/about">
-									About
-								</Link>
-							</li>
+							{cartCount > 0 ? (
+								<li className="nav-item">
+									<Link className="nav-link" to="/shopping-cart">
+										<div className="nav-shopping-cart">
+											<button
+												type="button"
+												className="btn btn-dark position-relative"
+											>
+												<i
+													className="fa fa-shopping-cart "
+													aria-hidden="true"
+												></i>
+												&nbsp;
+												<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+													{cartCount}
+												</span>
+											</button>
+										</div>
+									</Link>
+								</li>
+							) : (
+								""
+							)}
+
 							<li className="nav-item">
 								<Link className="nav-link" to="/register">
 									Register

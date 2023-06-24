@@ -33,19 +33,20 @@ const OrderListComponent = () => {
 
 	const deleteOrder = async (e, id) => {
 		e.preventDefault();
-		if (window.confirm("Are you sure, you want to delete this order?")) {
+		if (window.confirm("Are you sure, you want to cancel this order?")) {
 			await OrderService.deleteOrder(id)
 
 				.then(
 					setTimeout(() => {
 						toast.success(`Order delete successfully!!`, {
-							position: "top-right",
+							position: "bottom-right",
+							autoClose: 3000,
 						});
 						navigate("/orders");
 					}, 200)
 				)
 				.catch((error) => {
-					toast.warn(`An Error ${error} has occured while deleting order!!`, {
+					toast.warn(`An Error ${error} has occured while cancelling order!!`, {
 						position: "top-right",
 					});
 					console.log(error.message);
@@ -109,7 +110,7 @@ const OrderListComponent = () => {
 															<td>
 																<img
 																	src={order.image}
-																	className="card-img-top img-fluid rounded-circle bg-dark"
+																	className="img-fluid img-thumbnail bg-dark"
 																	alt={order.name}
 																	style={{ width: "80px", height: "80px" }}
 																/>
@@ -123,7 +124,7 @@ const OrderListComponent = () => {
 																</span>
 															</td>
 
-															<td>{order.description.slice(0, 30)}...</td>
+															<td>{order.description}</td>
 															<td className="text-danger fw-bold">
 																${order.price}
 															</td>
@@ -147,7 +148,7 @@ const OrderListComponent = () => {
 																	onClick={(e) => deleteOrder(e, order.id)}
 																	className="btn btn-outline-danger btn-sm"
 																>
-																	Delete
+																	CANCEL
 																</button>
 															</td>
 														</tr>

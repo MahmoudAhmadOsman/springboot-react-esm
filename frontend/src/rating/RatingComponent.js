@@ -62,11 +62,11 @@ const RatingComponent = (props) => {
 			</span>
 
 			<span>
-				{rating > 5 ? (
+				{/* {rating > 5 ? (
 					<span> {5 + " Stars"}</span>
 				) : (
 					<small> {rating + " Stars"}</small>
-				)}
+				)} */}
 			</span>
 		</section>
 	);

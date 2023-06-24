@@ -1,0 +1,15 @@
+.site_navigation {
+	position: relative;
+}
+
+.nav-shopping-cart {
+	position: relative;
+}
+
+.nav-shopping-cart button .badge {
+	margin: 6px 0px 0px -14px;
+	width: 15px;
+	height: 15px;
+	font-size: 9px;
+	text-align: center;
+}
