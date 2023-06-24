@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavigationStyle.css";
 import OrderService from "../service/OrderService";
+import { toast } from "react-toastify";
 
 const Nav = () => {
 	const isLogin = false;
@@ -19,8 +20,11 @@ const Nav = () => {
 			.then((res) => {
 				setOrders(res.data);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				toast.warn(`An Error ${error} has occured while cancelling order!!`, {
+					position: "top-right",
+				});
+				console.log(error.message);
 			});
 	};
 
