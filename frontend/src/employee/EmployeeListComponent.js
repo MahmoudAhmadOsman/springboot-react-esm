@@ -32,7 +32,7 @@ const EmployeeListComponent = () => {
 
 	useEffect(() => {
 		getAllEmployees();
-	}, [employees]);
+	}, []);
 
 	return (
 		<section className="employee-list">
