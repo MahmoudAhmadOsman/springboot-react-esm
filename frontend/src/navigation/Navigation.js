@@ -5,7 +5,7 @@ import "./NavigationStyle.css";
 import OrderService from "../service/OrderService";
 import { toast } from "react-toastify";
 
-const Nav = () => {
+const  Navigation = () => {
 	const isLogin = false;
 
 	const [cart, setCart] = useState(() => {
@@ -215,4 +215,4 @@ const Nav = () => {
 	);
 };
 
-export default Nav;
+export default Navigation;
