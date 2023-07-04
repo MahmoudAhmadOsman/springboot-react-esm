@@ -27,7 +27,7 @@ public class EmployeeController {
 
     @GetMapping(path = "/list")
     @ResponseStatus(HttpStatus.OK)
-    public List<Employee> getAllEmployee() {
+    public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
@@ -77,7 +77,7 @@ public class EmployeeController {
 
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long id) {
-        employeeService.deleteEmployeeById(id);
+        employeeService .deleteEmployeeById(id);
         return new ResponseEntity<String>("Deleted employee record with id number: " + id + " successfully", HttpStatus.OK);
     }
 }
